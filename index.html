@@ -348,6 +348,12 @@
     .hero-grid {
       grid-template-columns: minmax(520px, 1fr) minmax(560px, 1fr);
       gap: 44px;
+      align-items: stretch;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
     }
     .eyebrow {
       width: fit-content;
@@ -416,7 +422,8 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 8px;
       max-width: 610px;
-      margin-top: 14px;
+      margin-top: auto;
+      padding-top: 14px;
     }
     .proof {
       min-width: 0;
@@ -441,26 +448,10 @@
       margin-top: 6px;
       font-size: 11px;
     }
-    .trust-strip {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 16px;
-      align-items: center;
-      width: fit-content;
-      max-width: 100%;
-      margin-top: 14px;
-      padding: 10px 14px;
-      border-radius: var(--radius);
-      color: #40524a;
-      background: rgba(255,255,255,.58);
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .trust-strip i { color: var(--green); }
     .hero-visual {
       min-height: auto;
       aspect-ratio: 1.045;
-      align-self: center;
+      align-self: stretch;
       border: 0;
       border-radius: 28px;
       background: transparent;
@@ -657,9 +648,6 @@
       }
       .proof span {
         font-size: 10px;
-      }
-      .trust-strip {
-        max-width: 590px;
       }
       .cta-assurance {
         max-width: 590px;
@@ -1126,6 +1114,15 @@
       width: 124px;
       filter: brightness(1.08);
     }
+    footer a {
+      color: #f2d185;
+      font-weight: 800;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
+    footer a:hover {
+      color: #fff3cf;
+    }
 
     .reveal {
       opacity: 0;
@@ -1275,9 +1272,6 @@
       .hero-float {
         display: none;
       }
-      .trust-strip {
-        display: none;
-      }
       .cta-assurance {
         justify-content: center;
         text-align: center;
@@ -1356,7 +1350,7 @@
   <main id="topo">
     <section class="hero">
       <div class="container hero-grid">
-        <div class="reveal">
+        <div class="hero-copy reveal">
           <span class="eyebrow">Revenda • Distribuição • Clínicas</span>
           <h1>Linha capilar para revenda profissional.</h1>
           <p class="hero-text">Monte kits Slimcapilar para balcão, clínicas, salões e distribuição regional. Uma linha completa para ampliar sua oferta com margem e recompra.</p>
@@ -1380,13 +1374,6 @@
             <div class="proof"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>40+ anos</strong><span>em saúde capilar</span></div>
             <div class="proof"><i class="fa-solid fa-cube" aria-hidden="true"></i><strong>10 SKUs</strong><span>para montar kits</span></div>
             <div class="proof"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><strong>Reposição</strong><span>venda recorrente</span></div>
-          </div>
-          <div class="trust-strip">
-            <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Marca especializada em saúde capilar</span>
-            <span>•</span>
-            <span>Qualidade profissional</span>
-            <span>•</span>
-            <span>Confiança que gera resultado</span>
           </div>
         </div>
 
@@ -1673,6 +1660,7 @@
       <img src="Logo/Logo%20Fundo%20Transparente%20.webp" alt="Slimcapilar">
       <span>Especialista em saúde capilar há mais de 40 anos.</span>
       <span>© 2026 Slim Capilar</span>
+      <span>Site desenvolvido por <a href="https://vocedigitalpropaganda.com.br/" target="_blank" rel="noopener">Você Digital Propaganda</a></span>
     </div>
   </footer>
 
