@@ -518,6 +518,48 @@
       top: 48%;
     }
 
+    .cta-assurance {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      align-items: center;
+      max-width: 520px;
+      margin-top: 12px;
+      color: #40524a;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .cta-assurance span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-assurance i {
+      color: var(--green);
+    }
+    .referral-bar {
+      display: none;
+      border-bottom: 1px solid rgba(184, 134, 52, .18);
+      background: #fff8e8;
+    }
+    .referral-bar.is-visible {
+      display: block;
+    }
+    .referral-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      color: var(--green-dark);
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .referral-inner i {
+      color: var(--gold);
+    }
+
     @media (max-width: 1380px) {
       .hero-grid {
         grid-template-columns: minmax(430px, .9fr) minmax(560px, 1.08fr);
@@ -552,6 +594,9 @@
         font-size: 10px;
       }
       .trust-strip {
+        max-width: 470px;
+      }
+      .cta-assurance {
         max-width: 470px;
       }
       .hero-float {
@@ -608,6 +653,53 @@
       border-radius: var(--radius);
       background: var(--surface);
       overflow: hidden;
+    }
+
+    .interest-flow {
+      padding: 58px 0;
+      background: #fffdf7;
+      border-bottom: 1px solid var(--line);
+    }
+    .flow-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .flow-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .flow-step {
+      min-height: 210px;
+      padding: 22px;
+      border: 1px solid rgba(221, 215, 200, .88);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, #fff, #fbf5e8);
+      box-shadow: 0 16px 42px rgba(42, 35, 22, .07);
+    }
+    .flow-step b {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 36px;
+      border-radius: var(--radius);
+      color: #f9e6b7;
+      background: var(--green-dark);
+      font-size: 14px;
+    }
+    .flow-step strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 19px;
+      line-height: 1.15;
+    }
+    .flow-step span {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
     }
     .buyer {
       padding: 28px;
@@ -888,6 +980,71 @@
     }
     .form-status.is-visible { display: block; }
 
+    .faq {
+      background: var(--surface-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, .58fr) minmax(0, .92fr);
+      gap: 54px;
+      align-items: start;
+    }
+    .faq-list {
+      display: grid;
+      gap: 10px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.74);
+      overflow: hidden;
+    }
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 58px;
+      padding: 0 18px;
+      color: var(--ink);
+      font-weight: 850;
+      cursor: pointer;
+      list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      color: var(--green);
+      font-size: 22px;
+      line-height: 1;
+    }
+    details[open] summary::after {
+      content: "-";
+    }
+    details p {
+      margin: 0;
+      padding: 0 18px 18px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .sticky-whatsapp {
+      position: fixed;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 40;
+      display: none;
+      min-height: 54px;
+      border-radius: var(--radius);
+      color: #fff;
+      background: #117a49;
+      box-shadow: 0 18px 48px rgba(7, 37, 22, .28);
+      font-weight: 900;
+    }
+
     footer {
       padding: 34px 0;
       color: rgba(255,255,255,.72);
@@ -932,7 +1089,9 @@
       .hero-grid,
       .section-heading,
       .catalog-layout,
+      .flow-grid,
       .commercial-grid,
+      .faq-layout,
       .form-shell {
         grid-template-columns: 1fr;
       }
@@ -965,6 +1124,9 @@
       .float-support { right: 18px; }
       .buyer-grid {
         grid-template-columns: 1fr;
+      }
+      .flow-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
       .buyer {
         min-height: auto;
@@ -1008,9 +1170,16 @@
         width: 100%;
       }
       .catalog-list,
+      .flow-list,
       .form-grid,
       .margin-row {
         grid-template-columns: 1fr;
+      }
+      .flow-step {
+        min-height: auto;
+      }
+      .flow-step b {
+        margin-bottom: 20px;
       }
       .proof-row {
         display: none;
@@ -1043,6 +1212,19 @@
       }
       .trust-strip {
         display: none;
+      }
+      .cta-assurance {
+        justify-content: center;
+        text-align: center;
+      }
+      .sticky-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      body {
+        padding-bottom: 78px;
       }
       .sku { grid-template-columns: 82px 1fr; }
       .sku img {
@@ -1083,6 +1265,13 @@
   </style>
 </head>
 <body>
+  <div id="referralBar" class="referral-bar">
+    <div class="container referral-inner">
+      <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+      <span id="referralText">Condição comercial indicada para o seu canal.</span>
+    </div>
+  </div>
+
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#topo" aria-label="Slimcapilar">
@@ -1092,9 +1281,10 @@
         <a href="#perfis">Perfis</a>
         <a href="#catalogo">Produtos</a>
         <a href="#comercial">Condição comercial</a>
+        <a href="#faq">FAQ</a>
         <a href="#cadastro">Cadastro</a>
       </nav>
-      <a class="header-cta" href="#cadastro"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Falar com comercial</a>
+      <a class="header-cta whatsapp-link" href="#cadastro" data-intent="header"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Falar no WhatsApp</a>
     </div>
   </header>
 
@@ -1106,14 +1296,19 @@
           <h1>Uma linha capilar pronta para acelerar seu canal.</h1>
           <p class="hero-text">Compre em volume, monte kits por necessidade e tenha suporte comercial para balcão, clínica, salão e distribuição regional. Mais giro, mais margem, mais resultado.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#cadastro">
+            <a class="btn btn-primary whatsapp-link" href="#cadastro" data-intent="hero">
               <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-              <span class="btn-copy"><span>Solicitar condição comercial</span><small>Fale com nosso time B2B</small></span>
+              <span class="btn-copy"><span>Falar no WhatsApp</span><small>Atendimento B2B direto</small></span>
             </a>
             <a class="btn btn-secondary" href="#comercial">
               <i class="fa-solid fa-cube" aria-hidden="true"></i>
               <span class="btn-copy"><span>Simular margem</span><small>Calcule seu potencial</small></span>
             </a>
+          </div>
+          <div class="cta-assurance" aria-label="Sinais de confiança">
+            <span><i class="fa-solid fa-star" aria-hidden="true"></i> Atendimento consultivo</span>
+            <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Marca especializada</span>
+            <span><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Sem carrinho, direto com comercial</span>
           </div>
           <div class="proof-row" aria-label="Diferenciais comerciais">
             <div class="proof"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><strong>20% a 50%</strong><span>margem bruta estimada</span></div>
@@ -1147,6 +1342,33 @@
             <strong>Apoio comercial</strong>
             <span>Materiais, treinamento e inteligência de venda</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="interest-flow" aria-label="Como funciona a revenda Slimcapilar">
+      <div class="container flow-grid">
+        <div class="reveal">
+          <p class="kicker">Fluxo direto</p>
+          <h2>Três passos até a conversa comercial.</h2>
+          <p class="lead">O estudo reforça o ponto certo: para este funil, a conversão não deve passar por carrinho. O clique leva direto para WhatsApp com contexto do lead.</p>
+        </div>
+        <div class="flow-list reveal">
+          <article class="flow-step">
+            <b>01</b>
+            <strong>Escolha seu canal</strong>
+            <span>Revenda, clínica, farmácia, salão ou distribuição regional.</span>
+          </article>
+          <article class="flow-step">
+            <b>02</b>
+            <strong>Receba mix e margem</strong>
+            <span>O comercial indica kits, volume inicial e potencial de giro.</span>
+          </article>
+          <article class="flow-step">
+            <b>03</b>
+            <strong>Negocie no WhatsApp</strong>
+            <span>Sem checkout: atendimento direto para condição, prazo e reposição.</span>
+          </article>
         </div>
       </div>
     </section>
@@ -1288,7 +1510,7 @@
         <div class="reveal">
           <p class="kicker">Cadastro comercial</p>
           <h2>Solicite atendimento para revenda.</h2>
-          <p class="lead">Poucos campos, informação útil e contato direto. O objetivo é iniciar uma conversa comercial, não travar o comprador no formulário.</p>
+          <p class="lead">Poucos campos, informação útil e contato direto no WhatsApp. O objetivo é iniciar uma conversa comercial, não travar o comprador no formulário.</p>
           <div class="form-notes">
             <div class="note"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Resposta com condição comercial e sugestão de mix inicial.</span></div>
             <div class="note"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Atendimento para revendedores, distribuidores, clínicas, farmácias e salões.</span></div>
@@ -1342,12 +1564,44 @@
             <textarea id="mensagem" name="mensagem" placeholder="Ex.: quero começar com 30 kits por mês, foco em clínicas capilares..."></textarea>
           </div>
 
-          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Enviar cadastro</button>
-          <div id="status" class="form-status" role="status">Cadastro recebido. O próximo passo é o time comercial retornar com condição de compra e sugestão de mix.</div>
+          <button class="btn btn-primary" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar pelo WhatsApp</button>
+          <div id="status" class="form-status" role="status">Mensagem pronta. Se o WhatsApp não abrir automaticamente, confira se o número comercial foi configurado.</div>
         </form>
       </div>
     </section>
+
+    <section class="faq" id="faq">
+      <div class="container faq-layout">
+        <div class="reveal">
+          <p class="kicker">Quebra de objeções</p>
+          <h2>Respostas rápidas antes do contato.</h2>
+          <p class="lead">Conteúdo curto, direto e escaneável para reduzir hesitação antes do clique no WhatsApp.</p>
+        </div>
+        <div class="faq-list reveal">
+          <details open>
+            <summary>Preciso comprar em grande volume para começar?</summary>
+            <p>Não necessariamente. O time comercial pode sugerir um mix inicial por perfil de negócio, com foco em giro e reposição.</p>
+          </details>
+          <details>
+            <summary>A Slimcapilar atende clínicas e profissionais?</summary>
+            <p>Sim. A linha pode ser posicionada como complemento para rotina em casa, pós-atendimento e aumento de receita por paciente.</p>
+          </details>
+          <details>
+            <summary>Existe apoio para vender no balcão?</summary>
+            <p>A proposta inclui orientação comercial, argumentos de venda e sugestão de kits por necessidade do consumidor.</p>
+          </details>
+          <details>
+            <summary>Como recebo condição comercial?</summary>
+            <p>Preencha o formulário ou clique no CTA. A conversa abre no WhatsApp com informações do seu canal, cidade e interesse inicial.</p>
+          </details>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <a class="sticky-whatsapp whatsapp-link" href="#cadastro" data-intent="sticky">
+    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Falar no WhatsApp
+  </a>
 
   <footer>
     <div class="container footer-inner">
@@ -1358,6 +1612,10 @@
   </footer>
 
   <script>
+    const WHATSAPP_NUMBER = "5519988442477";
+    const params = new URLSearchParams(window.location.search);
+    const referral = params.get("ref") || params.get("utm_campaign") || params.get("utm_source");
+    const referralLabel = referral ? referral.replace(/[-_]+/g, " ").trim() : "";
     const produto = document.getElementById("produto");
     const quantidade = document.getElementById("quantidade");
     const qtdValor = document.getElementById("qtdValor");
@@ -1366,6 +1624,28 @@
     const marginButtons = Array.from(document.querySelectorAll(".margin-btn"));
     const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
     let margem = 40;
+
+    function buildWhatsAppUrl(message) {
+      const encoded = encodeURIComponent(message);
+      if (!WHATSAPP_NUMBER) {
+        return `https://wa.me/?text=${encoded}`;
+      }
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`;
+    }
+
+    function baseWhatsAppMessage(intent = "cta") {
+      const origem = referralLabel ? `\nOrigem: ${referralLabel}` : "";
+      return `Olá, quero falar com o comercial Slimcapilar para revenda/distribuição.\nInteresse: ${intent}${origem}`;
+    }
+
+    function openWhatsApp(message) {
+      window.open(buildWhatsAppUrl(message), "_blank", "noopener");
+    }
+
+    if (referralLabel) {
+      document.getElementById("referralText").textContent = `Condição comercial indicada por ${referralLabel}.`;
+      document.getElementById("referralBar").classList.add("is-visible");
+    }
 
     function calcularLucro() {
       const custoUnitario = Number(produto.value);
@@ -1403,9 +1683,33 @@
 
     document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
 
+    document.querySelectorAll(".whatsapp-link").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        openWhatsApp(baseWhatsAppMessage(link.dataset.intent || "cta"));
+      });
+    });
+
     document.getElementById("formRevenda").addEventListener("submit", (event) => {
       event.preventDefault();
-      event.currentTarget.reset();
+      const form = event.currentTarget;
+      const data = new FormData(form);
+      const message = [
+        "Olá, quero ser atendido pelo comercial Slimcapilar.",
+        "",
+        `Nome: ${data.get("nome") || ""}`,
+        `WhatsApp: ${data.get("telefone") || ""}`,
+        `Empresa: ${data.get("empresa") || ""}`,
+        `Perfil: ${data.get("perfil") || ""}`,
+        `Cidade/Estado: ${data.get("cidade") || ""}`,
+        `E-mail: ${data.get("email") || ""}`,
+        `Interesse inicial: ${data.get("mensagem") || "Quero receber condição comercial e sugestão de mix."}`,
+        referralLabel ? `Origem: ${referralLabel}` : "",
+        "",
+        "Pode me enviar valores, volume inicial e sugestão de kits?"
+      ].filter(Boolean).join("\n");
+      openWhatsApp(message);
+      form.reset();
       document.getElementById("status").classList.add("is-visible");
     });
   </script>
