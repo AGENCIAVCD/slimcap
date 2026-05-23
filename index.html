@@ -43,7 +43,7 @@
 
     .container {
       width: calc(100% - 40px);
-      max-width: 1160px;
+      max-width: 1320px;
       margin-inline: auto;
     }
 
@@ -346,8 +346,8 @@
     }
     .hero::after { display: none; }
     .hero-grid {
-      grid-template-columns: minmax(380px, .74fr) minmax(650px, 1.26fr);
-      gap: 36px;
+      grid-template-columns: minmax(520px, 1fr) minmax(560px, 1fr);
+      gap: 44px;
     }
     .eyebrow {
       width: fit-content;
@@ -370,12 +370,12 @@
       font-size: 12px;
     }
     h1 {
-      max-width: 510px;
-      font-size: clamp(42px, 4vw, 66px);
-      line-height: .94;
+      max-width: 650px;
+      font-size: clamp(44px, 4.1vw, 70px);
+      line-height: 1;
     }
     .hero-text {
-      max-width: 530px;
+      max-width: 610px;
       margin-top: 22px;
       color: #43544b;
       font-size: clamp(16px, 1.14vw, 18px);
@@ -384,15 +384,15 @@
     .hero-actions {
       margin-top: 24px;
       gap: 14px;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
     }
     .hero-actions .btn {
       min-height: 62px;
       align-items: center;
       padding: 0 18px;
     }
-    .hero-actions .btn-primary { min-width: 252px; }
-    .hero-actions .btn-secondary { min-width: 190px; }
+    .hero-actions .btn-primary { min-width: 260px; }
+    .hero-actions .btn-secondary { min-width: 218px; }
     .btn-copy {
       display: grid;
       gap: 3px;
@@ -415,7 +415,7 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 8px;
-      max-width: 500px;
+      max-width: 610px;
       margin-top: 14px;
     }
     .proof {
@@ -523,7 +523,7 @@
       flex-wrap: wrap;
       gap: 8px 12px;
       align-items: center;
-      max-width: 520px;
+      max-width: 610px;
       margin-top: 12px;
       color: #40524a;
       font-size: 12px;
@@ -562,18 +562,18 @@
 
     @media (max-width: 1380px) {
       .hero-grid {
-        grid-template-columns: minmax(430px, .9fr) minmax(560px, 1.08fr);
-        gap: 28px;
+        grid-template-columns: minmax(500px, 1fr) minmax(520px, .95fr);
+        gap: 30px;
       }
       h1 {
-        max-width: 500px;
-        font-size: clamp(40px, 4vw, 58px);
+        max-width: 620px;
+        font-size: clamp(40px, 4vw, 60px);
       }
       .hero-text {
-        max-width: 500px;
+        max-width: 590px;
       }
       .hero-actions {
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
       }
       .hero-actions .btn-primary {
         min-width: 255px;
@@ -582,7 +582,7 @@
         min-width: 190px;
       }
       .proof-row {
-        max-width: 470px;
+        max-width: 590px;
       }
       .proof {
         padding: 11px;
@@ -594,10 +594,10 @@
         font-size: 10px;
       }
       .trust-strip {
-        max-width: 470px;
+        max-width: 590px;
       }
       .cta-assurance {
-        max-width: 470px;
+        max-width: 590px;
       }
       .hero-float {
         width: 118px;
@@ -1268,7 +1268,7 @@
   <div id="referralBar" class="referral-bar">
     <div class="container referral-inner">
       <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
-      <span id="referralText">Condição comercial indicada para o seu canal.</span>
+      <span id="referralText">Atendimento especial para o seu canal.</span>
     </div>
   </div>
 
@@ -1280,8 +1280,8 @@
       <nav class="nav" aria-label="Navegação principal">
         <a href="#perfis">Perfis</a>
         <a href="#catalogo">Produtos</a>
-        <a href="#comercial">Condição comercial</a>
-        <a href="#faq">FAQ</a>
+        <a href="#comercial">Margens</a>
+        <a href="#faq">Dúvidas</a>
         <a href="#cadastro">Cadastro</a>
       </nav>
       <a class="header-cta whatsapp-link" href="#cadastro" data-intent="header"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Falar no WhatsApp</a>
@@ -1293,12 +1293,12 @@
       <div class="container hero-grid">
         <div class="reveal">
           <span class="eyebrow">Revenda • Distribuição • Clínicas</span>
-          <h1>Uma linha capilar pronta para acelerar seu canal.</h1>
-          <p class="hero-text">Compre em volume, monte kits por necessidade e tenha suporte comercial para balcão, clínica, salão e distribuição regional. Mais giro, mais margem, mais resultado.</p>
+          <h1>Linha capilar para revenda profissional.</h1>
+          <p class="hero-text">Monte kits Slimcapilar para balcão, clínicas, salões e distribuição regional. Uma linha completa para ampliar sua oferta com margem e recompra.</p>
           <div class="hero-actions">
             <a class="btn btn-primary whatsapp-link" href="#cadastro" data-intent="hero">
               <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-              <span class="btn-copy"><span>Falar no WhatsApp</span><small>Atendimento B2B direto</small></span>
+              <span class="btn-copy"><span>Chamar no WhatsApp</span><small>Atendimento comercial</small></span>
             </a>
             <a class="btn btn-secondary" href="#comercial">
               <i class="fa-solid fa-cube" aria-hidden="true"></i>
@@ -1308,13 +1308,13 @@
           <div class="cta-assurance" aria-label="Sinais de confiança">
             <span><i class="fa-solid fa-star" aria-hidden="true"></i> Atendimento consultivo</span>
             <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Marca especializada</span>
-            <span><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Sem carrinho, direto com comercial</span>
+            <span><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Conversa direta com consultor</span>
           </div>
           <div class="proof-row" aria-label="Diferenciais comerciais">
             <div class="proof"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><strong>20% a 50%</strong><span>margem bruta estimada</span></div>
-            <div class="proof"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>40+ anos</strong><span>de expertise em saúde capilar</span></div>
-            <div class="proof"><i class="fa-solid fa-cube" aria-hidden="true"></i><strong>10 SKUs</strong><span>linha completa para kits</span></div>
-            <div class="proof"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><strong>Alto potencial</strong><span>de recompra e giro contínuo</span></div>
+            <div class="proof"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>40+ anos</strong><span>em saúde capilar</span></div>
+            <div class="proof"><i class="fa-solid fa-cube" aria-hidden="true"></i><strong>10 SKUs</strong><span>para montar kits</span></div>
+            <div class="proof"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><strong>Reposição</strong><span>venda recorrente</span></div>
           </div>
           <div class="trust-strip">
             <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Marca especializada em saúde capilar</span>
@@ -1349,25 +1349,25 @@
     <section class="interest-flow" aria-label="Como funciona a revenda Slimcapilar">
       <div class="container flow-grid">
         <div class="reveal">
-          <p class="kicker">Fluxo direto</p>
-          <h2>Três passos até a conversa comercial.</h2>
-          <p class="lead">O estudo reforça o ponto certo: para este funil, a conversão não deve passar por carrinho. O clique leva direto para WhatsApp com contexto do lead.</p>
+          <p class="kicker">Como funciona</p>
+          <h2>Da escolha do mix à reposição.</h2>
+          <p class="lead">Você informa o perfil do negócio, recebe uma sugestão comercial e negocia volumes diretamente pelo WhatsApp.</p>
         </div>
         <div class="flow-list reveal">
           <article class="flow-step">
             <b>01</b>
-            <strong>Escolha seu canal</strong>
+            <strong>Informe seu canal</strong>
             <span>Revenda, clínica, farmácia, salão ou distribuição regional.</span>
           </article>
           <article class="flow-step">
             <b>02</b>
-            <strong>Receba mix e margem</strong>
-            <span>O comercial indica kits, volume inicial e potencial de giro.</span>
+            <strong>Receba sugestão de mix</strong>
+            <span>Indicamos produtos, kits e volume inicial para começar.</span>
           </article>
           <article class="flow-step">
             <b>03</b>
-            <strong>Negocie no WhatsApp</strong>
-            <span>Sem checkout: atendimento direto para condição, prazo e reposição.</span>
+            <strong>Combine a reposição</strong>
+            <span>Converse sobre condição, prazo e novos pedidos.</span>
           </article>
         </div>
       </div>
@@ -1380,7 +1380,7 @@
             <p class="kicker">Quem compra</p>
             <h2>Três canais, uma proposta clara.</h2>
           </div>
-          <p class="lead">A página qualifica o lead antes do contato comercial e mostra onde a linha Slimcapilar entra no negócio.</p>
+          <p class="lead">A Slimcapilar atende diferentes modelos de venda com produtos para rotina capilar, kits e recompra.</p>
         </div>
 
         <div class="buyer-grid reveal">
@@ -1408,7 +1408,7 @@
         <div class="catalog-copy reveal">
           <p class="kicker">Catálogo inicial</p>
           <h2>Produtos fáceis de explicar e combinar.</h2>
-          <p class="lead">Organize a oferta por necessidade: queda, caspa, manutenção, hidratação ou finalização. Menos confusão para vender, mais clareza para comprar.</p>
+          <p class="lead">Organize sua oferta por necessidade: queda, caspa, manutenção, hidratação e finalização.</p>
         </div>
 
         <div class="catalog-list reveal">
@@ -1444,10 +1444,10 @@
       <div class="container">
         <div class="section-heading reveal">
           <div>
-            <p class="kicker">Condição comercial</p>
-            <h2>O lead entende o processo antes de preencher.</h2>
+            <p class="kicker">Margens e volume</p>
+            <h2>Simule uma compra mensal.</h2>
           </div>
-          <p class="lead">A calculadora é referência comercial. O pedido real depende de mix, volume e região de atendimento.</p>
+          <p class="lead">Use a simulação como referência inicial. A condição final depende do mix, volume e região de atendimento.</p>
         </div>
 
         <div class="commercial-grid">
@@ -1510,7 +1510,7 @@
         <div class="reveal">
           <p class="kicker">Cadastro comercial</p>
           <h2>Solicite atendimento para revenda.</h2>
-          <p class="lead">Poucos campos, informação útil e contato direto no WhatsApp. O objetivo é iniciar uma conversa comercial, não travar o comprador no formulário.</p>
+          <p class="lead">Envie seus dados e converse com o comercial pelo WhatsApp para receber condição, mix indicado e orientação de compra.</p>
           <div class="form-notes">
             <div class="note"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Resposta com condição comercial e sugestão de mix inicial.</span></div>
             <div class="note"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Atendimento para revendedores, distribuidores, clínicas, farmácias e salões.</span></div>
@@ -1565,7 +1565,7 @@
           </div>
 
           <button class="btn btn-primary" type="submit"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Enviar pelo WhatsApp</button>
-          <div id="status" class="form-status" role="status">Mensagem pronta. Se o WhatsApp não abrir automaticamente, confira se o número comercial foi configurado.</div>
+          <div id="status" class="form-status" role="status">Mensagem pronta para o WhatsApp. Nossa equipe comercial dará sequência ao atendimento.</div>
         </form>
       </div>
     </section>
@@ -1573,9 +1573,9 @@
     <section class="faq" id="faq">
       <div class="container faq-layout">
         <div class="reveal">
-          <p class="kicker">Quebra de objeções</p>
-          <h2>Respostas rápidas antes do contato.</h2>
-          <p class="lead">Conteúdo curto, direto e escaneável para reduzir hesitação antes do clique no WhatsApp.</p>
+          <p class="kicker">Dúvidas frequentes</p>
+          <h2>Antes de falar com o comercial.</h2>
+          <p class="lead">Veja respostas rápidas sobre compra inicial, canais atendidos e apoio para venda.</p>
         </div>
         <div class="faq-list reveal">
           <details open>
