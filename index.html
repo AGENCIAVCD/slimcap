@@ -1501,12 +1501,7 @@
       overflow: hidden;
     }
     .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 clamp(24px, 4.5vw, 84px);
-      width: 1px;
-      background: rgba(186, 135, 54, .24);
-      pointer-events: none;
+      display: none;
     }
     .hero-grid {
       width: 100%;
@@ -1592,27 +1587,37 @@
     }
     .cta-assurance {
       gap: 9px 18px;
-      margin-top: 17px;
+      margin: 0;
       color: #56645d;
       font-size: 11px;
     }
     .cta-assurance i { color: var(--brand); }
-    .proof-row {
+    .hero-proof-block {
       width: 100%;
       max-width: 650px;
       margin-top: auto;
-      padding-top: 28px;
+      padding-top: 18px;
+    }
+    .proof-row {
+      width: 100%;
+      max-width: none;
+      margin: 14px 0 0;
+      padding-top: 16px;
       border-top: 1px solid rgba(4, 58, 40, .15);
       gap: 0;
+      align-items: stretch;
     }
     .proof {
-      min-height: 76px;
+      display: flex;
+      min-height: 54px;
       padding: 0 18px;
       border: 0;
       border-left: 1px solid rgba(4, 58, 40, .14);
       border-radius: 0;
       background: transparent;
       box-shadow: none;
+      flex-direction: column;
+      justify-content: flex-start;
     }
     .proof:first-child {
       padding-left: 0;
@@ -2411,6 +2416,7 @@
       .hero-actions .btn-copy { width: 100%; }
       .cta-assurance,
       .proof-row { display: none; }
+      .hero-proof-block { display: none; }
       .hero-visual {
         width: 100%;
         height: 285px;
@@ -2642,16 +2648,18 @@
               <span class="btn-copy"><span>Simular meu potencial</span><small>Volume, margem e lucro</small></span>
             </a>
           </div>
-          <div class="cta-assurance" aria-label="Sinais de confiança">
-            <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Atendimento consultivo</span>
-            <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Mix orientado por canal</span>
-            <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Reposição recorrente</span>
-          </div>
-          <div class="proof-row" aria-label="Diferenciais comerciais">
-            <div class="proof"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><strong>20% a 50%</strong><span>margem bruta estimada</span></div>
-            <div class="proof"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>40+ anos</strong><span>em saúde capilar</span></div>
-            <div class="proof"><i class="fa-solid fa-cube" aria-hidden="true"></i><strong>10 SKUs</strong><span>para montar kits</span></div>
-            <div class="proof"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><strong>Reposição</strong><span>venda recorrente</span></div>
+          <div class="hero-proof-block">
+            <div class="cta-assurance" aria-label="Sinais de confiança">
+              <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Atendimento consultivo</span>
+              <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Mix orientado por canal</span>
+              <span><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Reposição recorrente</span>
+            </div>
+            <div class="proof-row" aria-label="Diferenciais comerciais">
+              <div class="proof"><i class="fa-solid fa-chart-line" aria-hidden="true"></i><strong>20% a 50%</strong><span>margem bruta estimada</span></div>
+              <div class="proof"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><strong>40+ anos</strong><span>em saúde capilar</span></div>
+              <div class="proof"><i class="fa-solid fa-cube" aria-hidden="true"></i><strong>10 SKUs</strong><span>para montar kits</span></div>
+              <div class="proof"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><strong>Reposição</strong><span>venda recorrente</span></div>
+            </div>
           </div>
         </div>
 
