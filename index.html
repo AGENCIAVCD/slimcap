@@ -228,6 +228,7 @@
       font-size: var(--fs-md);
       font-weight: var(--fw-bold);
     }
+    .mobile-nav.is-open { display: block; }
     .mobile-nav a.is-active { color: var(--brand); }
 
     /* ---------------- Botões ---------------- */
@@ -1412,6 +1413,7 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NWPH76JL"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
+  <a class="skip-link" href="#topo">Pular para o conteúdo</a>
   <div id="referralBar" class="referral-bar">
     <div class="container referral-inner">
       <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
@@ -1431,8 +1433,18 @@
         <a href="#faq">Dúvidas</a>
         <a href="#cadastro">Cadastro</a>
       </nav>
-      <a class="header-cta whatsapp-link" href="#cadastro" data-intent="header"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Falar no WhatsApp</a>
+      <div class="header-actions">
+        <a class="btn btn-primary btn-sm header-cta whatsapp-link" href="#cadastro" data-intent="header"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chamar no WhatsApp</a>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Abrir menu de navegação"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+      </div>
     </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navegação móvel">
+      <a href="#perfis">Perfis</a>
+      <a href="#catalogo">Produtos</a>
+      <a href="#comercial">Margens</a>
+      <a href="#faq">Dúvidas</a>
+      <a href="#cadastro">Cadastro</a>
+    </nav>
   </header>
 
   <main id="topo">
@@ -1848,6 +1860,53 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll(".reveal").forEach((item) => observer.observe(item));
+
+    // Header: estado sólido ao rolar
+    const siteHeader = document.querySelector(".site-header");
+    function syncHeader() {
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+    }
+    window.addEventListener("scroll", syncHeader, { passive: true });
+    syncHeader();
+
+    // Menu mobile acessível
+    const navToggle = document.getElementById("navToggle");
+    const mobileNav = document.getElementById("mobileNav");
+    function closeMobileNav() {
+      mobileNav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+      navToggle.setAttribute("aria-label", "Abrir menu de navegação");
+      navToggle.querySelector("i").className = "fa-solid fa-bars";
+    }
+    navToggle.addEventListener("click", () => {
+      const aberto = mobileNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(aberto));
+      navToggle.setAttribute("aria-label", aberto ? "Fechar menu de navegação" : "Abrir menu de navegação");
+      navToggle.querySelector("i").className = aberto ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+    });
+    mobileNav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMobileNav));
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && mobileNav.classList.contains("is-open")) {
+        closeMobileNav();
+        navToggle.focus();
+      }
+    });
+
+    // Scroll-spy discreto na navegação
+    const spyLinks = Array.from(document.querySelectorAll('.nav a[href^="#"], .mobile-nav a[href^="#"]'));
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          spyLinks.forEach((link) => {
+            link.classList.toggle("is-active", link.getAttribute("href") === `#${entry.target.id}`);
+          });
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px" });
+    ["perfis", "catalogo", "comercial", "cadastro", "faq"].forEach((id) => {
+      const alvo = document.getElementById(id);
+      if (alvo) spyObserver.observe(alvo);
+    });
 
     document.querySelectorAll(".whatsapp-link").forEach((link) => {
       link.addEventListener("click", (event) => {
