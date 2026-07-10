@@ -1558,16 +1558,19 @@
             <i class="fa-solid fa-store" aria-hidden="true"></i>
             <h3>Revendedores e farmácias</h3>
             <p>Produtos de giro para balcão, indicação consultiva e kits prontos para recompra mensal.</p>
+            <a class="buyer-link" href="#cadastro" data-perfil="Revendedor" aria-label="Iniciar cadastro como revendedor ou farmácia">Iniciar cadastro <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </article>
           <article class="buyer">
             <i class="fa-solid fa-truck-ramp-box" aria-hidden="true"></i>
             <h3>Distribuidores regionais</h3>
             <p>Mix enxuto para abrir pontos de venda, negociar volume e expandir presença regional.</p>
+            <a class="buyer-link" href="#cadastro" data-perfil="Distribuidor" aria-label="Iniciar cadastro como distribuidor regional">Iniciar cadastro <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </article>
           <article class="buyer">
             <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
             <h3>Clínicas e profissionais</h3>
             <p>Complemento para rotina em casa, pós-atendimento e aumento de receita por paciente.</p>
+            <a class="buyer-link" href="#cadastro" data-perfil="Clínica" aria-label="Iniciar cadastro como clínica ou profissional">Iniciar cadastro <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
           </article>
         </div>
       </div>
@@ -1907,6 +1910,13 @@
     ["perfis", "catalogo", "comercial", "cadastro", "faq"].forEach((id) => {
       const alvo = document.getElementById(id);
       if (alvo) spyObserver.observe(alvo);
+    });
+
+    // Quem compra → formulário com perfil pré-selecionado (costura)
+    document.querySelectorAll(".buyer-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (link.dataset.perfil) document.getElementById("perfil").value = link.dataset.perfil;
+      });
     });
 
     document.querySelectorAll(".whatsapp-link").forEach((link) => {
