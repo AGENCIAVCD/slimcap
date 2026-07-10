@@ -1626,15 +1626,15 @@
         <div class="commercial-grid">
           <div class="steps reveal">
             <div class="step">
-              <b>01</b>
+              <i class="step-icon fa-solid fa-user-check" aria-hidden="true"></i>
               <div><strong>Informe o perfil do negócio</strong><span>Revenda, distribuição, clínica, farmácia ou profissional capilar.</span></div>
             </div>
             <div class="step">
-              <b>02</b>
+              <i class="step-icon fa-solid fa-boxes-stacked" aria-hidden="true"></i>
               <div><strong>Receba sugestão de mix</strong><span>Produtos e kits indicados para o seu canal e capacidade de venda.</span></div>
             </div>
             <div class="step">
-              <b>03</b>
+              <i class="step-icon fa-solid fa-handshake" aria-hidden="true"></i>
               <div><strong>Negocie volume e reposição</strong><span>Condição comercial ajustada para margem, giro e recorrência.</span></div>
             </div>
           </div>
@@ -1654,24 +1654,31 @@
 
             <div class="field">
               <label for="quantidade">Quantidade por mês</label>
-              <input type="range" id="quantidade" min="5" max="120" value="24">
-              <div class="range-meta"><span>5</span><strong id="qtdValor">24</strong><span>120</span></div>
+              <input type="range" id="quantidade" min="5" max="120" value="24" aria-describedby="qtdValor">
+              <div class="range-meta"><span>5</span><output id="qtdValor" for="quantidade" class="num">24</output><span>120</span></div>
             </div>
 
-            <div class="field">
-              <label>Margem desejada</label>
+            <fieldset class="field">
+              <legend>Margem desejada</legend>
               <div class="margin-row">
                 <button class="margin-btn" type="button" data-margin="20" aria-pressed="false">20%</button>
                 <button class="margin-btn" type="button" data-margin="30" aria-pressed="false">30%</button>
                 <button class="margin-btn" type="button" data-margin="40" aria-pressed="true">40%</button>
                 <button class="margin-btn" type="button" data-margin="50" aria-pressed="false">50%</button>
               </div>
-            </div>
+            </fieldset>
 
             <div class="result" aria-live="polite">
               <small>Lucro bruto estimado</small>
-              <strong id="lucro">R$ 0,00</strong>
-              <span id="faturamento">Faturamento: R$ 0,00 | Custo: R$ 0,00</span>
+              <strong id="lucro" class="num">R$ 3.704,64</strong>
+              <dl class="result-breakdown">
+                <div><dt>Faturamento</dt><dd id="faturamento" class="num">R$ 12.966,24</dd></div>
+                <div><dt>Custo do estoque</dt><dd id="custoTotal" class="num">R$ 9.261,60</dd></div>
+              </dl>
+              <a class="btn btn-invert sim-cta" id="simWhats" href="#cadastro">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Chamar no WhatsApp com esta simulação
+              </a>
+              <p class="result-note">Estimativa de referência — a condição final depende de mix, volume e região.</p>
             </div>
           </aside>
         </div>
@@ -1829,17 +1836,49 @@
       document.getElementById("referralBar").classList.add("is-visible");
     }
 
+    const custoEl = document.getElementById("custoTotal");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const simAtual = { lucro: 0, faturamento: 0, custo: 0 };
+    let simInicializado = false;
+
+    function animateMoney(el, de, para) {
+      if (reduceMotion.matches || Math.abs(para - de) < 0.005) {
+        el.textContent = money.format(para);
+        return;
+      }
+      const inicio = performance.now();
+      const duracao = 300;
+      cancelAnimationFrame(el._raf);
+      const tick = (agora) => {
+        const progresso = Math.min((agora - inicio) / duracao, 1);
+        const suave = 1 - Math.pow(1 - progresso, 3);
+        el.textContent = money.format(de + (para - de) * suave);
+        if (progresso < 1) el._raf = requestAnimationFrame(tick);
+      };
+      el._raf = requestAnimationFrame(tick);
+    }
+
     function calcularLucro() {
       const custoUnitario = Number(produto.value);
       const totalKits = Number(quantidade.value);
-      const precoRevenda = custoUnitario * (1 + margem / 100);
       const custoTotal = custoUnitario * totalKits;
-      const faturamentoTotal = precoRevenda * totalKits;
+      const faturamentoTotal = custoUnitario * (1 + margem / 100) * totalKits;
       const lucroTotal = faturamentoTotal - custoTotal;
 
       qtdValor.textContent = totalKits;
-      lucro.textContent = money.format(lucroTotal);
-      faturamento.textContent = `Faturamento: ${money.format(faturamentoTotal)} | Custo: ${money.format(custoTotal)}`;
+      if (!simInicializado) {
+        lucro.textContent = money.format(lucroTotal);
+        faturamento.textContent = money.format(faturamentoTotal);
+        custoEl.textContent = money.format(custoTotal);
+        simInicializado = true;
+      } else {
+        animateMoney(lucro, simAtual.lucro, lucroTotal);
+        animateMoney(faturamento, simAtual.faturamento, faturamentoTotal);
+        animateMoney(custoEl, simAtual.custo, custoTotal);
+      }
+      simAtual.lucro = lucroTotal;
+      simAtual.faturamento = faturamentoTotal;
+      simAtual.custo = custoTotal;
     }
 
     marginButtons.forEach((button) => {
@@ -1853,6 +1892,25 @@
     produto.addEventListener("change", calcularLucro);
     quantidade.addEventListener("input", calcularLucro);
     calcularLucro();
+
+    // CTA do simulador: leva a simulação atual na mensagem
+    document.getElementById("simWhats").addEventListener("click", (event) => {
+      event.preventDefault();
+      const kit = produto.options[produto.selectedIndex].text.split(" - ")[0];
+      const mensagem = [
+        "Olá! Fiz uma simulação no site Slimcapilar e quero falar com o comercial.",
+        "",
+        `Kit de referência: ${kit}`,
+        `Quantidade: ${quantidade.value} un/mês`,
+        `Margem desejada: ${margem}%`,
+        `Lucro bruto estimado: ${money.format(simAtual.lucro)}`,
+        `Faturamento: ${money.format(simAtual.faturamento)} | Custo: ${money.format(simAtual.custo)}`,
+        referralLabel ? `Origem: ${referralLabel}` : "",
+        "",
+        "Podemos conversar sobre condição comercial para este volume?"
+      ].filter(Boolean).join("\n");
+      openWhatsApp(mensagem);
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
