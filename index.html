@@ -1658,17 +1658,81 @@
       opacity: 1;
       transform: perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(0) scale(1);
     }
-    .hero-art-img {
+    .hero-slides {
       --hero-parallax: 0px;
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       min-height: 100%;
       border-radius: 8px 0 0 8px;
-      object-fit: cover;
-      object-position: center;
+      background: #031d15;
       box-shadow: none;
+      overflow: hidden;
       transform: translateY(var(--hero-parallax)) scale(1.025);
       transition: transform 180ms linear;
+    }
+    .hero-art-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      min-height: 100%;
+      border-radius: inherit;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0;
+      transform: scale(1.035);
+      transition: opacity 1.05s var(--ease), transform 7.4s ease-out;
+      will-change: opacity, transform;
+    }
+    .hero-art-img.is-active {
+      z-index: 1;
+      opacity: 1;
+      transform: scale(1);
+    }
+    .hero-slider-controls {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      z-index: 7;
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 5px 4px 12px;
+      border: 1px solid rgba(225, 191, 114, .28);
+      border-radius: 999px;
+      color: rgba(255, 240, 200, .82);
+      background: rgba(0, 41, 29, .58);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 12px 28px rgba(0, 19, 13, .16);
+      backdrop-filter: blur(14px) saturate(130%);
+    }
+    .hero-slide-count {
+      min-width: 40px;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      letter-spacing: 0;
+    }
+    .hero-slider-toggle {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      color: #ffe0a0;
+      background: rgba(255,255,255,.08);
+      cursor: pointer;
+      transition: color 180ms var(--ease), background 180ms var(--ease), transform 180ms var(--ease);
+    }
+    .hero-slider-toggle:hover,
+    .hero-slider-toggle:focus-visible {
+      color: #042e20;
+      background: var(--accent-soft);
+      transform: scale(1.04);
     }
     .hero-visual-label {
       position: absolute;
@@ -2336,7 +2400,11 @@
         overflow: hidden;
         border-radius: 8px 8px 0 0;
       }
-      .hero-art-img { border-radius: 8px 8px 0 0; }
+      .hero-art-img {
+        border-radius: 8px 8px 0 0;
+        object-position: center 20%;
+      }
+      .hero-slides { border-radius: 8px 8px 0 0; }
       .float-margin { left: 20px; }
       .float-kits,
       .float-support { right: 20px; }
@@ -2428,18 +2496,32 @@
       .proof-row { display: none; }
       .hero-proof-block { display: none; }
       .hero-visual {
-        width: 100%;
+        width: calc(100% + 40px);
         height: 285px;
+        margin-inline: -20px;
         aspect-ratio: auto;
         border-radius: 0;
         box-shadow: none;
       }
-      .hero-art-img {
+      .hero-slides {
+        min-height: 0;
+        border-radius: 0;
+        transform: none;
+      }
+      .hero-art-img,
+      .hero-art-img.is-active {
         min-height: 0;
         border-radius: 0;
         object-position: center 46%;
         transform: none;
       }
+      .hero-slider-controls {
+        top: 10px;
+        right: 10px;
+        gap: 0;
+        padding: 4px;
+      }
+      .hero-slide-count { display: none; }
       .hero-float,
       .hero-visual-label,
       .hero-scroll-cue { display: none; }
@@ -2591,6 +2673,8 @@
       .business-ribbon-track,
       .hero-scroll-cue i { animation: none; }
       .hero-visual.reveal.is-visible { transform: none; }
+      .hero-art-img { transition: none; }
+      .hero-slider-controls { display: none; }
     }
   </style>
   <!-- Google Tag Manager -->
@@ -2673,9 +2757,19 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal" aria-label="Produtos Slimcapilar em destaque">
+        <div class="hero-visual reveal">
           <span class="hero-visual-label" aria-hidden="true">Slimcapilar / Linha profissional</span>
-          <img class="hero-art-img" src="assets/hero-slimcapilar-premium.webp" alt="Três produtos da linha Slimcapilar em destaque sobre bancada" width="1254" height="1254" fetchpriority="high">
+          <div class="hero-slides">
+            <img class="hero-art-img is-active" data-hero-slide src="assets/hero-slimcapilar-premium.webp" alt="Três produtos da linha Slimcapilar em destaque sobre bancada" width="1254" height="1254" fetchpriority="high" decoding="async">
+            <img class="hero-art-img" data-hero-slide src="assets/hero-slimcapilar-premium-02.webp" alt="Linha Slimcapilar em composição premium com pedestal esmeralda" width="1254" height="1254" loading="eager" fetchpriority="low" decoding="async" aria-hidden="true">
+            <img class="hero-art-img" data-hero-slide src="assets/hero-slimcapilar-premium-03.webp" alt="Linha Slimcapilar em composição arquitetônica com três pedestais" width="1254" height="1254" loading="eager" fetchpriority="low" decoding="async" aria-hidden="true">
+          </div>
+          <div class="hero-slider-controls" aria-label="Controles dos banners da linha Slimcapilar">
+            <span class="hero-slide-count" id="heroSlideCount">01 / 03</span>
+            <button class="hero-slider-toggle" id="heroSliderToggle" type="button" aria-label="Pausar troca de banners" title="Pausar troca de banners">
+              <i class="fa-solid fa-pause" aria-hidden="true"></i>
+            </button>
+          </div>
           <div class="hero-float float-margin">
             <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
             <strong>20-50%</strong>
@@ -3229,6 +3323,78 @@
       });
     });
 
+    // Hero editorial: inicio aleatorio, transicao sem repeticao e pausa consciente.
+    const heroVisual = document.querySelector(".hero-visual");
+    const heroStage = document.querySelector(".hero-slides");
+    const heroSlides = Array.from(document.querySelectorAll("[data-hero-slide]"));
+    const heroSlideCount = document.getElementById("heroSlideCount");
+    const heroSliderToggle = document.getElementById("heroSliderToggle");
+    let heroSlideIndex = 0;
+    let heroRotationTimer = 0;
+    let heroRotationPaused = reduceMotion.matches;
+    let heroHoverPaused = false;
+
+    function updateHeroToggle() {
+      if (!heroSliderToggle) return;
+      const label = heroRotationPaused ? "Retomar troca de banners" : "Pausar troca de banners";
+      heroSliderToggle.setAttribute("aria-label", label);
+      heroSliderToggle.setAttribute("title", label);
+      heroSliderToggle.setAttribute("aria-pressed", String(heroRotationPaused));
+      heroSliderToggle.innerHTML = `<i class="fa-solid fa-${heroRotationPaused ? "play" : "pause"}" aria-hidden="true"></i>`;
+    }
+
+    function showHeroSlide(index) {
+      heroSlideIndex = index;
+      heroSlides.forEach((slide, slideIndex) => {
+        const active = slideIndex === heroSlideIndex;
+        slide.classList.toggle("is-active", active);
+        slide.setAttribute("aria-hidden", String(!active));
+      });
+      if (heroSlideCount) {
+        heroSlideCount.textContent = `${String(heroSlideIndex + 1).padStart(2, "0")} / ${String(heroSlides.length).padStart(2, "0")}`;
+      }
+    }
+
+    function nextRandomHeroSlide() {
+      if (heroSlides.length < 2) return heroSlideIndex;
+      const available = heroSlides.map((_, index) => index).filter((index) => index !== heroSlideIndex);
+      return available[Math.floor(Math.random() * available.length)];
+    }
+
+    function scheduleHeroRotation() {
+      window.clearTimeout(heroRotationTimer);
+      if (heroRotationPaused || heroHoverPaused || document.hidden || heroSlides.length < 2) return;
+      const delay = 6500 + Math.floor(Math.random() * 1400);
+      heroRotationTimer = window.setTimeout(() => {
+        showHeroSlide(nextRandomHeroSlide());
+        scheduleHeroRotation();
+      }, delay);
+    }
+
+    if (heroSlides.length) {
+      showHeroSlide(Math.floor(Math.random() * heroSlides.length));
+      updateHeroToggle();
+      scheduleHeroRotation();
+
+      heroSliderToggle?.addEventListener("click", () => {
+        heroRotationPaused = !heroRotationPaused;
+        updateHeroToggle();
+        scheduleHeroRotation();
+      });
+
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        heroVisual?.addEventListener("pointerenter", () => {
+          heroHoverPaused = true;
+          window.clearTimeout(heroRotationTimer);
+        });
+        heroVisual?.addEventListener("pointerleave", () => {
+          heroHoverPaused = false;
+          scheduleHeroRotation();
+        });
+      }
+      document.addEventListener("visibilitychange", scheduleHeroRotation);
+    }
+
     document.querySelectorAll(".hero-float").forEach((card) => {
       card.addEventListener("pointermove", (event) => {
         const rect = card.getBoundingClientRect();
@@ -3245,8 +3411,6 @@
     });
 
     // Profundidade discreta na imagem principal para mouse e rolagem.
-    const heroVisual = document.querySelector(".hero-visual");
-    const heroArt = document.querySelector(".hero-art-img");
     const finePointer = window.matchMedia("(pointer: fine)");
     if (heroVisual && finePointer.matches && !reduceMotion.matches) {
       heroVisual.addEventListener("pointermove", (event) => {
@@ -3265,9 +3429,9 @@
     let heroDepthFrame = 0;
     function syncHeroDepth() {
       heroDepthFrame = 0;
-      if (!heroArt || reduceMotion.matches || window.innerWidth <= 640) return;
+      if (!heroStage || !heroVisual || reduceMotion.matches || window.innerWidth <= 640) return;
       const progress = Math.min(Math.max(window.scrollY / Math.max(heroVisual.offsetHeight, 1), 0), 1);
-      heroArt.style.setProperty("--hero-parallax", `${(progress * 16).toFixed(1)}px`);
+      heroStage.style.setProperty("--hero-parallax", `${(progress * 16).toFixed(1)}px`);
     }
     window.addEventListener("scroll", () => {
       if (!heroDepthFrame) heroDepthFrame = requestAnimationFrame(syncHeroDepth);
