@@ -18,15 +18,15 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://slimcap.vercel.app"),
-  title: "Slimcapilar | Parceria para negócios de saúde capilar",
+  title: "Slimcap | Terapia capilar integrativa há 40 anos",
   description:
-    "Produtos, experiência e assessoria comercial para clínicas, revendedores e distribuidores crescerem no mercado capilar.",
+    "Kits personalizados, consultoria online e atendimento presencial com a experiência de 40 anos do Método Slimcap.",
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.png" },
   openGraph: {
-    title: "Slimcapilar | Crescimento com experiência e direção",
+    title: "Slimcap | O cuidado certo começa pela raiz",
     description:
-      "Uma parceria completa para transformar o potencial do mercado capilar em crescimento consistente.",
+      "Terapia capilar integrativa, kits por necessidade e orientação especializada online ou presencial.",
     url: "/",
     siteName: "Slimcapilar",
     locale: "pt_BR",

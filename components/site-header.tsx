@@ -1,14 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Menu, Sparkles, X } from "lucide-react";
 import { useState } from "react";
 import { WhatsAppLink } from "./whatsapp-link";
 
 const navItems = [
-  { href: "#mercado", label: "Mercado" },
-  { href: "#tradicao", label: "Nossa história" },
-  { href: "#assessoria", label: "Assessoria" },
+  { href: "#kits", label: "Encontre seu kit" },
+  { href: "#metodo", label: "Método Slimcap" },
+  { href: "#atendimento", label: "Atendimento" },
+  { href: "#profissionais", label: "Profissionais" },
+  { href: "#duvidas", label: "Dúvidas" },
 ];
 
 export function SiteHeader() {
@@ -35,9 +37,14 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <WhatsAppLink className="header-cta" intent="header">
-          <MessageCircle size={18} aria-hidden="true" />
-          Falar com especialista
+        <WhatsAppLink
+          className="header-cta"
+          intent="header-kit"
+          phone="5511952616077"
+          message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir meu kit ideal."
+        >
+          <Sparkles size={17} aria-hidden="true" />
+          Descobrir meu kit
         </WhatsAppLink>
 
         <button
@@ -58,7 +65,12 @@ export function SiteHeader() {
               {item.label}
             </a>
           ))}
-          <WhatsAppLink className="mobile-menu-cta" intent="menu-mobile">
+          <WhatsAppLink
+            className="mobile-menu-cta"
+            intent="menu-mobile"
+            phone="5511952616077"
+            message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir meu kit ideal."
+          >
             Conversar no WhatsApp
           </WhatsAppLink>
         </nav>

@@ -1,45 +1,117 @@
 import Image from "next/image";
 import {
-  ArrowDownRight,
   ArrowRight,
   BadgeCheck,
-  BarChart3,
+  BookOpen,
   Boxes,
-  Handshake,
+  CalendarCheck,
+  Check,
+  ChevronDown,
+  HeartHandshake,
   MessageCircle,
   Microscope,
   PackageCheck,
+  ScanSearch,
   Sparkles,
+  Stethoscope,
+  Store,
+  Video,
 } from "lucide-react";
 import { FloatingActions } from "@/components/floating-actions";
+import { HeroCarousel } from "@/components/hero-carousel";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppLink } from "@/components/whatsapp-link";
 
-const marketStats = [
-  { value: "3º", label: "maior mercado consumidor de beleza e cuidados pessoais" },
-  { value: "R$ 200 bi", label: "de faturamento do setor brasileiro em 2024" },
-  { value: "+6,8%", label: "de crescimento no mesmo período" },
+const kits = [
+  {
+    concern: "Eflúvio telógeno",
+    title: "Queda após parto, emagrecimento ou dengue",
+    formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
+    image: "/produtos/locao-tonica.webp",
+    accent: "terracotta",
+  },
+  {
+    concern: "Protocolo de 3 meses",
+    title: "Queda, calvície e alopecias",
+    formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
+    image: "/produtos/shampoo-revitalizante.webp",
+    accent: "bronze",
+  },
+  {
+    concern: "Equilíbrio do couro cabeludo",
+    title: "Caspa, dermatite seborreica e coceira",
+    formula: "Loção A · Shampoo anticaspa · Loção calmante",
+    image: "/produtos/shampoo-anticaspa.webp",
+    accent: "amber",
+  },
+  {
+    concern: "Hidratação e maciez",
+    title: "Kit nutrição completa",
+    formula: "Shampoo · Máscara · Condicionador · Leave-in",
+    image: "/produtos/mascara-capilar.webp",
+    accent: "rose",
+  },
+  {
+    concern: "Protocolo de 3 meses",
+    title: "Crescimento saudável e reparação",
+    formula: "Tratamento completo do couro cabeludo aos fios",
+    image: "/produtos/condicionador.webp",
+    accent: "cocoa",
+  },
+  {
+    concern: "Cuidado delicado",
+    title: "Cabelos infantis",
+    formula: "Esfoliante · Shampoo hidratante",
+    image: "/produtos/leave-in.webp",
+    accent: "sand",
+  },
+  {
+    concern: "Reparação dos fios",
+    title: "Nutrição intensiva",
+    formula: "Máscara nutrirreparadora · Leave-in",
+    image: "/produtos/mascara-capilar.webp",
+    accent: "clay",
+  },
+  {
+    concern: "Limpeza profunda",
+    title: "Kit detox",
+    formula: "Loção A · Shampoo revitalizante",
+    image: "/produtos/shampoo-revitalizante.webp",
+    accent: "gold",
+  },
 ];
 
-const advisorySteps = [
+const methodSteps = [
+  { icon: ScanSearch, number: "01", title: "Identificar", text: "Entender a origem e o momento do problema capilar." },
+  { icon: Microscope, number: "02", title: "Personalizar", text: "Selecionar o protocolo coerente com cada necessidade." },
+  { icon: CalendarCheck, number: "03", title: "Acompanhar", text: "Orientar uso, consistência e evolução ao longo da rotina." },
+];
+
+const faq = [
   {
-    icon: Microscope,
-    number: "01",
-    title: "Leitura do seu negócio",
-    text: "Entendemos seu canal, público e momento comercial antes de indicar qualquer composição.",
+    question: "Como descubro qual kit é o mais indicado?",
+    answer: "Você pode começar pelo problema que mais se aproxima do seu momento ou falar com nossa equipe. Quando há dúvida, histórico complexo ou queda persistente, recomendamos uma consultoria personalizada antes da escolha.",
   },
   {
-    icon: Boxes,
-    number: "02",
-    title: "Seleção técnica do mix",
-    text: "Construímos uma proposta de produtos e materiais coerente com a demanda real da sua operação.",
+    question: "A consultoria pode ser feita totalmente online?",
+    answer: "Sim. Na consultoria online, Cris Guerra avalia as informações do seu caso e orienta o protocolo de cuidado mais adequado, incluindo kit e rotina de uso quando aplicável.",
   },
   {
-    icon: BarChart3,
-    number: "03",
-    title: "Direção para crescer",
-    text: "Acompanhamos giro, reposição e oportunidades para orientar decisões comerciais mais seguras.",
+    question: "Onde acontece o atendimento presencial?",
+    answer: "O atendimento presencial com Cris Guerra acontece em Piracicaba, dentro da Clínica Piellaser, mediante agendamento.",
+  },
+  {
+    question: "Os produtos são regularizados pela ANVISA?",
+    answer: "A linha segue a regularização sanitária aplicável a cada categoria de produto. Informações específicas podem ser confirmadas na embalagem ou diretamente com a equipe Slimcap.",
+  },
+  {
+    question: "Quanto tempo dura um protocolo?",
+    answer: "A duração varia conforme a necessidade. Alguns kits foram organizados para ciclos de três meses; a recomendação de uso acompanha cada protocolo.",
+  },
+  {
+    question: "Clínicas e salões podem revender Slimcap?",
+    answer: "Sim. A Slimcap atende profissionais, clínicas, salões, farmácias e distribuidores com orientação de mix, materiais de apoio e condições comerciais próprias.",
   },
 ];
 
@@ -48,188 +120,242 @@ export default function Home() {
     <>
       <SiteHeader />
       <main>
-        <section id="inicio" className="hero-section" aria-labelledby="hero-title">
-          {/*
-            DIREÇÃO DA IMAGEM HERO: fotografia editorial horizontal de uma especialista brasileira em saúde
-            capilar orientando uma proprietária de clínica, em ambiente contemporâneo com travertino, madeira
-            nogueira e bronze. A ação deve permanecer no lado direito para preservar contraste e área de leitura
-            à esquerda. Luz natural quente, pele e cabelos reais, sem logos, textos, verde ou estética hospitalar.
-          */}
-          <Image
-            src="/images/hero-consultoria.webp"
-            alt="Especialista em saúde capilar orientando uma profissional em uma clínica contemporânea"
-            fill
-            priority
-            sizes="100vw"
-            className="hero-image"
-          />
-          <div className="hero-shade" aria-hidden="true" />
-          <div className="shell hero-content">
-            <p className="eyebrow hero-eyebrow">
-              <Sparkles size={16} aria-hidden="true" />
-              Parceria para o mercado capilar
-            </p>
-            <h1 id="hero-title">
-              O mercado cresce.
-              <span>Seu negócio pode crescer com ele.</span>
-            </h1>
-            <p className="hero-lead">
-              A Slimcapilar reúne experiência, linha profissional e assessoria para transformar potencial em uma
-              operação mais segura, preparada e rentável.
-            </p>
-            <div className="hero-actions">
-              <WhatsAppLink className="button button-primary" intent="hero">
-                <MessageCircle size={20} aria-hidden="true" />
-                Conversar com um especialista
-              </WhatsAppLink>
-              <a className="text-link text-link-light" href="#mercado">
-                Conhecer a oportunidade <ArrowDownRight size={18} aria-hidden="true" />
-              </a>
-            </div>
-            <div className="hero-proof" aria-label="Diferenciais Slimcapilar">
-              <span><BadgeCheck aria-hidden="true" /> 40 anos de experiência</span>
-              <span><Handshake aria-hidden="true" /> Atendimento consultivo</span>
-              <span><PackageCheck aria-hidden="true" /> Mix orientado por canal</span>
-            </div>
+        <HeroCarousel />
+
+        <section className="manifesto-strip" aria-label="Princípio do Método Slimcap">
+          <div className="shell">
+            <span>40 anos de escuta, pesquisa e cuidado</span>
+            <p>“Identificar a raiz do problema é o primeiro passo para escolher o kit correto.”</p>
           </div>
         </section>
 
-        <section id="mercado" className="market-section section-pad" aria-labelledby="market-title">
+        <section id="kits" className="kits-section section-pad" aria-labelledby="kits-title">
           <div className="shell">
-            <Reveal className="section-heading market-heading">
+            <Reveal className="section-heading kits-heading">
               <div>
-                <p className="eyebrow">01 / Mercado em expansão</p>
-                <h2 id="market-title">Um setor relevante hoje. Uma oportunidade ainda maior amanhã.</h2>
+                <p className="eyebrow">Encontre seu protocolo</p>
+                <h2 id="kits-title">O cuidado certo começa por aquilo que você sente.</h2>
               </div>
-              <p>
-                O Brasil já ocupa uma posição de destaque mundial em beleza e cuidados pessoais. Para quem atua
-                com saúde capilar, isso significa demanda, recorrência e espaço para uma oferta mais especializada.
-              </p>
-            </Reveal>
-
-            <Reveal className="market-visual">
-              <figure className="editorial-image market-image-wrap">
-                {/*
-                  DIREÇÃO DA IMAGEM MERCADO: still life conceitual 4:3 com patamares ascendentes de pedra clara,
-                  arcos de bronze, amostras de fibra capilar e frascos laboratoriais sem rótulo. A composição deve
-                  sugerir crescimento sem usar setas literais, moedas ou gráficos com números. Paleta marfim,
-                  âmbar, nogueira e bronze; iluminação de galeria; nenhum verde, texto ou marca.
-                */}
-                <Image
-                  src="/images/mercado-capilar.webp"
-                  alt="Composição conceitual em pedra e bronze representando o crescimento do mercado capilar"
-                  fill
-                  sizes="(max-width: 900px) 100vw, 52vw"
-                />
-              </figure>
-              <div className="market-note">
-                <span>Potencial com direção</span>
-                <p>Não basta entrar em um mercado aquecido. É preciso saber o que oferecer, para quem e como repor.</p>
+              <div className="heading-side">
+                <p>Identifique sua principal necessidade e conheça uma composição pensada para esse momento.</p>
+                <WhatsAppLink
+                  className="text-link"
+                  phone="5511952616077"
+                  intent="ajuda-kit-vani"
+                  message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir qual kit combina com a minha necessidade."
+                >
+                  Ainda estou em dúvida <ArrowRight size={17} aria-hidden="true" />
+                </WhatsAppLink>
               </div>
             </Reveal>
 
-            <div className="stats-row">
-              {marketStats.map((stat) => (
-                <Reveal key={stat.value} className="stat-item">
-                  <strong>{stat.value}</strong>
-                  <span>{stat.label}</span>
+            <div className="kits-grid">
+              {kits.map((kit, index) => (
+                <Reveal key={kit.title} className={`kit-item kit-${kit.accent}`}>
+                  <div className="kit-index">{String(index + 1).padStart(2, "0")}</div>
+                  <div className="kit-product">
+                    <Image src={kit.image} alt="" width={192} height={192} sizes="150px" />
+                  </div>
+                  <div className="kit-copy">
+                    <span>{kit.concern}</span>
+                    <h3>{kit.title}</h3>
+                    <p>{kit.formula}</p>
+                    <a href="https://loja.slimcap.com.br" target="_blank" rel="noopener noreferrer" aria-label={`Conhecer ${kit.title}`}>
+                      Conhecer kit <ArrowRight size={16} aria-hidden="true" />
+                    </a>
+                  </div>
                 </Reveal>
               ))}
             </div>
-            <p className="source-note">
-              Dados de mercado: {" "}
-              <a
-                href="https://abihpec.org.br/site2019/wp-content/uploads/2026/02/Panorama-do-Setor-de-Beleza-e-Cuidados-Pessoais_20.05.2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Panorama ABIHPEC 2026
-              </a>
-              {" "}e levantamento setorial de 2024.
-            </p>
           </div>
         </section>
 
-        <section id="tradicao" className="heritage-section" aria-labelledby="heritage-title">
-          <div className="shell heritage-grid">
-            <Reveal className="heritage-copy">
-              <p className="eyebrow eyebrow-light">02 / Autoridade e tradição</p>
-              <div className="heritage-number" aria-hidden="true">40</div>
-              <h2 id="heritage-title">Quatro décadas transformadas em segurança para decidir.</h2>
-              <p>
-                Nossa experiência não vive apenas na história da marca. Ela aparece na curadoria da linha, na
-                orientação técnica e na forma como acompanhamos cada parceiro.
-              </p>
-              <blockquote>
-                “Tradição, para nós, é ter repertório para indicar com responsabilidade e construir relações que
-                permanecem.”
-              </blockquote>
-            </Reveal>
-
-            <Reveal className="heritage-media">
+        <section id="metodo" className="new-phase-section" aria-labelledby="phase-title">
+          <div className="shell new-phase-grid">
+            <Reveal className="new-phase-media">
               {/*
-                DIREÇÃO DA IMAGEM TRADIÇÃO: retrato documental vertical de uma especialista brasileira experiente
-                transmitindo conhecimento a uma profissional mais jovem durante uma avaliação capilar. Consultório
-                moderno em linho, madeira nogueira e bronze, luz natural, expressão concentrada e humana. Evitar
-                jalecos hospitalares, poses publicitárias, textos, logos, plantas verdes e aparelhos futuristas.
+                SUBSTITUIR POR FOTO REAL: Cris Guerra e Vani juntas em um momento espontâneo na clínica ou
+                consultando materiais do Método Slimcap. Luz natural, enquadramento editorial, tons creme e
+                madeira. Não usar retrato gerado para representar pessoas reais da marca.
               */}
               <Image
-                src="/images/tradicao-clinica.webp"
-                alt="Especialista experiente orientando uma profissional durante uma avaliação capilar"
+                src="/images/hero-consultoria.webp"
+                alt="Ambiente de consultoria que representa a nova fase do Método Slimcap"
                 fill
-                sizes="(max-width: 900px) 100vw, 46vw"
+                sizes="(max-width: 900px) 100vw, 48vw"
               />
-              <div className="heritage-caption">
-                <span>Desde os primeiros atendimentos</span>
-                <strong>Conhecimento passado adiante.</strong>
+              <div className="media-seal" aria-hidden="true">
+                <strong>40</strong><span>anos de método</span>
+              </div>
+            </Reveal>
+            <Reveal className="new-phase-copy">
+              <p className="eyebrow">A nova fase Slimcap</p>
+              <h2 id="phase-title">O Método Slimcap evoluiu. O cuidado continua próximo.</h2>
+              <p>
+                Há mais de uma década, Cris Guerra e sua mãe, Vani, construíram juntas uma referência em tricologia
+                no interior de São Paulo. As unidades físicas cumpriram um papel importante. Agora, o método chega
+                a mais pessoas por produtos, orientação online e atendimento presencial em Piracicaba.
+              </p>
+              <p>
+                Cris segue atendendo dentro da Clínica Piellaser, com a estrutura que um acompanhamento especializado
+                exige. Para quem prefere a praticidade de casa, a linha Slimcap leva a lógica do método para a rotina.
+              </p>
+              <div className="phase-actions">
+                <a className="button button-dark" href="https://piellaser.com.br/lpslimcap" target="_blank" rel="noopener noreferrer">
+                  <Stethoscope size={18} aria-hidden="true" /> Atendimento presencial
+                </a>
+                <WhatsAppLink
+                  className="text-link"
+                  phone="5519988303434"
+                  intent="nova-fase-online"
+                  message="Olá! Gostaria de saber mais sobre a consultoria capilar online com a Cris Guerra."
+                >
+                  Prefiro atendimento online <Video size={17} aria-hidden="true" />
+                </WhatsAppLink>
               </div>
             </Reveal>
           </div>
         </section>
 
-        <section id="assessoria" className="advisory-section section-pad" aria-labelledby="advisory-title">
+        <section id="atendimento" className="method-section section-pad" aria-labelledby="method-title">
           <div className="shell">
-            <Reveal className="section-heading advisory-heading">
-              <div>
-                <p className="eyebrow">03 / Assessoria completa</p>
-                <h2 id="advisory-title">Você não recebe apenas produtos. Recebe direção.</h2>
-              </div>
+            <Reveal className="method-intro">
+              <p className="eyebrow eyebrow-light">Resultados começam com método</p>
+              <h2 id="method-title">Não existe tratamento genérico.</h2>
               <p>
-                Da escolha dos materiais à organização do mix, nossa equipe atua ao lado do seu negócio para dar
-                clareza a cada próxima decisão.
+                Um protocolo responsável respeita a história, o couro cabeludo e a rotina de cada pessoa. É essa
+                sequência que orienta a experiência Slimcap.
               </p>
             </Reveal>
+            <div className="method-steps">
+              {methodSteps.map((step) => {
+                const Icon = step.icon;
+                return (
+                  <Reveal key={step.number} className="method-step">
+                    <span>{step.number}</span>
+                    <Icon aria-hidden="true" />
+                    <h3>{step.title}</h3>
+                    <p>{step.text}</p>
+                  </Reveal>
+                );
+              })}
+            </div>
+            <div className="method-trust">
+              <span><BadgeCheck aria-hidden="true" /> Experiência construída ao longo de 40 anos</span>
+              <span><PackageCheck aria-hidden="true" /> Protocolos organizados por necessidade</span>
+              <span><HeartHandshake aria-hidden="true" /> Orientação humana antes e durante o cuidado</span>
+            </div>
+          </div>
+        </section>
 
-            <div className="advisory-grid">
-              <Reveal className="advisory-media">
-                {/*
-                  DIREÇÃO DA IMAGEM ASSESSORIA: fotografia 4:3 em ângulo superior de uma mesa de consultoria com
-                  mãos de dois profissionais, amostras capilares, câmera de análise, frascos âmbar sem rótulo,
-                  tablet e materiais neutros sendo selecionados. Mesa de nogueira e pedra clara, detalhes em
-                  bronze, composição organizada e real. Sem texto legível, marcas, verde ou estética de e-commerce.
-                */}
-                <Image
-                  src="/images/assessoria-tecnica.webp"
-                  alt="Profissionais selecionando materiais e referências durante uma assessoria técnica"
-                  fill
-                  sizes="(max-width: 900px) 100vw, 52vw"
-                />
+        <section className="vani-section" aria-labelledby="vani-title">
+          <div className="shell vani-grid">
+            <Reveal className="vani-mark" aria-hidden="true">
+              <span>V</span>
+              <small>Dicas da Vani</small>
+            </Reveal>
+            <Reveal className="vani-quote">
+              <p className="eyebrow">Cuidado que atravessa gerações</p>
+              <blockquote id="vani-title">
+                “Minha filha Cris e eu criamos esse método com muito amor e pesquisa. Se você é de Jundiaí ou de
+                qualquer lugar, pode me perguntar sem cerimônia. Eu te ajudo a escolher o que é certo para o seu cabelo.”
+              </blockquote>
+              <div className="vani-actions">
+                <WhatsAppLink
+                  className="button button-primary"
+                  phone="5511952616077"
+                  intent="dicas-vani"
+                  message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para escolher meu kit."
+                >
+                  <MessageCircle size={19} aria-hidden="true" /> Falar com a Vani
+                </WhatsAppLink>
+                <a className="text-link" href="#kits">Descobrir meu kit ideal <ArrowRight size={17} aria-hidden="true" /></a>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section id="profissionais" className="professional-section section-pad" aria-labelledby="professional-title">
+          <div className="shell professional-grid">
+            <Reveal className="professional-copy">
+              <p className="eyebrow eyebrow-light">Slimcap para profissionais</p>
+              <h2 id="professional-title">Uma linha pronta para fortalecer o seu atendimento.</h2>
+              <p>
+                Clínicas, salões, farmácias, revendedores e distribuidores recebem mais do que produtos: orientação
+                de mix, materiais de apoio e direção comercial para construir recorrência com responsabilidade.
+              </p>
+              <div className="professional-benefits">
+                <span><Check aria-hidden="true" /> Seleção de mix por canal</span>
+                <span><Check aria-hidden="true" /> Materiais e treinamento</span>
+                <span><Check aria-hidden="true" /> Apoio técnico e comercial</span>
+                <span><Check aria-hidden="true" /> Estratégia de reposição</span>
+              </div>
+              <WhatsAppLink
+                className="button button-gold"
+                intent="parceria-b2b"
+                message="Olá! Quero conhecer as condições para ser parceiro ou revendedor Slimcapilar."
+              >
+                <Store size={19} aria-hidden="true" /> Quero ser parceiro Slimcap
+              </WhatsAppLink>
+            </Reveal>
+            <Reveal className="professional-media">
+              <Image
+                src="/images/assessoria-tecnica.webp"
+                alt="Seleção técnica de materiais durante uma assessoria Slimcap"
+                fill
+                sizes="(max-width: 900px) 100vw, 48vw"
+              />
+              <div className="professional-note">
+                <strong>3º</strong>
+                <span>maior mercado consumidor de beleza e cuidados pessoais</span>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <section id="duvidas" className="faq-section section-pad" aria-labelledby="faq-title">
+          <div className="shell faq-grid">
+            <Reveal className="faq-intro">
+              <p className="eyebrow">Dúvidas frequentes</p>
+              <h2 id="faq-title">Clareza também faz parte do cuidado.</h2>
+              <p>Reunimos as respostas essenciais para você escolher seu próximo passo com mais segurança.</p>
+              <WhatsAppLink className="text-link" intent="faq">
+                Falar com a equipe <MessageCircle size={17} aria-hidden="true" />
+              </WhatsAppLink>
+            </Reveal>
+            <div className="faq-list">
+              {faq.map((item) => (
+                <Reveal key={item.question}>
+                  <details>
+                    <summary>
+                      {item.question}<ChevronDown aria-hidden="true" />
+                    </summary>
+                    <p>{item.answer}</p>
+                  </details>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="journal-section section-pad" aria-labelledby="journal-title">
+          <div className="shell">
+            <Reveal className="journal-heading">
+              <div>
+                <p className="eyebrow">Conteúdo Slimcap</p>
+                <h2 id="journal-title">Terapia capilar integrativa em casa.</h2>
+              </div>
+              <p>Conhecimento sobre tricologia, queda capilar, protocolos home care e os cuidados do Método Slimcap.</p>
+            </Reveal>
+            <div className="journal-grid">
+              <Reveal className="journal-feature">
+                <Image src="/images/tradicao-clinica.webp" alt="Avaliação profissional do couro cabeludo" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                <div><span>Guia de cuidado</span><h3>Queda capilar: quando observar e quando buscar orientação.</h3></div>
               </Reveal>
-
-              <div className="advisory-list">
-                {advisorySteps.map((step) => {
-                  const Icon = step.icon;
-                  return (
-                    <Reveal key={step.number} className="advisory-item">
-                      <span className="advisory-number">{step.number}</span>
-                      <Icon aria-hidden="true" />
-                      <div>
-                        <h3>{step.title}</h3>
-                        <p>{step.text}</p>
-                      </div>
-                    </Reveal>
-                  );
-                })}
+              <div className="journal-list">
+                <Reveal className="journal-item"><BookOpen aria-hidden="true" /><div><span>Rotina em casa</span><h3>Como manter a constância de um protocolo capilar.</h3></div></Reveal>
+                <Reveal className="journal-item"><Sparkles aria-hidden="true" /><div><span>Couro cabeludo</span><h3>Caspa, oleosidade e sensibilidade não são a mesma coisa.</h3></div></Reveal>
+                <Reveal className="journal-item"><Boxes aria-hidden="true" /><div><span>Escolha consciente</span><h3>O que considerar antes de montar seu kit de cuidados.</h3></div></Reveal>
               </div>
             </div>
           </div>
@@ -238,14 +364,17 @@ export default function Home() {
         <section className="conversion-section" aria-labelledby="conversion-title">
           <div className="shell conversion-inner">
             <div>
-              <p className="eyebrow eyebrow-light">O próximo passo começa em uma conversa</p>
-              <h2 id="conversion-title">Vamos entender o potencial do seu negócio?</h2>
+              <p className="eyebrow eyebrow-light">Seu próximo passo pode ser simples</p>
+              <h2 id="conversion-title">Comece pelo cuidado que faz sentido para você.</h2>
             </div>
             <div className="conversion-action">
-              <p>Fale diretamente com a equipe Slimcapilar e receba uma orientação inicial para o seu canal.</p>
-              <WhatsAppLink className="button button-gold" intent="cta-final">
-                Chamar no WhatsApp <ArrowRight size={20} aria-hidden="true" />
-              </WhatsAppLink>
+              <p>Escolha um kit ou converse com a equipe para receber orientação antes de decidir.</p>
+              <div className="conversion-buttons">
+                <a className="button button-gold" href="https://loja.slimcap.com.br" target="_blank" rel="noopener noreferrer">
+                  Escolher meu kit <ArrowRight size={19} aria-hidden="true" />
+                </a>
+                <WhatsAppLink className="button button-outline-light" intent="cta-final">Falar com a Slimcap</WhatsAppLink>
+              </div>
             </div>
           </div>
         </section>
@@ -254,19 +383,12 @@ export default function Home() {
       <footer className="site-footer">
         <div className="shell footer-main">
           <Image src="/brand/logo-slimcapilar.webp" alt="Slimcapilar" width={255} height={83} />
-          <p>Experiência, linha profissional e assessoria para o mercado capilar.</p>
-          <WhatsAppLink className="footer-contact" intent="rodape">
-            <MessageCircle size={18} aria-hidden="true" /> +55 19 98844-2477
-          </WhatsAppLink>
+          <p>Terapia capilar integrativa, produtos e orientação construídos com quatro décadas de experiência.</p>
+          <WhatsAppLink className="footer-contact" intent="rodape"><MessageCircle size={18} aria-hidden="true" /> +55 19 98844-2477</WhatsAppLink>
         </div>
         <div className="shell footer-bottom">
           <span>© {new Date().getFullYear()} Slimcapilar. Todos os direitos reservados.</span>
-          <span>
-            Site desenvolvido por {" "}
-            <a href="https://vocedigitalpropaganda.com.br/" target="_blank" rel="noopener noreferrer">
-              Você Digital Propaganda
-            </a>
-          </span>
+          <span>Site desenvolvido por <a href="https://vocedigitalpropaganda.com.br/" target="_blank" rel="noopener noreferrer">Você Digital Propaganda</a></span>
         </div>
       </footer>
       <FloatingActions />

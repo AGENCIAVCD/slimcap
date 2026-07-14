@@ -16,16 +16,18 @@ type WhatsAppLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
   message?: string;
   intent?: string;
+  phone?: string;
 };
 
 export function WhatsAppLink({
   children,
   message = DEFAULT_MESSAGE,
   intent = "site",
+  phone = WHATSAPP_NUMBER,
   onClick,
   ...props
 }: WhatsAppLinkProps) {
-  const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  const href = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
   function handleClick(event: MouseEvent<HTMLAnchorElement>) {
     window.dataLayer = window.dataLayer || [];
