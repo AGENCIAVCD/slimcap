@@ -174,18 +174,17 @@ export default function Home() {
           <div className="shell new-phase-grid">
             <Reveal className="new-phase-media">
               {/*
-                SUBSTITUIR POR FOTO REAL: Cris Guerra e Vani juntas em um momento espontâneo na clínica ou
-                consultando materiais do Método Slimcap. Luz natural, enquadramento editorial, tons creme e
-                madeira. Não usar retrato gerado para representar pessoas reais da marca.
+                Imagem oficial da Vani no universo visual Slimcap. O enquadramento deve manter a personagem
+                inteira visível no desktop e preservar rosto, produtos e assinatura da clínica no mobile.
               */}
               <Image
-                src="/images/hero-consultoria.webp"
-                alt="Ambiente de consultoria que representa a nova fase do Método Slimcap"
+                src="/images/vani-clinica.webp"
+                alt="Vani, pioneira do Método Slimcap, apresentando produtos da linha"
                 fill
                 sizes="(max-width: 900px) 100vw, 48vw"
               />
               <div className="media-seal" aria-hidden="true">
-                <strong>40</strong><span>anos de método</span>
+                <strong>Vani</strong><span>Pioneira e alma do método</span>
               </div>
             </Reveal>
             <Reveal className="new-phase-copy">
@@ -250,8 +249,13 @@ export default function Home() {
 
         <section className="vani-section" aria-labelledby="vani-title">
           <div className="shell vani-grid">
-            <Reveal className="vani-mark" aria-hidden="true">
-              <span>V</span>
+            <Reveal className="vani-portrait">
+              <Image
+                src="/images/vani-aceno.webp"
+                alt="Vani sorrindo e cumprimentando quem visita o espaço Slimcap"
+                fill
+                sizes="(max-width: 640px) 90vw, 340px"
+              />
               <small>Dicas da Vani</small>
             </Reveal>
             <Reveal className="vani-quote">
