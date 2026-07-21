@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
@@ -294,13 +295,9 @@ export default function Home() {
                 <span><Check aria-hidden="true" /> Apoio técnico e comercial</span>
                 <span><Check aria-hidden="true" /> Estratégia de reposição</span>
               </div>
-              <WhatsAppLink
-                className="button button-gold"
-                intent="parceria-b2b"
-                message="Olá! Quero conhecer as condições para ser parceiro ou revendedor Slimcapilar."
-              >
-                <Store size={19} aria-hidden="true" /> Quero ser parceiro Slimcap
-              </WhatsAppLink>
+              <Link className="button button-gold" href="/revenda">
+                <Store size={19} aria-hidden="true" /> Conhecer programa de revenda
+              </Link>
             </Reveal>
             <Reveal className="professional-media">
               <Image

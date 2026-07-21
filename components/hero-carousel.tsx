@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowLeft, ArrowRight, MessageCircle, Pause, Play, Store } from "lucide-react";
 import { useEffect, useState } from "react";
 import { WhatsAppLink } from "./whatsapp-link";
@@ -50,7 +51,7 @@ const slides = [
     text: "Linha profissional, orientação técnica, materiais de apoio e condições comerciais para o seu negócio.",
     image: "/images/assessoria-tecnica.webp",
     alt: "Assessoria técnica para profissionais de saúde e beleza capilar",
-    href: "#profissionais",
+    href: "/revenda",
     cta: "Conhecer a parceria",
     type: "link" as const,
   },
@@ -107,6 +108,14 @@ export function HeroCarousel() {
               >
                 <MessageCircle size={19} aria-hidden="true" /> {slide.cta}
               </WhatsAppLink>
+            ) : slide.href?.startsWith("/") ? (
+              <Link
+                className="button button-primary"
+                href={slide.href}
+                tabIndex={position === active ? 0 : -1}
+              >
+                {slide.cta} <ArrowRight size={18} aria-hidden="true" />
+              </Link>
             ) : (
               <a
                 className="button button-primary"

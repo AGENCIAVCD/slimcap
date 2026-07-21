@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Menu, Sparkles, X } from "lucide-react";
 import { useState } from "react";
 import { WhatsAppLink } from "./whatsapp-link";
@@ -9,7 +10,7 @@ const navItems = [
   { href: "#kits", label: "Encontre seu kit" },
   { href: "#metodo", label: "Método Slimcap" },
   { href: "#atendimento", label: "Atendimento" },
-  { href: "#profissionais", label: "Profissionais" },
+  { href: "/revenda", label: "Profissionais" },
   { href: "#duvidas", label: "Dúvidas" },
 ];
 
@@ -30,10 +31,10 @@ export function SiteHeader() {
         </a>
 
         <nav className="desktop-nav" aria-label="Navegação principal">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
+          {navItems.map((item) => item.href.startsWith("/") ? (
+            <Link key={item.href} href={item.href}>{item.label}</Link>
+          ) : (
+            <a key={item.href} href={item.href}>{item.label}</a>
           ))}
         </nav>
 
@@ -60,10 +61,10 @@ export function SiteHeader() {
 
       <div className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
         <nav aria-label="Navegação móvel">
-          {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>
-              {item.label}
-            </a>
+          {navItems.map((item) => item.href.startsWith("/") ? (
+            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
+          ) : (
+            <a key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>
           ))}
           <WhatsAppLink
             className="mobile-menu-cta"
