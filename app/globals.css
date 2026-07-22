@@ -540,7 +540,7 @@ img { display: block; }
   overflow: hidden;
   background: var(--sand);
 }
-.new-phase-media > img { object-fit: cover; object-position: 34% center; }
+.new-phase-media > img { object-fit: cover; object-position: center 27%; }
 
 .media-seal {
   position: absolute;
@@ -558,6 +558,8 @@ img { display: block; }
 }
 .media-seal strong { color: #e7bf8d; font-family: var(--font-display), Georgia, serif; font-size: 48px; line-height: 1; }
 .media-seal span { font-size: 10px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.media-seal-duo { width: 276px; }
+.media-seal-duo strong { font-size: 39px; white-space: nowrap; }
 
 .new-phase-copy > p:not(.eyebrow) {
   margin: 28px 0 0;
@@ -1118,6 +1120,9 @@ img { display: block; }
   .professional-media { min-height: 490px; }
   .media-seal { right: 12px; bottom: 12px; width: 194px; padding: 14px 17px; }
   .media-seal strong { font-size: 40px; }
+  .new-phase-media > img { object-position: center 24%; }
+  .media-seal-duo { width: 220px; }
+  .media-seal-duo strong { font-size: 31px; }
   .new-phase-copy > p:not(.eyebrow),
   .professional-copy > p:not(.eyebrow) { margin-top: 22px; font-size: 13px; line-height: 1.7; }
   .phase-actions,

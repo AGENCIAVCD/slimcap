@@ -174,18 +174,14 @@ export default function Home() {
         <section id="metodo" className="new-phase-section" aria-labelledby="phase-title">
           <div className="shell new-phase-grid">
             <Reveal className="new-phase-media">
-              {/*
-                Imagem oficial da Vani no universo visual Slimcap. O enquadramento deve manter a personagem
-                inteira visível no desktop e preservar rosto, produtos e assinatura da clínica no mobile.
-              */}
               <Image
-                src="/images/vani-clinica.webp"
-                alt="Vani, pioneira do Método Slimcap, apresentando produtos da linha"
+                src="/images/cris-e-vani.webp"
+                alt="Cris Guerra e Vani, duas gerações do Método Slimcap"
                 fill
                 sizes="(max-width: 900px) 100vw, 48vw"
               />
-              <div className="media-seal" aria-hidden="true">
-                <strong>Vani</strong><span>Pioneira e alma do método</span>
+              <div className="media-seal media-seal-duo" aria-hidden="true">
+                <strong>Cris &amp; Vani</strong><span>Duas gerações do método</span>
               </div>
             </Reveal>
             <Reveal className="new-phase-copy">
