@@ -23,7 +23,7 @@ const resellerProducts = [
     referenceCost: 56.43,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/shampoo-revitalizante.webp",
+    image: "/produtos/transparente/shampoo-revitalizante.png",
   },
   {
     id: "condicionador",
@@ -33,7 +33,7 @@ const resellerProducts = [
     referenceCost: 45,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/condicionador.webp",
+    image: "/produtos/transparente/condicionador.png",
   },
   {
     id: "locao",
@@ -43,7 +43,7 @@ const resellerProducts = [
     referenceCost: 49.29,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/locao-tonica.webp",
+    image: "/produtos/transparente/locao-tonica.png",
   },
   {
     id: "mascara",
@@ -53,7 +53,7 @@ const resellerProducts = [
     referenceCost: 38.57,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/mascara-capilar.webp",
+    image: "/produtos/transparente/mascara-capilar.png",
   },
   {
     id: "esfoliante",
@@ -63,7 +63,7 @@ const resellerProducts = [
     referenceCost: 27.86,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/gerados/esfoliante.png",
+    image: "/produtos/transparente/esfoliante.png",
   },
   {
     id: "kits",
@@ -73,12 +73,12 @@ const resellerProducts = [
     referenceCost: 215.54,
     unit: "kits",
     ticketLabel: "kit",
-    image: "/produtos/shampoo-revitalizante.webp",
+    image: "/produtos/transparente/kit-antiqueda.png",
     images: [
-      "/produtos/shampoo-revitalizante.webp",
-      "/produtos/condicionador.webp",
-      "/produtos/locao-tonica.webp",
-      "/produtos/mascara-capilar.webp",
+      "/produtos/transparente/shampoo-revitalizante.png",
+      "/produtos/transparente/condicionador.png",
+      "/produtos/transparente/locao-tonica.png",
+      "/produtos/transparente/mascara-capilar.png",
     ],
   },
 ] as const;
