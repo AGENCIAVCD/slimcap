@@ -29,56 +29,87 @@ const kits = [
     concern: "Eflúvio telógeno",
     title: "Queda após parto, emagrecimento ou dengue",
     formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
-    image: "/produtos/gerados/locao-tonica.png",
+    products: [
+      "/produtos/gerados/esfoliante.png",
+      "/produtos/gerados/shampoo-revitalizante.png",
+      "/produtos/gerados/locao-tonica.png",
+    ],
     accent: "terracotta",
   },
   {
     concern: "Protocolo de 3 meses",
     title: "Queda, calvície e alopecias",
     formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
-    image: "/produtos/gerados/shampoo-revitalizante.png",
+    products: [
+      "/produtos/gerados/esfoliante.png",
+      "/produtos/gerados/shampoo-revitalizante.png",
+      "/produtos/gerados/locao-tonica.png",
+    ],
     accent: "bronze",
   },
   {
     concern: "Equilíbrio do couro cabeludo",
     title: "Caspa, dermatite seborreica e coceira",
     formula: "Loção A · Shampoo anticaspa · Loção calmante",
-    image: "/produtos/gerados/shampoo-anticaspa.png",
+    products: [
+      "/produtos/gerados/shampoo-anticaspa.png",
+      "/produtos/gerados/locao-tonica.png",
+    ],
     accent: "amber",
   },
   {
     concern: "Hidratação e maciez",
     title: "Kit nutrição completa",
     formula: "Shampoo · Máscara · Condicionador · Leave-in",
-    image: "/produtos/gerados/mascara-capilar.png",
+    products: [
+      "/produtos/gerados/shampoo-revitalizante.png",
+      "/produtos/gerados/mascara-capilar.png",
+      "/produtos/gerados/condicionador.png",
+      "/produtos/gerados/leave-in.png",
+    ],
     accent: "rose",
   },
   {
     concern: "Protocolo de 3 meses",
     title: "Crescimento saudável e reparação",
     formula: "Tratamento completo do couro cabeludo aos fios",
-    image: "/produtos/gerados/condicionador.png",
+    products: [
+      "/produtos/gerados/esfoliante.png",
+      "/produtos/gerados/shampoo-revitalizante.png",
+      "/produtos/gerados/condicionador.png",
+      "/produtos/gerados/locao-tonica.png",
+    ],
     accent: "cocoa",
   },
   {
     concern: "Cuidado delicado",
     title: "Cabelos infantis",
     formula: "Esfoliante · Shampoo hidratante",
-    image: "/produtos/gerados/leave-in.png",
+    products: [
+      "/produtos/gerados/esfoliante.png",
+      "/produtos/gerados/shampoo-revitalizante.png",
+    ],
     accent: "sand",
   },
   {
     concern: "Reparação dos fios",
     title: "Nutrição intensiva",
     formula: "Máscara nutrirreparadora · Leave-in",
-    image: "/produtos/gerados/mascara-capilar.png",
+    products: [
+      "/produtos/gerados/mascara-capilar.png",
+      "/produtos/gerados/leave-in.png",
+    ],
     accent: "clay",
   },
   {
     concern: "Limpeza profunda",
     title: "Kit detox",
     formula: "Loção A · Shampoo revitalizante",
-    image: "/produtos/gerados/shampoo-revitalizante.png",
+    products: [
+      "/produtos/gerados/esfoliante.png",
+      "/produtos/gerados/shampoo-revitalizante.png",
+      "/produtos/gerados/locao-tonica.png",
+    ],
     accent: "gold",
   },
 ];
@@ -154,8 +185,10 @@ export default function Home() {
               {kits.map((kit, index) => (
                 <Reveal key={kit.title} className={`kit-item kit-${kit.accent}`}>
                   <div className="kit-index">{String(index + 1).padStart(2, "0")}</div>
-                  <div className="kit-product">
-                    <Image src={kit.image} alt={kit.title} width={192} height={192} sizes="150px" />
+                  <div className={`kit-product kit-product-${kit.products.length}`} aria-label={`Produtos do ${kit.title}`}>
+                    {kit.products.map((product, productIndex) => (
+                      <Image key={`${kit.title}-${productIndex}`} src={product} alt="" width={192} height={192} sizes="(max-width: 640px) 80px, 100px" />
+                    ))}
                   </div>
                   <div className="kit-copy">
                     <span>{kit.concern}</span>
