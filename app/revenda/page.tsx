@@ -7,6 +7,7 @@ import {
   BadgeCheck,
   Boxes,
   Building2,
+  Camera,
   ChartNoAxesCombined,
   Check,
   ChevronDown,
@@ -14,6 +15,7 @@ import {
   Gem,
   Headphones,
   MessageCircle,
+  Music2,
   PackageCheck,
   RefreshCw,
   ShieldCheck,
@@ -378,6 +380,10 @@ export default function ResellerPage() {
         <div className="shell reseller-footer-inner">
           <Image src="/brand/logo-slimcapilar.webp" alt="Slimcap" width={255} height={83} />
           <p>Produtos para vender hoje, suporte para repor melhor e margem para crescer.</p>
+          <div className="reseller-footer-social" aria-label="Redes sociais da Slimcap">
+            <a href="https://www.instagram.com/slimcap.clinicacapilar/" target="_blank" rel="noopener noreferrer" aria-label="Seguir Slimcap no Instagram"><Camera aria-hidden="true" /><span>Instagram</span></a>
+            <a href="https://www.tiktok.com/@slimcap.capilar" target="_blank" rel="noopener noreferrer" aria-label="Seguir Slimcap no TikTok"><Music2 aria-hidden="true" /><span>TikTok</span></a>
+          </div>
           <Link href="/">Voltar ao site Slimcap <ArrowRight size={15} aria-hidden="true" /></Link>
         </div>
       </footer>
