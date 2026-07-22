@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, Sparkles, X } from "lucide-react";
 import { useState } from "react";
-import { WhatsAppLink } from "./whatsapp-link";
+import { CLINIC_WHATSAPP, WhatsAppLink } from "./whatsapp-link";
 
 const navItems = [
   { href: "#kits", label: "Encontre seu kit" },
@@ -41,7 +41,7 @@ export function SiteHeader() {
         <WhatsAppLink
           className="header-cta"
           intent="header-kit"
-          phone="5511952616077"
+          phone={CLINIC_WHATSAPP}
           message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir meu kit ideal."
         >
           <Sparkles size={17} aria-hidden="true" />
@@ -69,7 +69,7 @@ export function SiteHeader() {
           <WhatsAppLink
             className="mobile-menu-cta"
             intent="menu-mobile"
-            phone="5511952616077"
+            phone={CLINIC_WHATSAPP}
             message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir meu kit ideal."
           >
             Conversar no WhatsApp

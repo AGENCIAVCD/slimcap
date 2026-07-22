@@ -27,7 +27,7 @@ import {
 import { FloatingActions } from "@/components/floating-actions";
 import { ResellerCalculator } from "@/components/reseller-calculator";
 import { Reveal } from "@/components/reveal";
-import { WhatsAppLink } from "@/components/whatsapp-link";
+import { RESELLER_WHATSAPP, WhatsAppLink } from "@/components/whatsapp-link";
 
 export const metadata: Metadata = {
   title: "Seja revendedor | Margens de até 50%",
@@ -154,7 +154,7 @@ export default function ResellerPage() {
             <a href="#canais">Para quem</a>
             <a href="#suporte">Suporte</a>
           </nav>
-          <WhatsAppLink className="reseller-header-cta" intent="revenda-header" message={resellerMessage}>
+          <WhatsAppLink className="reseller-header-cta" intent="revenda-header" message={resellerMessage} phone={RESELLER_WHATSAPP}>
             <MessageCircle size={17} aria-hidden="true" /> Receber proposta
           </WhatsAppLink>
         </div>
@@ -182,7 +182,7 @@ export default function ResellerPage() {
               <a href="#simulador" className="button button-gold">
                 Calcular minha margem <ChartNoAxesCombined size={19} aria-hidden="true" />
               </a>
-              <WhatsAppLink className="reseller-hero-link" intent="revenda-hero" message={resellerMessage}>
+              <WhatsAppLink className="reseller-hero-link" intent="revenda-hero" message={resellerMessage} phone={RESELLER_WHATSAPP}>
                 Falar com consultor B2B <ArrowRight size={17} aria-hidden="true" />
               </WhatsAppLink>
             </div>
@@ -245,7 +245,7 @@ export default function ResellerPage() {
             <Reveal className="reseller-tier-cta">
               <span className="tier-cta-icon"><ChartNoAxesCombined aria-hidden="true" /></span>
               <div><strong>Mais investimento, mais retorno.</strong><p>Escale suas compras e aumente sua lucratividade.</p></div>
-              <WhatsAppLink intent="faixas-comerciais" message={resellerMessage}>
+              <WhatsAppLink intent="faixas-comerciais" message={resellerMessage} phone={RESELLER_WHATSAPP}>
                 Falar com um especialista <ArrowRight aria-hidden="true" />
               </WhatsAppLink>
             </Reveal>
@@ -350,7 +350,7 @@ export default function ResellerPage() {
             <Reveal className="reseller-faq-intro">
               <p className="eyebrow">Decida com segurança</p>
               <h2 id="reseller-faq-title">Dúvidas antes de investir?</h2>
-              <WhatsAppLink className="text-link" intent="revenda-faq" message={resellerMessage}>Tirar dúvida com um consultor <MessageCircle size={17} aria-hidden="true" /></WhatsAppLink>
+              <WhatsAppLink className="text-link" intent="revenda-faq" message={resellerMessage} phone={RESELLER_WHATSAPP}>Tirar dúvida com um consultor <MessageCircle size={17} aria-hidden="true" /></WhatsAppLink>
             </Reveal>
             <div className="reseller-faq-list">
               {faq.map((item) => (
@@ -369,7 +369,7 @@ export default function ResellerPage() {
             <p className="eyebrow eyebrow-light">Seu próximo canal de receita</p>
             <h2 id="reseller-final-title">Comece com um pedido pensado <em>para vender e voltar a vender.</em></h2>
             <p>Converse com o time comercial e receba uma sugestão de mix alinhada ao seu canal e investimento.</p>
-            <WhatsAppLink className="button button-gold" intent="revenda-final" message={resellerMessage}>
+            <WhatsAppLink className="button button-gold" intent="revenda-final" message={resellerMessage} phone={RESELLER_WHATSAPP}>
               Quero uma proposta de revenda <ArrowRight size={18} aria-hidden="true" />
             </WhatsAppLink>
           </div>
@@ -384,10 +384,12 @@ export default function ResellerPage() {
             <a href="https://www.instagram.com/slimcap.clinicacapilar/" target="_blank" rel="noopener noreferrer" aria-label="Seguir Slimcap no Instagram"><Camera aria-hidden="true" /><span>Instagram</span></a>
             <a href="https://www.tiktok.com/@slimcap.capilar" target="_blank" rel="noopener noreferrer" aria-label="Seguir Slimcap no TikTok"><Music2 aria-hidden="true" /><span>TikTok</span></a>
           </div>
-          <Link href="/">Voltar ao site Slimcap <ArrowRight size={15} aria-hidden="true" /></Link>
+          <WhatsAppLink className="reseller-footer-contact" intent="revenda-rodape" message={resellerMessage} phone={RESELLER_WHATSAPP}>
+            <MessageCircle size={16} aria-hidden="true" /> (11) 95261-6077
+          </WhatsAppLink>
         </div>
       </footer>
-      <FloatingActions intent="revenda-flutuante" message={resellerMessage} />
+      <FloatingActions intent="revenda-flutuante" message={resellerMessage} phone={RESELLER_WHATSAPP} />
     </div>
   );
 }

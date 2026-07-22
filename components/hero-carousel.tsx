@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, CirclePlay, MessageCircle, Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
-import { WhatsAppLink } from "./whatsapp-link";
+import { CLINIC_WHATSAPP, WhatsAppLink } from "./whatsapp-link";
 
 const slides = [
   {
@@ -32,7 +32,7 @@ const slides = [
     alt: "Especialista orientando uma cliente durante uma consultoria capilar",
     cta: "Agendar consultoria",
     type: "whatsapp" as const,
-    phone: "5519988303434",
+    phone: CLINIC_WHATSAPP,
   },
   {
     id: "presencial",

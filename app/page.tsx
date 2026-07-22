@@ -24,7 +24,7 @@ import { FloatingActions } from "@/components/floating-actions";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { Reveal } from "@/components/reveal";
 import { SiteHeader } from "@/components/site-header";
-import { WhatsAppLink } from "@/components/whatsapp-link";
+import { CLINIC_WHATSAPP, WhatsAppLink } from "@/components/whatsapp-link";
 
 const kits = [
   {
@@ -174,7 +174,7 @@ export default function Home() {
                 <p>Identifique sua principal necessidade e conheça uma composição pensada para esse momento.</p>
                 <WhatsAppLink
                   className="text-link"
-                  phone="5511952616077"
+                  phone={CLINIC_WHATSAPP}
                   intent="ajuda-kit-vani"
                   message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir qual kit combina com a minha necessidade."
                 >
@@ -238,7 +238,7 @@ export default function Home() {
                 </a>
                 <WhatsAppLink
                   className="text-link"
-                  phone="5519988303434"
+                  phone={CLINIC_WHATSAPP}
                   intent="nova-fase-online"
                   message="Olá! Gostaria de saber mais sobre a consultoria capilar online com a Cris Guerra."
                 >
@@ -300,7 +300,7 @@ export default function Home() {
               <div className="vani-actions">
                 <WhatsAppLink
                   className="button button-primary"
-                  phone="5511952616077"
+                  phone={CLINIC_WHATSAPP}
                   intent="dicas-vani"
                   message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para escolher meu kit."
                 >
@@ -425,7 +425,7 @@ export default function Home() {
               <Music2 size={17} aria-hidden="true" /><span>TikTok</span>
             </a>
           </div>
-          <WhatsAppLink className="footer-contact" intent="rodape"><MessageCircle size={18} aria-hidden="true" /> +55 19 98844-2477</WhatsAppLink>
+          <WhatsAppLink className="footer-contact" intent="rodape" phone={CLINIC_WHATSAPP}><MessageCircle size={18} aria-hidden="true" /> (19) 98830-3434</WhatsAppLink>
         </div>
         <div className="shell footer-bottom">
           <span>© {new Date().getFullYear()} Slimcapilar. Todos os direitos reservados.</span>

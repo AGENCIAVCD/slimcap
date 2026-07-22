@@ -8,9 +8,10 @@ declare global {
   }
 }
 
-const WHATSAPP_NUMBER = "5519988442477";
+export const CLINIC_WHATSAPP = "5519988303434";
+export const RESELLER_WHATSAPP = "5511952616077";
 const DEFAULT_MESSAGE =
-  "Olá! Conheci a Slimcapilar pelo site e gostaria de entender as condições comerciais para o meu negócio.";
+  "Olá! Conheci a Slimcap pelo site e gostaria de receber orientação.";
 
 type WhatsAppLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   children: ReactNode;
@@ -23,7 +24,7 @@ export function WhatsAppLink({
   children,
   message = DEFAULT_MESSAGE,
   intent = "site",
-  phone = WHATSAPP_NUMBER,
+  phone = CLINIC_WHATSAPP,
   onClick,
   ...props
 }: WhatsAppLinkProps) {

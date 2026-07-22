@@ -981,6 +981,7 @@ img { display: block; }
 .reseller-footer-social a:hover,
 .reseller-footer-social a:focus-visible { color: #e1b77f; }
 .reseller-footer-social svg { width: 17px; }
+.reseller-footer-contact { display: inline-flex; align-items: center; gap: 7px; color: #e1b77f; font-size: 11px; font-weight: 800; }
 
 @keyframes riseIn { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes softPulse { 0% { opacity: .5; transform: scale(1); } 75%, 100% { opacity: 0; transform: scale(1.18); } }

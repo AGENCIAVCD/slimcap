@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight, Check, MessageCircle, PackageOpen, TrendingUp } from "lucide-react";
 import { useState, type CSSProperties } from "react";
-import { WhatsAppLink } from "./whatsapp-link";
+import { RESELLER_WHATSAPP, WhatsAppLink } from "./whatsapp-link";
 
 const MIN_INVESTMENT = 1500;
 const MAX_INVESTMENT = 10000;
@@ -186,7 +186,7 @@ export function ResellerCalculator() {
             )}
           </div>
 
-          <WhatsAppLink className="button button-dark calculator-whatsapp" intent="simulador-revenda" message={message}>
+          <WhatsAppLink className="button button-dark calculator-whatsapp" intent="simulador-revenda" message={message} phone={RESELLER_WHATSAPP}>
             <MessageCircle size={19} aria-hidden="true" />
             Quero uma proposta com este mix
             <ArrowRight size={18} aria-hidden="true" />

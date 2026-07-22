@@ -7,9 +7,10 @@ import { WhatsAppLink } from "./whatsapp-link";
 type FloatingActionsProps = {
   intent?: string;
   message?: string;
+  phone?: string;
 };
 
-export function FloatingActions({ intent = "flutuante", message }: FloatingActionsProps = {}) {
+export function FloatingActions({ intent = "flutuante", message, phone }: FloatingActionsProps = {}) {
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ export function FloatingActions({ intent = "flutuante", message }: FloatingActio
         className="floating-whatsapp"
         intent={intent}
         message={message}
+        phone={phone}
         aria-label="Falar com a Slimcapilar pelo WhatsApp"
       >
         <MessageCircle aria-hidden="true" />
