@@ -163,8 +163,8 @@ export default function ResellerPage() {
       <main>
         <section className="reseller-hero" aria-labelledby="reseller-title">
           <Image
-            src="/images/revenda-hero-real.webp"
-            alt="Consultora e proprietária de clínica analisam uma proposta ao lado da linha Slimcap"
+            src="/images/revenda-hero-cris.png"
+            alt="Cris Guerra apresenta a linha Slimcap em uma consultoria comercial para parceiros"
             fill
             priority
             sizes="100vw"
@@ -269,8 +269,8 @@ export default function ResellerPage() {
             </Reveal>
             <Reveal className="reseller-giro-media">
               <Image
-                src="/images/revenda-giro-real.webp"
-                alt="Proprietária de loja organiza o estoque e a exposição dos produtos Slimcap"
+                src="/images/revenda-giro-cris.png"
+                alt="Cris Guerra orienta a organização da linha Slimcap para giro e reposição"
                 fill
                 sizes="(max-width: 900px) 100vw, 58vw"
               />
