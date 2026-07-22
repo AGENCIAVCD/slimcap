@@ -217,6 +217,7 @@ img { display: block; }
 
 .header-cta:hover,
 .header-cta:focus-visible { background: rgba(45,28,21,.78); border-color: #e7bf8d; }
+.header-cta { border-radius: 999px; }
 
 .menu-button,
 .mobile-menu { display: none; }
@@ -297,13 +298,14 @@ img { display: block; }
 .hero-eyebrow { color: #edcfaa; }
 
 .hero-slide-content h1 {
-  max-width: 790px;
+  max-width: 760px;
   margin: 0;
   font-family: var(--font-display), Georgia, serif;
-  font-size: 74px;
+  font-size: 72px;
   font-weight: 600;
-  line-height: .96;
+  line-height: 1;
 }
+.hero-slide-content h1 em { background: linear-gradient(105deg,#f4d0a0,#bd7240 55%,#edbd81); background-clip: text; color: transparent; font-family: var(--font-accent), var(--font-display), Georgia, serif; font-weight: 500; font-style: italic; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
 .hero-slide-content > p:not(.eyebrow) {
   max-width: 620px;
@@ -312,6 +314,11 @@ img { display: block; }
   font-size: 17px;
   line-height: 1.7;
 }
+.hero-actions { display: flex; align-items: center; gap: 18px; }
+.hero-actions .button { border-radius: 999px; }
+.hero-secondary-action { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 25px; border: 1px solid rgba(255,255,255,.32); border-radius: 999px; color: rgba(255,255,255,.92); font-size: 13px; font-weight: 800; transition: border-color 180ms ease, background 180ms ease, transform 180ms ease; }
+.hero-secondary-action:hover,
+.hero-secondary-action:focus-visible { border-color: #e7bf8d; background: rgba(35,20,13,.42); transform: translateY(-2px); }
 
 .hero-controls {
   position: absolute;
@@ -1092,9 +1099,11 @@ img { display: block; }
   .hero-slide-overlay,
   .hero-slide-produtos .hero-slide-overlay { background: linear-gradient(0deg, rgba(35,20,14,.97) 0%, rgba(39,23,16,.8) 58%, rgba(39,23,16,.26) 100%); }
   .hero-slide-content { justify-content: flex-end; padding-top: 108px; padding-bottom: 126px; }
-  .hero-slide-content h1 { max-width: 430px; font-size: 45px; line-height: .98; }
+  .hero-slide-content h1 { max-width: 430px; font-size: 44px; line-height: 1.03; }
   .hero-slide-content > p:not(.eyebrow) { margin: 20px 0 26px; font-size: 14px; line-height: 1.6; }
-  .hero-slide-content .button { width: 100%; }
+  .hero-actions { width: 100%; align-items: stretch; flex-direction: column; gap: 10px; }
+  .hero-slide-content .button,
+  .hero-secondary-action { width: 100%; }
   .hero-controls { bottom: 24px; }
   .hero-dots { gap: 10px; }
   .hero-dots button { width: 34px; }

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, MessageCircle, Pause, Play, Store } from "lucide-react";
+import { ArrowLeft, ArrowRight, CirclePlay, MessageCircle, Pause, Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import { WhatsAppLink } from "./whatsapp-link";
 
@@ -10,13 +10,16 @@ const slides = [
   {
     id: "produtos",
     index: "01",
-    eyebrow: "Terapia capilar integrativa em casa",
-    title: "Sua clínica Slimcap agora mora na sua casa.",
-    text: "Produtos desenvolvidos a partir do Método Slimcap para levar cuidado capilar especializado à sua rotina.",
-    image: "/images/hero-produtos-slimcap.webp",
-    alt: "Linha Slimcap apresentada sobre colunas de pedra em um cenário premium",
-    href: "https://loja.slimcap.com.br",
-    cta: "Conhecer os produtos",
+    eyebrow: "Consultoria capilar personalizada",
+    title: "Seu protocolo capilar,",
+    accent: "montado para você.",
+    text: "Encontre produtos e orientações pensados para o seu tipo de cabelo e os seus objetivos.",
+    image: "/images/hero-protocolo-capilar.webp",
+    alt: "Produtos Slimcap dispostos sobre pedestais de pedra em uma composição editorial",
+    href: "#kits",
+    cta: "Encontrar meu kit",
+    secondaryHref: "#metodo",
+    secondaryCta: "Ver método",
     type: "link" as const,
   },
   {
@@ -96,38 +99,44 @@ export function HeroCarousel() {
           <div className="hero-slide-overlay" aria-hidden="true" />
           <div className="shell hero-slide-content">
             <p className="eyebrow hero-eyebrow">{slide.eyebrow}</p>
-            <h1>{slide.title}</h1>
+            <h1>{slide.title}{slide.accent ? <><br /><em>{slide.accent}</em></> : null}</h1>
             <p>{slide.text}</p>
-            {slide.type === "whatsapp" ? (
-              <WhatsAppLink
-                className="button button-primary"
-                intent="consultoria-online"
-                phone={slide.phone}
-                message="Olá! Vim pelo site da Slimcap e gostaria de agendar uma consultoria capilar online com a Cris Guerra."
-                tabIndex={position === active ? 0 : -1}
-              >
-                <MessageCircle size={19} aria-hidden="true" /> {slide.cta}
-              </WhatsAppLink>
-            ) : slide.href?.startsWith("/") ? (
-              <Link
-                className="button button-primary"
-                href={slide.href}
-                tabIndex={position === active ? 0 : -1}
-              >
-                {slide.cta} <ArrowRight size={18} aria-hidden="true" />
-              </Link>
-            ) : (
-              <a
-                className="button button-primary"
-                href={slide.href}
-                target={slide.href?.startsWith("http") ? "_blank" : undefined}
-                rel={slide.href?.startsWith("http") ? "noopener noreferrer" : undefined}
-                tabIndex={position === active ? 0 : -1}
-              >
-                {slide.id === "produtos" ? <Store size={19} aria-hidden="true" /> : null}
-                {slide.cta} <ArrowRight size={18} aria-hidden="true" />
-              </a>
-            )}
+            <div className="hero-actions">
+              {slide.type === "whatsapp" ? (
+                <WhatsAppLink
+                  className="button button-primary"
+                  intent="consultoria-online"
+                  phone={slide.phone}
+                  message="Olá! Vim pelo site da Slimcap e gostaria de agendar uma consultoria capilar online com a Cris Guerra."
+                  tabIndex={position === active ? 0 : -1}
+                >
+                  <MessageCircle size={19} aria-hidden="true" /> {slide.cta}
+                </WhatsAppLink>
+              ) : slide.href?.startsWith("/") ? (
+                <Link
+                  className="button button-primary"
+                  href={slide.href}
+                  tabIndex={position === active ? 0 : -1}
+                >
+                  {slide.cta} <ArrowRight size={18} aria-hidden="true" />
+                </Link>
+              ) : (
+                <a
+                  className="button button-primary"
+                  href={slide.href}
+                  target={slide.href?.startsWith("http") ? "_blank" : undefined}
+                  rel={slide.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+                  tabIndex={position === active ? 0 : -1}
+                >
+                  {slide.cta} <ArrowRight size={18} aria-hidden="true" />
+                </a>
+              )}
+              {slide.secondaryHref && slide.secondaryCta ? (
+                <a className="hero-secondary-action" href={slide.secondaryHref} tabIndex={position === active ? 0 : -1}>
+                  <CirclePlay size={19} aria-hidden="true" /> {slide.secondaryCta}
+                </a>
+              ) : null}
+            </div>
           </div>
         </article>
       ))}
