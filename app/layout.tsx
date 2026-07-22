@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   description:
     "Kits personalizados, consultoria online e atendimento presencial com a experiência de 40 anos do Método Slimcap.",
   alternates: { canonical: "/" },
-  icons: { icon: "/favicon.png" },
+  icons: { icon: "/favicon.png", apple: "/favicon.png" },
   openGraph: {
     title: "Slimcap | O cuidado certo começa pela raiz",
     description:
