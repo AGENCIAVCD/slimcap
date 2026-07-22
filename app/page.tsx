@@ -214,24 +214,23 @@ export default function Home() {
                 sizes="(max-width: 900px) 100vw, 48vw"
               />
               <div className="media-seal media-seal-duo" aria-hidden="true">
-                <strong>Cris &amp; Vani</strong><span>Duas gerações do método</span>
+                <span>Uma história de cuidado</span><strong>Cris &amp; Vani</strong>
               </div>
             </Reveal>
             <Reveal className="new-phase-copy">
               <p className="eyebrow">A nova fase Slimcap</p>
-              <h2 id="phase-title">O Método Slimcap evoluiu. O cuidado continua próximo.</h2>
+              <h2 id="phase-title">Um método construído <em>perto.</em> Agora, presente na sua rotina.</h2>
               <p>
-                Há mais de uma década, Cris Guerra e sua mãe, Vani, construíram juntas uma referência em tricologia
-                no interior de São Paulo. As unidades físicas cumpriram um papel importante. Agora, o método chega
-                a mais pessoas por produtos, orientação online e atendimento presencial em Piracicaba.
+                Há mais de uma década, Cris Guerra e Vani constroem uma referência em tricologia no interior de São Paulo.
+                A nova fase leva essa experiência para mais pessoas por meio de produtos, orientação e acompanhamento.
               </p>
               <p>
-                Cris segue atendendo dentro da Clínica Piellaser, com a estrutura que um acompanhamento especializado
-                exige. Para quem prefere a praticidade de casa, a linha Slimcap leva a lógica do método para a rotina.
+                No presencial, Cris atende na Clínica Piellaser, em Piracicaba. Para a rotina em casa, a linha Slimcap
+                traduz a lógica do método em protocolos simples e consistentes.
               </p>
               <div className="phase-actions">
                 <a className="button button-dark" href="https://piellaser.com.br/lpslimcap" target="_blank" rel="noopener noreferrer">
-                  <Stethoscope size={18} aria-hidden="true" /> Atendimento presencial
+                  <Stethoscope size={18} aria-hidden="true" /> Conhecer atendimento presencial
                 </a>
                 <WhatsAppLink
                   className="text-link"
@@ -239,7 +238,7 @@ export default function Home() {
                   intent="nova-fase-online"
                   message="Olá! Gostaria de saber mais sobre a consultoria capilar online com a Cris Guerra."
                 >
-                  Prefiro atendimento online <Video size={17} aria-hidden="true" />
+                  Falar sobre atendimento online <Video size={17} aria-hidden="true" />
                 </WhatsAppLink>
               </div>
             </Reveal>
