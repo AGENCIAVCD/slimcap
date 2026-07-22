@@ -382,7 +382,7 @@ export default function Home() {
             </Reveal>
             <div className="journal-grid">
               <Reveal className="journal-feature">
-                <Image src="/images/tradicao-clinica.webp" alt="Avaliação profissional do couro cabeludo" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                <Image src="/images/cris-avaliacao-capilar.png" alt="Cris Guerra realiza uma avaliação capilar em uma cliente" fill sizes="(max-width: 900px) 100vw, 50vw" />
                 <div><span>Guia de cuidado</span><h3>Queda capilar: quando observar e quando buscar orientação.</h3></div>
               </Reveal>
               <div className="journal-list">
