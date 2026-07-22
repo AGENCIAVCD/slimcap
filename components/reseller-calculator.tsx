@@ -23,7 +23,7 @@ const resellerProducts = [
     referenceCost: 56.43,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/catalogo/shampoo-revitalizante.png",
+    image: "/produtos/gerados/shampoo-revitalizante.png",
     storeHref: "https://loja.slimcap.com.br/shampoo",
   },
   {
@@ -34,7 +34,7 @@ const resellerProducts = [
     referenceCost: 45,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/catalogo/condicionador.jpg",
+    image: "/produtos/gerados/condicionador.png",
     storeHref: "https://loja.slimcap.com.br/condicionador",
   },
   {
@@ -45,7 +45,7 @@ const resellerProducts = [
     referenceCost: 49.29,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/catalogo/locao-tonica.jpg",
+    image: "/produtos/gerados/locao-tonica.png",
     storeHref: "https://loja.slimcap.com.br/locao",
   },
   {
@@ -56,7 +56,7 @@ const resellerProducts = [
     referenceCost: 38.57,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/catalogo/mascara.jpg",
+    image: "/produtos/gerados/mascara-capilar.png",
     storeHref: "https://loja.slimcap.com.br/mascara",
   },
   {
@@ -67,7 +67,7 @@ const resellerProducts = [
     referenceCost: 27.86,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/catalogo/esfoliante.jpg",
+    image: "/produtos/gerados/esfoliante.png",
     storeHref: "https://loja.slimcap.com.br/esfoliante",
   },
   {
@@ -78,7 +78,7 @@ const resellerProducts = [
     referenceCost: 215.54,
     unit: "kits",
     ticketLabel: "kit",
-    image: "/produtos/catalogo/kit-completo-antiqueda.webp",
+    image: "/produtos/gerados/kit-antiqueda.png",
     storeHref: "https://loja.slimcap.com.br/kits-de-tratamento-capilar",
   },
 ] as const;

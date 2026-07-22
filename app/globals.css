@@ -782,16 +782,16 @@ img { display: block; }
 .calculator-product-option { display: flex; min-height: 226px; padding: 18px 20px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); flex-direction: column; transition: background 180ms ease, box-shadow 180ms ease; }
 .calculator-product-option:hover { background: #fbf6ee; }
 .calculator-product-option.is-selected { position: relative; z-index: 1; background: #f4e9dc; box-shadow: inset 0 3px 0 var(--bronze); }
-.calculator-product-option > button { position: relative; display: grid; grid-template-columns: 92px minmax(0,1fr) 22px; align-items: center; gap: 14px; width: 100%; min-height: 151px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; }
-.product-option-image { display: grid; width: 92px; height: 142px; overflow: hidden; place-items: center; background: rgba(255,255,255,.7); }
-.product-option-image img { width: 88px; height: 132px; object-fit: contain; filter: drop-shadow(0 10px 9px rgba(65,35,21,.16)); mix-blend-mode: multiply; }
+.calculator-product-option > button { position: relative; display: grid; grid-template-columns: 112px minmax(0,1fr) 22px; align-items: center; gap: 16px; width: 100%; min-height: 162px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; }
+.product-option-image { display: grid; width: 112px; height: 146px; overflow: hidden; place-items: center; background: #f8f1e7; }
+.product-option-image img { width: 112px; height: 146px; object-fit: cover; }
 .product-option-copy > span { display: block; margin-bottom: 7px; color: var(--bronze); font-size: 8px; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-transform: uppercase; }
 .product-option-copy > strong { display: block; color: var(--espresso); font-family: var(--font-display), Georgia, serif; font-size: 22px; font-weight: 600; line-height: 1.04; }
 .product-option-copy > small { display: block; margin-top: 9px; color: var(--muted); font-size: 9px; line-height: 1.45; }
 .calculator-product-option i { display: grid; width: 22px; height: 22px; border: 1px solid rgba(90,56,40,.2); border-radius: 50%; place-items: center; color: white; }
 .calculator-product-option.is-selected i { border-color: var(--bronze); background: var(--bronze); }
 .calculator-product-option i svg { width: 12px; }
-.calculator-product-option > a { display: inline-flex; align-items: center; gap: 5px; align-self: flex-start; margin: auto 0 0 106px; color: var(--cocoa); font-size: 9px; font-weight: 800; }
+.calculator-product-option > a { display: inline-flex; align-items: center; gap: 5px; align-self: flex-start; margin: auto 0 0 128px; color: var(--cocoa); font-size: 9px; font-weight: 800; }
 .calculator-product-option > a:hover { color: var(--bronze); }
 .calculator-product-option > a svg { width: 14px; }
 .calculator-body { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(400px,.65fr); }
@@ -813,8 +813,8 @@ img { display: block; }
 .calculator-results { display: flex; padding: 44px 40px; background: linear-gradient(145deg,#2d1c15,#44291d); color: white; justify-content: center; flex-direction: column; }
 .calculator-results > p { margin: 0 0 22px; color: #e2bd8e; font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
 .calculator-kit-result { display: grid; grid-template-columns: 145px 1fr; align-items: center; gap: 18px; margin-bottom: 25px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.14); }
-.calculator-result-product { display: grid; height: 130px; overflow: hidden; place-items: center; background: #e9dccd; }
-.calculator-result-product img { width: 116px; height: 122px; object-fit: contain; filter: drop-shadow(0 9px 7px rgba(0,0,0,.2)); mix-blend-mode: multiply; }
+.calculator-result-product { display: grid; height: 148px; overflow: hidden; place-items: center; background: #e9dccd; }
+.calculator-result-product img { width: 138px; height: 148px; object-fit: cover; }
 .calculator-kit-result > div:last-child > span { display: block; color: rgba(255,255,255,.57); font-size: 9px; line-height: 1.45; }
 .calculator-kit-result > div:last-child > strong { display: block; margin-top: 5px; color: #f0d0a5; font-family: var(--font-accent), var(--font-display), Georgia, serif; font-size: 48px; font-weight: 500; font-style: italic; line-height: 1; }
 .calculator-kit-result strong small { font-size: 19px; }
