@@ -782,7 +782,7 @@ img { display: block; }
 .calculator-product-option { display: flex; min-height: 226px; padding: 18px 20px 14px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--paper); flex-direction: column; transition: background 180ms ease, box-shadow 180ms ease; }
 .calculator-product-option:hover { background: #fbf6ee; }
 .calculator-product-option.is-selected { position: relative; z-index: 1; background: #f4e9dc; box-shadow: inset 0 3px 0 var(--bronze); }
-.calculator-product-option > button { position: relative; display: grid; grid-template-columns: 112px minmax(0,1fr) 22px; align-items: center; gap: 16px; width: 100%; min-height: 162px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; }
+.calculator-product-option > button { position: relative; display: grid; flex: 1; grid-template-columns: 112px minmax(0,1fr) 22px; align-items: center; gap: 16px; width: 100%; min-height: 162px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; }
 .product-option-image { display: grid; width: 112px; height: 146px; overflow: hidden; place-items: center; background: #f8f1e7; }
 .product-option-image img { width: 112px; height: 146px; object-fit: cover; }
 .product-option-copy > span { display: block; margin-bottom: 7px; color: var(--bronze); font-size: 8px; font-weight: 800; letter-spacing: .08em; line-height: 1.35; text-transform: uppercase; }
@@ -791,9 +791,8 @@ img { display: block; }
 .calculator-product-option i { display: grid; width: 22px; height: 22px; border: 1px solid rgba(90,56,40,.2); border-radius: 50%; place-items: center; color: white; }
 .calculator-product-option.is-selected i { border-color: var(--bronze); background: var(--bronze); }
 .calculator-product-option i svg { width: 12px; }
-.calculator-product-option > a { display: inline-flex; align-items: center; gap: 5px; align-self: flex-start; margin: auto 0 0 128px; color: var(--cocoa); font-size: 9px; font-weight: 800; }
-.calculator-product-option > a:hover { color: var(--bronze); }
-.calculator-product-option > a svg { width: 14px; }
+.product-option-status { display: block; margin: 8px 0 0 128px; color: var(--bronze); font-size: 9px; font-weight: 800; }
+.calculator-product-option.is-selected .product-option-status { color: var(--cocoa); }
 .calculator-body { display: grid; grid-template-columns: minmax(0,1.15fr) minmax(400px,.65fr); }
 .calculator-controls { display: flex; padding: 48px 56px; justify-content: center; flex-direction: column; }
 .calculator-step-label { display: flex; align-items: center; gap: 10px; margin-bottom: 30px; color: var(--bronze); font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
@@ -973,7 +972,7 @@ img { display: block; }
   .calculator-product-option > button { grid-template-columns: 82px minmax(0,1fr) 20px; gap: 12px; }
   .product-option-image { width: 82px; }
   .product-option-image img { width: 78px; }
-  .calculator-product-option > a { margin-left: 94px; }
+  .product-option-status { margin-left: 94px; }
   .calculator-body { grid-template-columns: minmax(0,1fr) 390px; }
   .reseller-tier-intro h2 { font-size: 56px; }
   .reseller-tier-cards { gap: 17px; }
@@ -1058,7 +1057,7 @@ img { display: block; }
   .calculator-product-option > button { grid-template-columns: 94px minmax(0,1fr) 22px; min-height: 142px; }
   .product-option-image { width: 94px; height: 132px; }
   .product-option-image img { width: 88px; height: 124px; }
-  .calculator-product-option > a { margin-left: 108px; }
+  .product-option-status { margin-left: 108px; }
   .calculator-body { grid-template-columns: 1fr; }
   .calculator-results { min-height: 390px; }
   .reseller-ticket-grid,
@@ -1209,7 +1208,7 @@ img { display: block; }
   .product-option-copy > strong { font-size: 18px; }
   .product-option-copy > small { display: none; }
   .calculator-product-option i { position: absolute; top: 2px; right: 0; width: 20px; height: 20px; }
-  .calculator-product-option > a { margin-left: 0; font-size: 8px; }
+  .product-option-status { margin-left: 0; font-size: 8px; }
   .calculator-controls { padding: 32px 22px; }
   .calculator-label-row { flex-direction: column; gap: 20px; }
   .calculator-label-row > div:first-child strong { font-size: 46px; }

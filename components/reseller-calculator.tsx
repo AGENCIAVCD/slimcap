@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, ArrowUpRight, Check, MessageCircle, PackageOpen, TrendingUp } from "lucide-react";
+import { ArrowRight, Check, MessageCircle, PackageOpen, TrendingUp } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { WhatsAppLink } from "./whatsapp-link";
 
@@ -24,7 +24,6 @@ const resellerProducts = [
     unit: "unidades",
     ticketLabel: "unidade",
     image: "/produtos/gerados/shampoo-revitalizante.png",
-    storeHref: "https://loja.slimcap.com.br/shampoo",
   },
   {
     id: "condicionador",
@@ -35,7 +34,6 @@ const resellerProducts = [
     unit: "unidades",
     ticketLabel: "unidade",
     image: "/produtos/gerados/condicionador.png",
-    storeHref: "https://loja.slimcap.com.br/condicionador",
   },
   {
     id: "locao",
@@ -46,7 +44,6 @@ const resellerProducts = [
     unit: "unidades",
     ticketLabel: "unidade",
     image: "/produtos/gerados/locao-tonica.png",
-    storeHref: "https://loja.slimcap.com.br/locao",
   },
   {
     id: "mascara",
@@ -57,7 +54,6 @@ const resellerProducts = [
     unit: "unidades",
     ticketLabel: "unidade",
     image: "/produtos/gerados/mascara-capilar.png",
-    storeHref: "https://loja.slimcap.com.br/mascara",
   },
   {
     id: "esfoliante",
@@ -68,7 +64,6 @@ const resellerProducts = [
     unit: "unidades",
     ticketLabel: "unidade",
     image: "/produtos/gerados/esfoliante.png",
-    storeHref: "https://loja.slimcap.com.br/esfoliante",
   },
   {
     id: "kits",
@@ -79,7 +74,6 @@ const resellerProducts = [
     unit: "kits",
     ticketLabel: "kit",
     image: "/produtos/gerados/kit-antiqueda.png",
-    storeHref: "https://loja.slimcap.com.br/kits-de-tratamento-capilar",
   },
 ] as const;
 
@@ -141,9 +135,9 @@ export function ResellerCalculator() {
                 </span>
                 <i aria-hidden="true">{isSelected ? <Check /> : null}</i>
               </button>
-              <a href={product.storeHref} target="_blank" rel="noopener noreferrer">
-                Ver categoria <ArrowUpRight aria-hidden="true" />
-              </a>
+              <span className="product-option-status" aria-hidden="true">
+                {isSelected ? "Produto selecionado" : "Selecionar para simular"}
+              </span>
             </div>
           );
         })}
