@@ -28,7 +28,7 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppLink } from "@/components/whatsapp-link";
 
 export const metadata: Metadata = {
-  title: "Seja Revendedor Slimcap | Margens de até 50%",
+  title: "Seja revendedor | Margens de até 50%",
   description:
     "Monte uma simulação de pedido e conheça as condições de revenda Slimcap para clínicas, lojas, salões, farmácias e distribuidores.",
   alternates: { canonical: "/revenda" },
@@ -36,7 +36,16 @@ export const metadata: Metadata = {
     title: "Revenda Slimcap | Mais ticket, margem e recompra",
     description: "Comece a partir de R$ 1.500, com margem potencial de até 50%, mix orientado e suporte comercial.",
     url: "/revenda",
-    images: [{ url: "/images/revenda-hero-real.webp", width: 1920, height: 1081 }],
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Slimcap",
+    images: [{ url: "/revenda/opengraph-image", width: 1200, height: 630, alt: "Revenda Slimcap - margem, mix e suporte para o seu negócio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Revenda Slimcap | Mais ticket, margem e recompra",
+    description: "Comece a partir de R$ 1.500, com margem potencial de até 50%, mix orientado e suporte comercial.",
+    images: ["/revenda/opengraph-image"],
   },
 };
 

@@ -26,20 +26,43 @@ const bodoni = Bodoni_Moda({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://slimcap.vercel.app"),
-  title: "Slimcap | Terapia capilar integrativa há 40 anos",
+  applicationName: "Slimcap",
+  title: {
+    default: "Slimcap | Terapia capilar integrativa há 40 anos",
+    template: "%s | Slimcap",
+  },
   description:
     "Kits personalizados, consultoria online e atendimento presencial com a experiência de 40 anos do Método Slimcap.",
+  keywords: ["Slimcap", "terapia capilar", "tratamento capilar", "tricologia", "kits capilares"],
+  authors: [{ name: "Slimcap" }],
+  creator: "Slimcap",
+  publisher: "Slimcap",
+  category: "Saúde e beleza",
   alternates: { canonical: "/" },
   icons: { icon: "/favicon.png", apple: "/favicon.png" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Slimcap | O cuidado certo começa pela raiz",
     description:
-      "Terapia capilar integrativa, kits por necessidade e orientação especializada online ou presencial.",
+      "Produtos, orientação e método para cuidar do seu cabelo com a experiência de mais de 40 anos.",
     url: "/",
-    siteName: "Slimcapilar",
+    siteName: "Slimcap",
     locale: "pt_BR",
     type: "website",
-    images: [{ url: "/images/hero-consultoria.webp", width: 1672, height: 941 }],
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Slimcap - O cuidado certo começa pela raiz",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Slimcap | O cuidado certo começa pela raiz",
+    description: "Produtos, orientação e método para cuidar do seu cabelo com a experiência de mais de 40 anos.",
+    images: ["/opengraph-image"],
   },
 };
 
