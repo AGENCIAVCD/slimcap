@@ -742,7 +742,7 @@ img { display: block; }
 .reseller-hero-content > :nth-child(4) { animation-delay: 290ms; }
 .reseller-hero-content > :nth-child(5) { animation-delay: 360ms; }
 .reseller-hero-content > :nth-child(6) { animation-delay: 430ms; }
-.reseller-hero-content h1 { max-width: 790px; margin: 0; color: #fffaf4; font-family: var(--font-display), Georgia, serif; font-size: 78px; font-weight: 600; line-height: .94; text-wrap: balance; }
+.reseller-hero-content h1 { max-width: 760px; margin: 0; color: #fffaf4; font-family: var(--font-display), Georgia, serif; font-size: clamp(60px,5.1vw,74px); font-weight: 600; letter-spacing: .006em; line-height: 1.055; text-wrap: balance; }
 .reseller-hero-content > p:not(.eyebrow) { max-width: 610px; margin: 28px 0 32px; color: rgba(255,255,255,.75); font-size: 16px; line-height: 1.7; }
 .reseller-hero-actions { display: flex; align-items: center; gap: 24px; }
 .reseller-hero-link { display: inline-flex; align-items: center; gap: 8px; min-height: 50px; border-bottom: 1px solid rgba(255,255,255,.48); font-size: 13px; font-weight: 800; }
@@ -948,7 +948,7 @@ img { display: block; }
   .new-phase-grid,
   .professional-grid { gap: 62px; }
   .faq-grid { gap: 70px; }
-  .reseller-hero-content h1 { font-size: 68px; }
+  .reseller-hero-content h1 { font-size: 64px; line-height: 1.05; }
   .reseller-section-heading h2,
   .reseller-tier-intro h2,
   .reseller-ticket-copy h2,
@@ -1156,7 +1156,7 @@ img { display: block; }
   .reseller-hero-image { object-position: 68% center; }
   .reseller-hero-overlay { background: linear-gradient(0deg,rgba(38,22,15,.98),rgba(43,25,17,.81) 62%,rgba(42,25,18,.24)); }
   .reseller-hero-content { justify-content: flex-end; padding-top: 110px; padding-bottom: 98px; }
-  .reseller-hero-content h1 { font-size: 45px; line-height: .98; }
+  .reseller-hero-content h1 { max-width: 355px; font-size: 42px; line-height: 1.06; letter-spacing: .003em; }
   .reseller-hero-content > p:not(.eyebrow) { margin-block: 21px 25px; font-size: 13px; line-height: 1.62; }
   .reseller-hero-actions { width: 100%; align-items: stretch; flex-direction: column; gap: 10px; }
   .reseller-hero-actions .button { width: 100%; }
