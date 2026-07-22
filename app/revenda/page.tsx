@@ -11,12 +11,16 @@ import {
   Check,
   ChevronDown,
   CircleDollarSign,
+  Gem,
   Headphones,
   MessageCircle,
   PackageCheck,
   RefreshCw,
+  ShieldCheck,
+  Star,
   Store,
   UsersRound,
+  Zap,
 } from "lucide-react";
 import { FloatingActions } from "@/components/floating-actions";
 import { ResellerCalculator } from "@/components/reseller-calculator";
@@ -37,9 +41,31 @@ export const metadata: Metadata = {
 };
 
 const commercialTiers = [
-  { investment: "R$ 1.500", margin: "30%", label: "Comece com segurança" },
-  { investment: "R$ 3.000", margin: "40%", label: "Ganhe eficiência" },
-  { investment: "R$ 5.000 ou mais", margin: "50%", label: "Maior margem da tabela" },
+  {
+    name: "Essencial",
+    investment: "R$ 1.500",
+    margin: "30%",
+    benefit: "Comece com segurança",
+    icon: ShieldCheck,
+    benefitIcon: Check,
+  },
+  {
+    name: "Crescimento",
+    investment: "R$ 3.000",
+    margin: "40%",
+    benefit: "Equilíbrio entre investimento e retorno",
+    icon: ChartNoAxesCombined,
+    benefitIcon: Star,
+    featured: true,
+  },
+  {
+    name: "Premium",
+    investment: "R$ 5.000+",
+    margin: "50%",
+    benefit: "Maior margem da tabela",
+    icon: Gem,
+    benefitIcon: Zap,
+  },
 ];
 
 const channels = [
@@ -179,18 +205,39 @@ export default function ResellerPage() {
           <div className="shell">
             <Reveal className="reseller-tier-intro">
               <p className="eyebrow eyebrow-light">Faixas comerciais claras</p>
-              <h2 id="tiers-title">Quanto maior o pedido, <em>maior pode ser o ganho por venda.</em></h2>
+              <h2 id="tiers-title">Quanto maior seu pedido, <em>maior sua margem.</em></h2>
+              <p>Escolha a faixa que faz sentido para o seu negócio.</p>
             </Reveal>
-            <div className="reseller-tier-list">
-              {commercialTiers.map((tier, index) => (
-                <Reveal key={tier.investment} className="reseller-tier-item">
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <div><small>Compras a partir de</small><strong>{tier.investment}</strong></div>
-                  <div><small>Margem potencial de até</small><strong>{tier.margin}</strong></div>
-                  <p>{tier.label}</p>
-                </Reveal>
-              ))}
+            <div className="reseller-tier-cards">
+              {commercialTiers.map((tier, index) => {
+                const Icon = tier.icon;
+                const BenefitIcon = tier.benefitIcon;
+                return (
+                  <Reveal key={tier.investment} className={`reseller-tier-card ${tier.featured ? "is-featured" : ""}`}>
+                    {tier.featured ? <span className="tier-featured-badge"><Star aria-hidden="true" /> Melhor equilíbrio</span> : null}
+                    <div className="tier-card-top">
+                      <span className="tier-card-icon"><Icon aria-hidden="true" /></span>
+                      <span className="tier-card-number">{String(index + 1).padStart(2, "0")}</span>
+                    </div>
+                    <h3>{tier.name}</h3>
+                    <strong className="tier-card-margin">{tier.margin}</strong>
+                    <span className="tier-margin-label">Margem potencial</span>
+                    <div className="tier-card-order">
+                      <small>Pedido mínimo</small>
+                      <strong>{tier.investment}</strong>
+                    </div>
+                    <p><BenefitIcon aria-hidden="true" /> {tier.benefit}</p>
+                  </Reveal>
+                );
+              })}
             </div>
+            <Reveal className="reseller-tier-cta">
+              <span className="tier-cta-icon"><ChartNoAxesCombined aria-hidden="true" /></span>
+              <div><strong>Mais investimento, mais retorno.</strong><p>Escale suas compras e aumente sua lucratividade.</p></div>
+              <WhatsAppLink intent="faixas-comerciais" message={resellerMessage}>
+                Falar com um especialista <ArrowRight aria-hidden="true" />
+              </WhatsAppLink>
+            </Reveal>
           </div>
         </section>
 
