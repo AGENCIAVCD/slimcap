@@ -23,7 +23,7 @@ const resellerProducts = [
     referenceCost: 56.43,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/gerados/shampoo-revitalizante.png",
+    image: "/produtos/shampoo-revitalizante.webp",
   },
   {
     id: "condicionador",
@@ -33,7 +33,7 @@ const resellerProducts = [
     referenceCost: 45,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/gerados/condicionador.png",
+    image: "/produtos/condicionador.webp",
   },
   {
     id: "locao",
@@ -43,7 +43,7 @@ const resellerProducts = [
     referenceCost: 49.29,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/gerados/locao-tonica.png",
+    image: "/produtos/locao-tonica.webp",
   },
   {
     id: "mascara",
@@ -53,7 +53,7 @@ const resellerProducts = [
     referenceCost: 38.57,
     unit: "unidades",
     ticketLabel: "unidade",
-    image: "/produtos/gerados/mascara-capilar.png",
+    image: "/produtos/mascara-capilar.webp",
   },
   {
     id: "esfoliante",
@@ -73,7 +73,13 @@ const resellerProducts = [
     referenceCost: 215.54,
     unit: "kits",
     ticketLabel: "kit",
-    image: "/produtos/gerados/kit-antiqueda.png",
+    image: "/produtos/shampoo-revitalizante.webp",
+    images: [
+      "/produtos/shampoo-revitalizante.webp",
+      "/produtos/condicionador.webp",
+      "/produtos/locao-tonica.webp",
+      "/produtos/mascara-capilar.webp",
+    ],
   },
 ] as const;
 
@@ -125,8 +131,16 @@ export function ResellerCalculator() {
                 aria-checked={isSelected}
                 onClick={() => setSelectedProductId(product.id)}
               >
-                <span className="product-option-image" aria-hidden="true">
-                  <Image src={product.image} alt="" width={1000} height={1000} sizes="(max-width: 640px) 40vw, 140px" />
+                <span className={`product-option-image product-option-image-${product.id}`} aria-hidden="true">
+                  {"images" in product ? (
+                    <span className="product-option-kit-composition">
+                      {product.images.map((image, imageIndex) => (
+                        <Image key={image} src={image} alt="" width={1000} height={1000} sizes="(max-width: 640px) 22vw, 80px" style={{ "--product-index": imageIndex } as CSSProperties} />
+                      ))}
+                    </span>
+                  ) : (
+                    <Image src={product.image} alt="" width={1000} height={1000} sizes="(max-width: 640px) 40vw, 150px" />
+                  )}
                 </span>
                 <span className="product-option-copy">
                   <span>{product.eyebrow}</span>
