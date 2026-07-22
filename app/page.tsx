@@ -29,56 +29,56 @@ const kits = [
     concern: "Eflúvio telógeno",
     title: "Queda após parto, emagrecimento ou dengue",
     formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
-    image: "/produtos/locao-tonica.webp",
+    image: "/produtos/gerados/locao-tonica.png",
     accent: "terracotta",
   },
   {
     concern: "Protocolo de 3 meses",
     title: "Queda, calvície e alopecias",
     formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
-    image: "/produtos/shampoo-revitalizante.webp",
+    image: "/produtos/gerados/shampoo-revitalizante.png",
     accent: "bronze",
   },
   {
     concern: "Equilíbrio do couro cabeludo",
     title: "Caspa, dermatite seborreica e coceira",
     formula: "Loção A · Shampoo anticaspa · Loção calmante",
-    image: "/produtos/shampoo-anticaspa.webp",
+    image: "/produtos/gerados/shampoo-anticaspa.png",
     accent: "amber",
   },
   {
     concern: "Hidratação e maciez",
     title: "Kit nutrição completa",
     formula: "Shampoo · Máscara · Condicionador · Leave-in",
-    image: "/produtos/mascara-capilar.webp",
+    image: "/produtos/gerados/mascara-capilar.png",
     accent: "rose",
   },
   {
     concern: "Protocolo de 3 meses",
     title: "Crescimento saudável e reparação",
     formula: "Tratamento completo do couro cabeludo aos fios",
-    image: "/produtos/condicionador.webp",
+    image: "/produtos/gerados/condicionador.png",
     accent: "cocoa",
   },
   {
     concern: "Cuidado delicado",
     title: "Cabelos infantis",
     formula: "Esfoliante · Shampoo hidratante",
-    image: "/produtos/leave-in.webp",
+    image: "/produtos/gerados/leave-in.png",
     accent: "sand",
   },
   {
     concern: "Reparação dos fios",
     title: "Nutrição intensiva",
     formula: "Máscara nutrirreparadora · Leave-in",
-    image: "/produtos/mascara-capilar.webp",
+    image: "/produtos/gerados/mascara-capilar.png",
     accent: "clay",
   },
   {
     concern: "Limpeza profunda",
     title: "Kit detox",
     formula: "Loção A · Shampoo revitalizante",
-    image: "/produtos/shampoo-revitalizante.webp",
+    image: "/produtos/gerados/shampoo-revitalizante.png",
     accent: "gold",
   },
 ];
@@ -155,7 +155,7 @@ export default function Home() {
                 <Reveal key={kit.title} className={`kit-item kit-${kit.accent}`}>
                   <div className="kit-index">{String(index + 1).padStart(2, "0")}</div>
                   <div className="kit-product">
-                    <Image src={kit.image} alt="" width={192} height={192} sizes="150px" />
+                    <Image src={kit.image} alt={kit.title} width={192} height={192} sizes="150px" />
                   </div>
                   <div className="kit-copy">
                     <span>{kit.concern}</span>
