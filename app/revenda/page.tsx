@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Revenda Slimcap | Uma linha que movimenta o seu negócio",
     description: "Margem potencial de até 50%, mix orientado e suporte para vender e repor melhor.",
     url: "/revenda",
-    images: [{ url: "/images/hero-produtos-slimcap.webp", width: 1448, height: 1086 }],
+    images: [{ url: "/images/revenda-hero-real.webp", width: 1920, height: 1081 }],
   },
 };
 
@@ -122,8 +122,8 @@ export default function ResellerPage() {
       <main>
         <section className="reseller-hero" aria-labelledby="reseller-title">
           <Image
-            src="/images/hero-produtos-slimcap.webp"
-            alt="Produtos Slimcap apresentados em uma composição premium"
+            src="/images/revenda-hero-real.webp"
+            alt="Consultora e proprietária de clínica analisam uma proposta ao lado da linha Slimcap"
             fill
             priority
             sizes="100vw"
@@ -132,7 +132,7 @@ export default function ResellerPage() {
           <div className="reseller-hero-overlay" aria-hidden="true" />
           <div className="shell reseller-hero-content">
             <p className="eyebrow eyebrow-light">Programa de parceria Slimcap</p>
-            <h1 id="reseller-title">Mais valor por atendimento. Mais margem por reposição.</h1>
+            <h1 id="reseller-title">Mais valor por atendimento. <em>Mais margem</em> por reposição.</h1>
             <p>
               Leve uma linha de terapia capilar com quatro décadas de experiência para sua clínica, loja ou região,
               com mix orientado e suporte para vender com confiança.
@@ -159,11 +159,11 @@ export default function ResellerPage() {
             <Reveal className="reseller-section-heading">
               <div>
                 <p className="eyebrow">Simulador comercial</p>
-                <h2 id="simulator-title">Veja o que a sua faixa de compra pode movimentar.</h2>
+                <h2 id="simulator-title">Escolha o mix. <em>Veja a oportunidade ganhar forma.</em></h2>
               </div>
               <p>
-                Ajuste o investimento mensal. Conforme o volume cresce, a margem potencial aumenta e os números da
-                operação acompanham a nova faixa.
+                Escolha uma proposta de kit e ajuste o investimento mensal. A experiência mostra quantos kits cabem
+                no pedido, o ticket sugerido e a oportunidade de lucro em cada faixa.
               </p>
             </Reveal>
             <Reveal><ResellerCalculator /></Reveal>
@@ -174,7 +174,7 @@ export default function ResellerPage() {
           <div className="shell">
             <Reveal className="reseller-tier-intro">
               <p className="eyebrow eyebrow-light">Faixas comerciais claras</p>
-              <h2 id="tiers-title">Seu volume abre novas possibilidades de margem.</h2>
+              <h2 id="tiers-title">Seu volume cresce. <em>Sua margem acompanha.</em></h2>
             </Reveal>
             <div className="reseller-tier-list">
               {commercialTiers.map((tier, index) => (
@@ -193,7 +193,7 @@ export default function ResellerPage() {
           <div className="shell reseller-ticket-grid">
             <Reveal className="reseller-ticket-copy">
               <p className="eyebrow">Uma linha, novas receitas</p>
-              <h2 id="ticket-title">O ticket não precisa terminar no atendimento ou na primeira compra.</h2>
+              <h2 id="ticket-title">Transforme cuidado em <em>ticket, recorrência e relacionamento.</em></h2>
               <p>
                 Protocolos completos permitem combinar produtos de couro cabeludo e fios, construir uma indicação
                 mais valiosa e criar motivos reais para o cliente voltar.
@@ -204,17 +204,17 @@ export default function ResellerPage() {
                 <span><Check aria-hidden="true" /> Uso contínuo favorece recompra e reposição</span>
               </div>
             </Reveal>
-            <Reveal className="reseller-product-stage" aria-label="Produtos da linha Slimcap">
-              <div className="reseller-product pedestal-one">
-                <Image src="/produtos/mascara-capilar.webp" alt="Máscara capilar Slimcap" width={1000} height={1000} />
+            <Reveal className="reseller-giro-media">
+              <Image
+                src="/images/revenda-giro-real.webp"
+                alt="Proprietária de loja organiza o estoque e a exposição dos produtos Slimcap"
+                fill
+                sizes="(max-width: 900px) 100vw, 58vw"
+              />
+              <div className="reseller-giro-caption">
+                <span>Giro + reposição</span>
+                <strong>Uma linha que continua vendendo depois da primeira indicação.</strong>
               </div>
-              <div className="reseller-product pedestal-two">
-                <Image src="/produtos/shampoo-revitalizante.webp" alt="Shampoo revitalizante Slimcap" width={1000} height={1000} />
-              </div>
-              <div className="reseller-product pedestal-three">
-                <Image src="/produtos/locao-tonica.webp" alt="Loção tônica Slimcap" width={1000} height={1000} />
-              </div>
-              <div className="reseller-stage-note"><strong>Mix completo</strong><span>couro cabeludo + fios</span></div>
             </Reveal>
           </div>
         </section>
@@ -222,7 +222,7 @@ export default function ResellerPage() {
         <section id="canais" className="reseller-channels-section" aria-labelledby="channels-title">
           <div className="shell">
             <Reveal className="reseller-section-heading reseller-heading-light">
-              <div><p className="eyebrow eyebrow-light">Feito para diferentes canais</p><h2 id="channels-title">A oportunidade muda. O suporte acompanha.</h2></div>
+              <div><p className="eyebrow eyebrow-light">Feito para diferentes canais</p><h2 id="channels-title">A oportunidade muda. <em>O suporte acompanha.</em></h2></div>
               <p>O mix e a conversa comercial são ajustados ao modo como cada parceiro atende, vende e recompra.</p>
             </Reveal>
             <div className="reseller-channel-list">
@@ -250,7 +250,7 @@ export default function ResellerPage() {
             <div className="reseller-support-copy">
               <Reveal>
                 <p className="eyebrow">Suporte que ajuda a girar</p>
-                <h2 id="support-title">Produto na prateleira não basta. É preciso direção.</h2>
+                <h2 id="support-title">Produto na prateleira não basta. <em>É preciso direção.</em></h2>
                 <p className="reseller-support-lead">Da composição do primeiro pedido à reposição, a parceria é construída para deixar sua equipe mais preparada e seu estoque mais inteligente.</p>
               </Reveal>
               <div className="reseller-support-list">
@@ -271,7 +271,7 @@ export default function ResellerPage() {
           <div className="shell">
             <Reveal className="reseller-process-heading">
               <p className="eyebrow">Da conversa à reposição</p>
-              <h2 id="process-title">Um começo simples. Uma parceria para continuar.</h2>
+              <h2 id="process-title">Um começo simples. <em>Uma parceria para continuar.</em></h2>
             </Reveal>
             <ol className="reseller-process-list">
               <li><span>01</span><strong>Conte sobre o seu negócio</strong><p>Canal, público, região e objetivo comercial.</p></li>
@@ -304,7 +304,7 @@ export default function ResellerPage() {
           <div className="reseller-final-overlay" aria-hidden="true" />
           <div className="shell reseller-final-content">
             <p className="eyebrow eyebrow-light">Pronto para colocar a linha em movimento?</p>
-            <h2 id="reseller-final-title">Converse com quem entende de produto e de parceria.</h2>
+            <h2 id="reseller-final-title">Converse com quem entende de produto <em>e de parceria.</em></h2>
             <p>Receba uma sugestão comercial de acordo com o seu canal e potencial de compra.</p>
             <WhatsAppLink className="button button-gold" intent="revenda-final" message={resellerMessage}>
               Falar com o comercial <ArrowRight size={18} aria-hidden="true" />
