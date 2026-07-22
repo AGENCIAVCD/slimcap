@@ -225,7 +225,7 @@ img { display: block; }
 /* Hero carousel */
 .brand-hero {
   position: relative;
-  min-height: 850px;
+  min-height: clamp(680px, 72vh, 720px);
   overflow: hidden;
   background: var(--espresso);
   color: white;
@@ -277,9 +277,9 @@ img { display: block; }
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
-  min-height: 850px;
-  padding-top: 132px;
-  padding-bottom: 136px;
+  min-height: clamp(680px, 72vh, 720px);
+  padding-top: 108px;
+  padding-bottom: 94px;
 }
 
 .hero-slide-content > * {
@@ -763,10 +763,10 @@ img { display: block; }
 .reseller-header nav a:hover { color: #f1d3aa; }
 .reseller-header-cta { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; border: 1px solid rgba(255,255,255,.3); background: rgba(39,23,16,.26); font-size: 12px; font-weight: 800; backdrop-filter: blur(12px); }
 
-.reseller-hero { position: relative; min-height: 850px; overflow: hidden; background: var(--espresso); color: white; }
+.reseller-hero { position: relative; min-height: clamp(700px, 74vh, 740px); overflow: hidden; background: var(--espresso); color: white; }
 .reseller-hero-image { object-fit: cover; object-position: center; transform: scale(1.012); animation: resellerImageIn 1.4s cubic-bezier(.2,.7,.2,1) both; }
 .reseller-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(24,13,9,.93) 0%, rgba(35,19,13,.76) 35%, rgba(42,25,18,.12) 69%), linear-gradient(0deg, rgba(22,12,8,.6), transparent 48%); }
-.reseller-hero-content { position: relative; z-index: 2; display: flex; min-height: 850px; max-width: none; padding-top: 155px; padding-bottom: 108px; justify-content: center; align-items: flex-start; flex-direction: column; }
+.reseller-hero-content { position: relative; z-index: 2; display: flex; min-height: clamp(700px, 74vh, 740px); max-width: none; padding-top: 118px; padding-bottom: 72px; justify-content: center; align-items: flex-start; flex-direction: column; }
 .reseller-hero-content > * { opacity: 0; transform: translateY(24px); animation: riseIn 760ms cubic-bezier(.2,.75,.25,1) forwards; }
 .reseller-hero-content > :nth-child(1) { animation-delay: 90ms; }
 .reseller-hero-content > :nth-child(2) { animation-delay: 150ms; }
