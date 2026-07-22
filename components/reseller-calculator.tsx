@@ -9,26 +9,26 @@ const MIN_INVESTMENT = 1500;
 const MAX_INVESTMENT = 10000;
 
 const tiers = [
-  { min: 1500, margin: 30, name: "Entrada profissional" },
-  { min: 3000, margin: 40, name: "Crescimento" },
-  { min: 5000, margin: 50, name: "Máxima oportunidade" },
+  { min: 1500, margin: 30, name: "Primeira faixa" },
+  { min: 3000, margin: 40, name: "Mais margem" },
+  { min: 5000, margin: 50, name: "Melhor condição" },
 ] as const;
 
 const resellerKits = [
   {
     id: "giro",
-    eyebrow: "Entrada de giro",
+    eyebrow: "Para começar",
     name: "Mix Essencial",
-    description: "Uma seleção enxuta para começar com dores recorrentes e indicação simples.",
+    description: "Para validar a demanda com uma seleção enxuta, fácil de explicar e de oferecer.",
     referenceCost: 204.3,
     products: ["Shampoo anticaspa", "Loção tônica"],
     images: ["/produtos/shampoo-anticaspa.webp", "/produtos/locao-tonica.webp"],
   },
   {
     id: "protocolo",
-    eyebrow: "Maior procura",
+    eyebrow: "Para clínicas e especialistas",
     name: "Protocolo Anti-Queda",
-    description: "Um conjunto consultivo para couro cabeludo, fortalecimento e continuidade em casa.",
+    description: "Para elevar o ticket com um protocolo de couro cabeludo, fortalecimento e continuidade em casa.",
     referenceCost: 385.9,
     products: ["Shampoo revitalizante", "Loção tônica", "Condicionador"],
     images: [
@@ -39,9 +39,9 @@ const resellerKits = [
   },
   {
     id: "prateleira",
-    eyebrow: "Mais variedade",
+    eyebrow: "Para lojas e distribuidores",
     name: "Mix Loja Completo",
-    description: "Uma vitrine mais ampla para combinar couro cabeludo, tratamento e finalização.",
+    description: "Para atender mais necessidades, ampliar a vitrine e gerar novas combinações de venda.",
     referenceCost: 519.9,
     products: ["Shampoo", "Loção", "Máscara", "Leave-in"],
     images: [
@@ -77,17 +77,17 @@ export function ResellerCalculator() {
   const rangeProgress = ((investment - MIN_INVESTMENT) / (MAX_INVESTMENT - MIN_INVESTMENT)) * 100;
   const nextTier = tiers.find((item) => item.min > investment);
   const amountToNextTier = nextTier ? nextTier.min - investment : 0;
-  const message = `Olá! Simulei o ${selectedKit.name} para revenda com investimento mensal de ${currency.format(investment)}, aproximadamente ${estimatedKits} kits e margem potencial de até ${tier.margin}%. Quero receber uma proposta de mix para o meu negócio.`;
+  const message = `Olá! Simulei o ${selectedKit.name} com um pedido de ${currency.format(investment)}, aproximadamente ${estimatedKits} kits e margem potencial de até ${tier.margin}%. Quero receber uma proposta de revenda para o meu negócio.`;
 
   return (
     <div className="reseller-calculator">
       <div className="kit-selector-heading">
         <div>
           <span>01</span>
-          <p>Escolha uma oportunidade</p>
-          <strong>Qual mix combina com o seu canal?</strong>
+          <p>Escolha seu ponto de partida</p>
+          <strong>O que você quer colocar para vender?</strong>
         </div>
-        <small>Você pode trocar o mix a qualquer momento. Os números acompanham sua escolha.</small>
+        <small>Compare os cenários. A quantidade, o ticket e a projeção financeira mudam com a sua escolha.</small>
       </div>
 
       <div className="calculator-kit-options" role="radiogroup" aria-label="Mix de produtos para simulação">
@@ -121,10 +121,10 @@ export function ResellerCalculator() {
 
       <div className="calculator-body">
         <div className="calculator-controls">
-          <div className="calculator-step-label"><span>02</span> Ajuste seu investimento mensal</div>
+          <div className="calculator-step-label"><span>02</span> Defina o tamanho do pedido</div>
           <div className="calculator-label-row">
             <div>
-              <span>Compra mensal simulada</span>
+              <span>Valor do pedido simulado</span>
               <strong>{currency.format(investment)}</strong>
             </div>
             <div className="calculator-tier-badge">
@@ -156,7 +156,7 @@ export function ResellerCalculator() {
 
           <div className="calculator-next-tier" aria-live="polite">
             {nextTier ? (
-              <>Faltam <strong>{currency.format(amountToNextTier)}</strong> para liberar potencial de até {nextTier.margin}%.</>
+              <>Adicione <strong>{currency.format(amountToNextTier)}</strong> ao pedido e avance para uma margem potencial de até {nextTier.margin}%.</>
             ) : (
               <>Você alcançou a <strong>faixa máxima de oportunidade</strong> da simulação.</>
             )}
@@ -164,13 +164,13 @@ export function ResellerCalculator() {
 
           <WhatsAppLink className="button button-dark calculator-whatsapp" intent="simulador-revenda" message={message}>
             <MessageCircle size={19} aria-hidden="true" />
-            Receber proposta deste mix
+            Quero uma proposta com este mix
             <ArrowRight size={18} aria-hidden="true" />
           </WhatsAppLink>
         </div>
 
         <div className="calculator-results" aria-live="polite">
-          <p>Potencial do {selectedKit.name}</p>
+          <p>Projeção para o {selectedKit.name}</p>
           <div className="calculator-kit-result">
             <div className="calculator-result-products" aria-hidden="true">
               {selectedKit.images.map((image, index) => (
@@ -178,7 +178,7 @@ export function ResellerCalculator() {
               ))}
             </div>
             <div>
-              <span>Seu pedido representa aproximadamente</span>
+              <span>Com este valor, você pode formar aproximadamente</span>
               <strong>{estimatedKits} <small>kits</small></strong>
             </div>
           </div>
@@ -188,19 +188,19 @@ export function ResellerCalculator() {
           </div>
           <dl>
             <div>
-              <dt>Ticket sugerido por kit</dt>
+              <dt>Ticket estimado por kit</dt>
               <dd>{currency.format(suggestedTicket)}</dd>
             </div>
             <div>
-              <dt>Faturamento potencial</dt>
+              <dt>Faturamento bruto estimado</dt>
               <dd>{currency.format(projectedRevenue)}</dd>
             </div>
             <div>
-              <dt>Lucro bruto potencial</dt>
+              <dt>Lucro bruto estimado</dt>
               <dd>{currency.format(projectedProfit)}</dd>
             </div>
           </dl>
-          <div className="calculator-result-note"><PackageOpen aria-hidden="true" /> Mix, quantidades e valores finais são personalizados pelo comercial.</div>
+          <div className="calculator-result-note"><PackageOpen aria-hidden="true" /> O comercial ajusta produtos e quantidades ao seu canal antes do pedido.</div>
           <small>
             Simulação ilustrativa baseada no custo médio de referência do mix e na margem máxima da faixa. O resultado
             real varia conforme composição, preço praticado, canal e negociação.

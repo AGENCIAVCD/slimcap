@@ -24,22 +24,22 @@ import { Reveal } from "@/components/reveal";
 import { WhatsAppLink } from "@/components/whatsapp-link";
 
 export const metadata: Metadata = {
-  title: "Revenda Slimcap | Margem, recorrência e suporte comercial",
+  title: "Seja Revendedor Slimcap | Margens de até 50%",
   description:
-    "Simule seu potencial de margem e conheça a parceria Slimcap para clínicas, lojas, farmácias, salões e distribuidores.",
+    "Monte uma simulação de pedido e conheça as condições de revenda Slimcap para clínicas, lojas, salões, farmácias e distribuidores.",
   alternates: { canonical: "/revenda" },
   openGraph: {
-    title: "Revenda Slimcap | Uma linha que movimenta o seu negócio",
-    description: "Margem potencial de até 50%, mix orientado e suporte para vender e repor melhor.",
+    title: "Revenda Slimcap | Mais ticket, margem e recompra",
+    description: "Comece a partir de R$ 1.500, com margem potencial de até 50%, mix orientado e suporte comercial.",
     url: "/revenda",
     images: [{ url: "/images/revenda-hero-real.webp", width: 1920, height: 1081 }],
   },
 };
 
 const commercialTiers = [
-  { investment: "R$ 1.500", margin: "30%", label: "Entrada profissional" },
-  { investment: "R$ 3.000", margin: "40%", label: "Crescimento" },
-  { investment: "R$ 5.000 ou mais", margin: "50%", label: "Máxima oportunidade" },
+  { investment: "R$ 1.500", margin: "30%", label: "Comece com segurança" },
+  { investment: "R$ 3.000", margin: "40%", label: "Ganhe eficiência" },
+  { investment: "R$ 5.000 ou mais", margin: "50%", label: "Maior margem da tabela" },
 ];
 
 const channels = [
@@ -47,57 +47,61 @@ const channels = [
     icon: Building2,
     number: "01",
     title: "Clínicas e profissionais",
-    text: "Estenda o cuidado para a rotina em casa e aumente o valor gerado por paciente sem ocupar mais agenda.",
-    result: "Mais valor por atendimento",
+    text: "Inclua o home care na recomendação e gere mais receita por paciente sem adicionar horários à agenda.",
+    result: "Mais receita por paciente",
   },
   {
     icon: Store,
     number: "02",
     title: "Lojas, salões e farmácias",
-    text: "Transforme dores recorrentes em uma linha consultiva, com kits claros e novas oportunidades de recompra.",
-    result: "Mais giro e ticket médio",
+    text: "Venda por necessidade, eleve o ticket com kits e crie uma rotina natural de retorno para reposição.",
+    result: "Mais giro por cliente",
   },
   {
     icon: UsersRound,
     number: "03",
     title: "Distribuidores regionais",
-    text: "Trabalhe volume, abra novos pontos de venda e leve uma marca especializada para a sua cobertura comercial.",
-    result: "Mais escala regional",
+    text: "Abra novos pontos com uma linha especializada, condições progressivas e apoio para desenvolver sua região.",
+    result: "Mais pontos de venda ativos",
   },
 ];
 
 const supportItems = [
-  { icon: Boxes, title: "Mix orientado", text: "Seleção de produtos e kits de acordo com seu canal, público e potencial de giro." },
-  { icon: PackageCheck, title: "Materiais de venda", text: "Conteúdo para apresentar a linha, explicar protocolos e apoiar a decisão do cliente." },
-  { icon: Headphones, title: "Apoio comercial", text: "Contato próximo para dúvidas, oportunidades, condições e planejamento de reposição." },
-  { icon: RefreshCw, title: "Reposição inteligente", text: "Leitura do giro para manter disponibilidade sem perder eficiência de estoque." },
+  { icon: Boxes, title: "Pedido com lógica de giro", text: "O mix é montado conforme seu canal, público e capacidade de venda, não como um pacote genérico." },
+  { icon: PackageCheck, title: "Argumentos para sua equipe", text: "Materiais que ajudam a explicar cada protocolo, recomendar com segurança e conduzir a venda." },
+  { icon: Headphones, title: "Consultor próximo", text: "Atendimento direto para condições, dúvidas, novas oportunidades e decisões comerciais." },
+  { icon: RefreshCw, title: "Reposição sem adivinhação", text: "Acompanhamento do giro para recomprar com mais clareza e reduzir produto parado." },
 ];
 
 const faq = [
   {
     question: "Qual é o investimento inicial para revender Slimcap?",
-    answer: "A primeira faixa comercial da simulação começa em R$ 1.500. O mix e a condição final são definidos com o comercial conforme o perfil e o canal do parceiro.",
+    answer: "O programa começa com pedidos a partir de R$ 1.500. Antes de fechar, o comercial ajuda a ajustar produtos e quantidades ao seu canal para que o primeiro mix faça sentido para a operação.",
   },
   {
     question: "Como funcionam as faixas de margem?",
-    answer: "Compras a partir de R$ 1.500 têm potencial de até 30%; a partir de R$ 3.000, até 40%; e a partir de R$ 5.000, até 50%. A margem efetiva depende do mix, preço praticado e condição negociada.",
+    answer: "Pedidos a partir de R$ 1.500 podem alcançar até 30%; a partir de R$ 3.000, até 40%; e a partir de R$ 5.000, até 50%. O percentual efetivo depende do mix, da condição negociada e do preço praticado no seu canal.",
   },
   {
     question: "A Slimcap ajuda a escolher quais produtos comprar?",
-    answer: "Sim. A proposta é construída de acordo com o tipo de negócio, público e objetivo comercial, evitando um pedido genérico sem relação com a operação.",
+    answer: "Sim. Você conta como vende, para quem vende e quanto pretende investir. A partir disso, o comercial sugere uma composição mais coerente com seu público e potencial de giro.",
   },
   {
     question: "Existe suporte depois da primeira compra?",
-    answer: "Sim. O parceiro recebe apoio para conhecer a linha, organizar a argumentação de venda e planejar reposições conforme o giro.",
+    answer: "Sim. A parceria continua depois do pedido: sua equipe recebe apoio para conhecer a linha, apresentar os protocolos e planejar a reposição conforme as vendas.",
   },
   {
     question: "Posso revender em loja física e também online?",
     answer: "O formato de atuação é alinhado com o comercial durante o cadastro, considerando canal, região e estratégia de venda.",
   },
+  {
+    question: "Preciso conhecer terapia capilar para começar?",
+    answer: "Não é necessário dominar toda a linha antes do primeiro pedido. A Slimcap orienta o parceiro sobre produtos, protocolos e argumentos para que a recomendação seja feita com mais confiança.",
+  },
 ];
 
 const resellerMessage =
-  "Olá! Conheci o programa de revenda Slimcap pelo site e quero entender as condições comerciais para o meu negócio.";
+  "Olá! Quero conhecer o programa de revenda Slimcap e receber uma sugestão de mix para o meu negócio.";
 
 export default function ResellerPage() {
   return (
@@ -114,7 +118,7 @@ export default function ResellerPage() {
             <a href="#suporte">Suporte</a>
           </nav>
           <WhatsAppLink className="reseller-header-cta" intent="revenda-header" message={resellerMessage}>
-            <MessageCircle size={17} aria-hidden="true" /> Falar com comercial
+            <MessageCircle size={17} aria-hidden="true" /> Receber proposta
           </WhatsAppLink>
         </div>
       </header>
@@ -131,23 +135,24 @@ export default function ResellerPage() {
           />
           <div className="reseller-hero-overlay" aria-hidden="true" />
           <div className="shell reseller-hero-content">
-            <p className="eyebrow eyebrow-light">Programa de parceria Slimcap</p>
-            <h1 id="reseller-title">Mais valor por atendimento. <em>Mais margem</em> por reposição.</h1>
+            <p className="eyebrow eyebrow-light">Programa de revenda Slimcap</p>
+            <h1 id="reseller-title">Revenda Slimcap e transforme cada atendimento em <em>uma nova fonte de receita.</em></h1>
             <p>
-              Leve uma linha de terapia capilar com quatro décadas de experiência para sua clínica, loja ou região,
-              com mix orientado e suporte para vender com confiança.
+              Comece com pedidos a partir de R$ 1.500, margem potencial de até 50% e suporte para escolher o mix,
+              preparar sua equipe e planejar a reposição.
             </p>
             <div className="reseller-hero-actions">
               <a href="#simulador" className="button button-gold">
-                Simular meu lucro <ChartNoAxesCombined size={19} aria-hidden="true" />
+                Calcular minha margem <ChartNoAxesCombined size={19} aria-hidden="true" />
               </a>
               <WhatsAppLink className="reseller-hero-link" intent="revenda-hero" message={resellerMessage}>
-                Conhecer condições <ArrowRight size={17} aria-hidden="true" />
+                Falar com consultor B2B <ArrowRight size={17} aria-hidden="true" />
               </WhatsAppLink>
             </div>
+            <small className="reseller-hero-microcopy">Sem carrinho. Atendimento direto com o time comercial.</small>
             <div className="reseller-hero-proof">
               <span><CircleDollarSign aria-hidden="true" /> Margem potencial de até 50%</span>
-              <span><BadgeCheck aria-hidden="true" /> 40 anos de experiência</span>
+              <span><BadgeCheck aria-hidden="true" /> Pedidos a partir de R$ 1.500</span>
               <span><Headphones aria-hidden="true" /> Suporte técnico e comercial</span>
             </div>
           </div>
@@ -159,11 +164,11 @@ export default function ResellerPage() {
             <Reveal className="reseller-section-heading">
               <div>
                 <p className="eyebrow">Simulador comercial</p>
-                <h2 id="simulator-title">Escolha o mix. <em>Veja a oportunidade ganhar forma.</em></h2>
+                <h2 id="simulator-title">Monte seu pedido e veja <em>quanto ele pode faturar.</em></h2>
               </div>
               <p>
-                Escolha uma proposta de kit e ajuste o investimento mensal. A experiência mostra quantos kits cabem
-                no pedido, o ticket sugerido e a oportunidade de lucro em cada faixa.
+                Compare os mixes, ajuste o valor e veja na hora a quantidade aproximada de kits, o ticket sugerido,
+                o faturamento e o lucro bruto estimado.
               </p>
             </Reveal>
             <Reveal><ResellerCalculator /></Reveal>
@@ -174,7 +179,7 @@ export default function ResellerPage() {
           <div className="shell">
             <Reveal className="reseller-tier-intro">
               <p className="eyebrow eyebrow-light">Faixas comerciais claras</p>
-              <h2 id="tiers-title">Seu volume cresce. <em>Sua margem acompanha.</em></h2>
+              <h2 id="tiers-title">Quanto maior o pedido, <em>maior pode ser o ganho por venda.</em></h2>
             </Reveal>
             <div className="reseller-tier-list">
               {commercialTiers.map((tier, index) => (
@@ -192,16 +197,16 @@ export default function ResellerPage() {
         <section className="reseller-ticket-section" aria-labelledby="ticket-title">
           <div className="shell reseller-ticket-grid">
             <Reveal className="reseller-ticket-copy">
-              <p className="eyebrow">Uma linha, novas receitas</p>
-              <h2 id="ticket-title">Transforme cuidado em <em>ticket, recorrência e relacionamento.</em></h2>
+              <p className="eyebrow">Mais receita sem mais agenda</p>
+              <h2 id="ticket-title">Aumente o ticket de cada cliente <em>sem aumentar seus horários.</em></h2>
               <p>
-                Protocolos completos permitem combinar produtos de couro cabeludo e fios, construir uma indicação
-                mais valiosa e criar motivos reais para o cliente voltar.
+                Quando o cliente leva para casa um protocolo alinhado à necessidade dele, o atendimento gera uma
+                nova venda hoje e abre espaço para reposição nas próximas semanas.
               </p>
               <div className="reseller-revenue-levers">
-                <span><Check aria-hidden="true" /> Kits por necessidade elevam o valor da venda</span>
-                <span><Check aria-hidden="true" /> Rotina home care amplia o ticket da clínica</span>
-                <span><Check aria-hidden="true" /> Uso contínuo favorece recompra e reposição</span>
+                <span><Check aria-hidden="true" /> Venda um protocolo, não apenas um produto isolado</span>
+                <span><Check aria-hidden="true" /> Gere receita adicional em cada atendimento</span>
+                <span><Check aria-hidden="true" /> Crie recompra com produtos de uso contínuo</span>
               </div>
             </Reveal>
             <Reveal className="reseller-giro-media">
@@ -213,7 +218,7 @@ export default function ResellerPage() {
               />
               <div className="reseller-giro-caption">
                 <span>Giro + reposição</span>
-                <strong>Uma linha que continua vendendo depois da primeira indicação.</strong>
+                <strong>A primeira venda gera ticket. A reposição constrói recorrência.</strong>
               </div>
             </Reveal>
           </div>
@@ -222,8 +227,8 @@ export default function ResellerPage() {
         <section id="canais" className="reseller-channels-section" aria-labelledby="channels-title">
           <div className="shell">
             <Reveal className="reseller-section-heading reseller-heading-light">
-              <div><p className="eyebrow eyebrow-light">Feito para diferentes canais</p><h2 id="channels-title">A oportunidade muda. <em>O suporte acompanha.</em></h2></div>
-              <p>O mix e a conversa comercial são ajustados ao modo como cada parceiro atende, vende e recompra.</p>
+              <div><p className="eyebrow eyebrow-light">Uma estratégia para cada canal</p><h2 id="channels-title">O produto é o mesmo. <em>A oportunidade de venda muda.</em></h2></div>
+              <p>A Slimcap adapta o mix e o suporte à forma como sua clínica, loja ou distribuição gera receita.</p>
             </Reveal>
             <div className="reseller-channel-list">
               {channels.map((channel) => {
@@ -249,9 +254,9 @@ export default function ResellerPage() {
             </Reveal>
             <div className="reseller-support-copy">
               <Reveal>
-                <p className="eyebrow">Suporte que ajuda a girar</p>
-                <h2 id="support-title">Produto na prateleira não basta. <em>É preciso direção.</em></h2>
-                <p className="reseller-support-lead">Da composição do primeiro pedido à reposição, a parceria é construída para deixar sua equipe mais preparada e seu estoque mais inteligente.</p>
+                <p className="eyebrow">Menos risco no primeiro pedido</p>
+                <h2 id="support-title">Você entra com o relacionamento. <em>A Slimcap ajuda com o resto.</em></h2>
+                <p className="reseller-support-lead">Do primeiro mix à reposição, você recebe direção para comprar melhor, apresentar a linha com segurança e manter o estoque alinhado ao giro.</p>
               </Reveal>
               <div className="reseller-support-list">
                 {supportItems.map((item, index) => {
@@ -270,14 +275,14 @@ export default function ResellerPage() {
         <section className="reseller-process-section" aria-labelledby="process-title">
           <div className="shell">
             <Reveal className="reseller-process-heading">
-              <p className="eyebrow">Da conversa à reposição</p>
-              <h2 id="process-title">Um começo simples. <em>Uma parceria para continuar.</em></h2>
+              <p className="eyebrow">Comece sem complicação</p>
+              <h2 id="process-title">Seu primeiro pedido <em>em quatro passos.</em></h2>
             </Reveal>
             <ol className="reseller-process-list">
-              <li><span>01</span><strong>Conte sobre o seu negócio</strong><p>Canal, público, região e objetivo comercial.</p></li>
-              <li><span>02</span><strong>Receba uma sugestão de mix</strong><p>Produtos e volume alinhados à sua operação.</p></li>
-              <li><span>03</span><strong>Prepare sua equipe para vender</strong><p>Materiais e orientação para apresentar a linha.</p></li>
-              <li><span>04</span><strong>Acompanhe giro e reposição</strong><p>Mais clareza para manter o estoque saudável.</p></li>
+              <li><span>01</span><strong>Conte como você vende</strong><p>Canal, público, região e objetivo comercial.</p></li>
+              <li><span>02</span><strong>Receba um mix sugerido</strong><p>Produtos e quantidades coerentes com seu investimento.</p></li>
+              <li><span>03</span><strong>Prepare a argumentação</strong><p>Entenda como apresentar protocolos e benefícios.</p></li>
+              <li><span>04</span><strong>Venda, acompanhe e reponha</strong><p>Use o giro real para orientar as próximas compras.</p></li>
             </ol>
           </div>
         </section>
@@ -285,9 +290,9 @@ export default function ResellerPage() {
         <section className="reseller-faq-section" aria-labelledby="reseller-faq-title">
           <div className="shell reseller-faq-grid">
             <Reveal className="reseller-faq-intro">
-              <p className="eyebrow">Antes de começar</p>
-              <h2 id="reseller-faq-title">O que parceiros querem saber.</h2>
-              <WhatsAppLink className="text-link" intent="revenda-faq" message={resellerMessage}>Perguntar ao comercial <MessageCircle size={17} aria-hidden="true" /></WhatsAppLink>
+              <p className="eyebrow">Decida com segurança</p>
+              <h2 id="reseller-faq-title">Dúvidas antes de investir?</h2>
+              <WhatsAppLink className="text-link" intent="revenda-faq" message={resellerMessage}>Tirar dúvida com um consultor <MessageCircle size={17} aria-hidden="true" /></WhatsAppLink>
             </Reveal>
             <div className="reseller-faq-list">
               {faq.map((item) => (
@@ -303,11 +308,11 @@ export default function ResellerPage() {
           <Image src="/images/hero-produtos-slimcap.webp" alt="" fill sizes="100vw" className="reseller-final-image" />
           <div className="reseller-final-overlay" aria-hidden="true" />
           <div className="shell reseller-final-content">
-            <p className="eyebrow eyebrow-light">Pronto para colocar a linha em movimento?</p>
-            <h2 id="reseller-final-title">Converse com quem entende de produto <em>e de parceria.</em></h2>
-            <p>Receba uma sugestão comercial de acordo com o seu canal e potencial de compra.</p>
+            <p className="eyebrow eyebrow-light">Seu próximo canal de receita</p>
+            <h2 id="reseller-final-title">Comece com um pedido pensado <em>para vender e voltar a vender.</em></h2>
+            <p>Converse com o time comercial e receba uma sugestão de mix alinhada ao seu canal e investimento.</p>
             <WhatsAppLink className="button button-gold" intent="revenda-final" message={resellerMessage}>
-              Falar com o comercial <ArrowRight size={18} aria-hidden="true" />
+              Quero uma proposta de revenda <ArrowRight size={18} aria-hidden="true" />
             </WhatsAppLink>
           </div>
         </section>
@@ -316,7 +321,7 @@ export default function ResellerPage() {
       <footer className="reseller-footer">
         <div className="shell reseller-footer-inner">
           <Image src="/brand/logo-slimcapilar.webp" alt="Slimcap" width={255} height={83} />
-          <p>Linha profissional, margem e suporte para clínicas, lojas e distribuidores.</p>
+          <p>Produtos para vender hoje, suporte para repor melhor e margem para crescer.</p>
           <Link href="/">Voltar ao site Slimcap <ArrowRight size={15} aria-hidden="true" /></Link>
         </div>
       </footer>
