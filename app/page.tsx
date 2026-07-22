@@ -184,19 +184,21 @@ export default function Home() {
             <div className="kits-grid">
               {kits.map((kit, index) => (
                 <Reveal key={kit.title} className={`kit-item kit-${kit.accent}`}>
-                  <div className="kit-index">{String(index + 1).padStart(2, "0")}</div>
-                  <div className={`kit-product kit-product-${kit.products.length}`} aria-label={`Produtos do ${kit.title}`}>
-                    {kit.products.map((product, productIndex) => (
-                      <Image key={`${kit.title}-${productIndex}`} src={product} alt="" width={192} height={192} sizes="(max-width: 640px) 80px, 100px" />
-                    ))}
-                  </div>
                   <div className="kit-copy">
-                    <span>{kit.concern}</span>
+                    <div className="kit-meta">
+                      <span className="kit-index">{String(index + 1).padStart(2, "0")}</span>
+                      <span>{kit.concern}</span>
+                    </div>
                     <h3>{kit.title}</h3>
                     <p>{kit.formula}</p>
                     <a href="https://loja.slimcap.com.br" target="_blank" rel="noopener noreferrer" aria-label={`Conhecer ${kit.title}`}>
                       Conhecer kit <ArrowRight size={16} aria-hidden="true" />
                     </a>
+                  </div>
+                  <div className={`kit-product kit-product-${kit.products.length}`} aria-label={`Produtos do ${kit.title}`}>
+                    {kit.products.map((product, productIndex) => (
+                      <Image key={`${kit.title}-${productIndex}`} src={product} alt="" width={520} height={520} sizes="(max-width: 640px) 42vw, (max-width: 1180px) 22vw, 260px" />
+                    ))}
                   </div>
                 </Reveal>
               ))}
