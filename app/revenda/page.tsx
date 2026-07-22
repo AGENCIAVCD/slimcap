@@ -163,7 +163,7 @@ export default function ResellerPage() {
       <main>
         <section className="reseller-hero" aria-labelledby="reseller-title">
           <Image
-            src="/images/revenda-hero-cris.png"
+            src="/images/revenda-hero-cris-consultoria.png"
             alt="Cris Guerra apresenta a linha Slimcap em uma consultoria comercial para parceiros"
             fill
             priority
