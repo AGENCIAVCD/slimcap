@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight, Check, MessageCircle, PackageOpen, TrendingUp } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, MessageCircle, PackageOpen, TrendingUp } from "lucide-react";
 import { useState, type CSSProperties } from "react";
 import { WhatsAppLink } from "./whatsapp-link";
 
@@ -14,42 +14,72 @@ const tiers = [
   { min: 5000, margin: 50, name: "Melhor condição" },
 ] as const;
 
-const resellerKits = [
+const resellerProducts = [
   {
-    id: "giro",
-    eyebrow: "Para começar",
-    name: "Mix Essencial",
-    description: "Para validar a demanda com uma seleção enxuta, fácil de explicar e de oferecer.",
-    referenceCost: 204.3,
-    products: ["Shampoo anticaspa", "Loção tônica"],
-    images: ["/produtos/shampoo-anticaspa.webp", "/produtos/locao-tonica.webp"],
+    id: "shampoo",
+    eyebrow: "Giro recorrente",
+    name: "Shampoo revitalizante",
+    description: "Base de recompra para rotina capilar.",
+    referenceCost: 56.43,
+    unit: "unidades",
+    ticketLabel: "unidade",
+    image: "/produtos/catalogo/shampoo-revitalizante.png",
+    storeHref: "https://loja.slimcap.com.br/shampoo",
   },
   {
-    id: "protocolo",
-    eyebrow: "Para clínicas e especialistas",
-    name: "Protocolo Anti-Queda",
-    description: "Para elevar o ticket com um protocolo de couro cabeludo, fortalecimento e continuidade em casa.",
-    referenceCost: 385.9,
-    products: ["Shampoo revitalizante", "Loção tônica", "Condicionador"],
-    images: [
-      "/produtos/shampoo-revitalizante.webp",
-      "/produtos/locao-tonica.webp",
-      "/produtos/condicionador.webp",
-    ],
+    id: "condicionador",
+    eyebrow: "Venda complementar",
+    name: "Condicionador",
+    description: "Completa o ritual e ajuda a elevar o ticket.",
+    referenceCost: 45,
+    unit: "unidades",
+    ticketLabel: "unidade",
+    image: "/produtos/catalogo/condicionador.jpg",
+    storeHref: "https://loja.slimcap.com.br/condicionador",
   },
   {
-    id: "prateleira",
-    eyebrow: "Para lojas e distribuidores",
-    name: "Mix Loja Completo",
-    description: "Para atender mais necessidades, ampliar a vitrine e gerar novas combinações de venda.",
-    referenceCost: 519.9,
-    products: ["Shampoo", "Loção", "Máscara", "Leave-in"],
-    images: [
-      "/produtos/shampoo-revitalizante.webp",
-      "/produtos/locao-tonica.webp",
-      "/produtos/mascara-capilar.webp",
-      "/produtos/leave-in.webp",
-    ],
+    id: "locao",
+    eyebrow: "Protocolos capilares",
+    name: "Loção tônica",
+    description: "Indicação estratégica para o couro cabeludo.",
+    referenceCost: 49.29,
+    unit: "unidades",
+    ticketLabel: "unidade",
+    image: "/produtos/catalogo/locao-tonica.jpg",
+    storeHref: "https://loja.slimcap.com.br/locao",
+  },
+  {
+    id: "mascara",
+    eyebrow: "Nutrição e brilho",
+    name: "Máscara capilar",
+    description: "Complemento de alto apelo para a prateleira.",
+    referenceCost: 38.57,
+    unit: "unidades",
+    ticketLabel: "unidade",
+    image: "/produtos/catalogo/mascara.jpg",
+    storeHref: "https://loja.slimcap.com.br/mascara",
+  },
+  {
+    id: "esfoliante",
+    eyebrow: "Cuidado do couro cabeludo",
+    name: "Esfoliante",
+    description: "Porta de entrada para protocolos completos.",
+    referenceCost: 27.86,
+    unit: "unidades",
+    ticketLabel: "unidade",
+    image: "/produtos/catalogo/esfoliante.jpg",
+    storeHref: "https://loja.slimcap.com.br/esfoliante",
+  },
+  {
+    id: "kits",
+    eyebrow: "Protocolos completos",
+    name: "Kit completo anti-queda",
+    description: "Solução pronta para aumentar o ticket médio.",
+    referenceCost: 215.54,
+    unit: "kits",
+    ticketLabel: "kit",
+    image: "/produtos/catalogo/kit-completo-antiqueda.webp",
+    storeHref: "https://loja.slimcap.com.br/kits-de-tratamento-capilar",
   },
 ] as const;
 
@@ -67,17 +97,17 @@ function getTier(investment: number) {
 
 export function ResellerCalculator() {
   const [investment, setInvestment] = useState(3000);
-  const [selectedKitId, setSelectedKitId] = useState<(typeof resellerKits)[number]["id"]>("protocolo");
-  const selectedKit = resellerKits.find((kit) => kit.id === selectedKitId) ?? resellerKits[1];
+  const [selectedProductId, setSelectedProductId] = useState<(typeof resellerProducts)[number]["id"]>("kits");
+  const selectedProduct = resellerProducts.find((product) => product.id === selectedProductId) ?? resellerProducts[5];
   const tier = getTier(investment);
   const projectedRevenue = investment * (1 + tier.margin / 100);
   const projectedProfit = projectedRevenue - investment;
-  const estimatedKits = Math.max(1, Math.floor(investment / selectedKit.referenceCost));
-  const suggestedTicket = selectedKit.referenceCost * (1 + tier.margin / 100);
+  const estimatedUnits = Math.max(1, Math.floor(investment / selectedProduct.referenceCost));
+  const suggestedTicket = selectedProduct.referenceCost * (1 + tier.margin / 100);
   const rangeProgress = ((investment - MIN_INVESTMENT) / (MAX_INVESTMENT - MIN_INVESTMENT)) * 100;
   const nextTier = tiers.find((item) => item.min > investment);
   const amountToNextTier = nextTier ? nextTier.min - investment : 0;
-  const message = `Olá! Simulei o ${selectedKit.name} com um pedido de ${currency.format(investment)}, aproximadamente ${estimatedKits} kits e margem potencial de até ${tier.margin}%. Quero receber uma proposta de revenda para o meu negócio.`;
+  const message = `Olá! Simulei ${selectedProduct.name} com um pedido de ${currency.format(investment)}, aproximadamente ${estimatedUnits} ${selectedProduct.unit} e margem potencial de até ${tier.margin}%. Quero receber uma proposta de revenda para o meu negócio.`;
 
   return (
     <div className="reseller-calculator">
@@ -85,36 +115,36 @@ export function ResellerCalculator() {
         <div>
           <span>01</span>
           <p>Escolha seu ponto de partida</p>
-          <strong>O que você quer colocar para vender?</strong>
+          <strong>Qual produto você quer colocar para vender?</strong>
         </div>
-        <small>Compare os cenários. A quantidade, o ticket e a projeção financeira mudam com a sua escolha.</small>
+        <small>Escolha uma categoria. A quantidade, o ticket e a projeção financeira mudam com a sua escolha.</small>
       </div>
 
-      <div className="calculator-kit-options" role="radiogroup" aria-label="Mix de produtos para simulação">
-        {resellerKits.map((kit) => {
-          const isSelected = kit.id === selectedKit.id;
+      <div className="calculator-product-options" role="radiogroup" aria-label="Produtos para simulação">
+        {resellerProducts.map((product) => {
+          const isSelected = product.id === selectedProduct.id;
           return (
-            <button
-              key={kit.id}
-              type="button"
-              role="radio"
-              aria-checked={isSelected}
-              className={isSelected ? "is-selected" : ""}
-              onClick={() => setSelectedKitId(kit.id)}
-            >
-              <div className="kit-option-products" aria-hidden="true">
-                {kit.images.map((image, index) => (
-                  <Image key={image} src={image} alt="" width={1000} height={1000} style={{ "--product-index": index } as CSSProperties} />
-                ))}
-              </div>
-              <div className="kit-option-copy">
-                <span>{kit.eyebrow}</span>
-                <strong>{kit.name}</strong>
-                <p>{kit.description}</p>
-                <small>{kit.products.join(" + ")}</small>
-              </div>
-              <i aria-hidden="true">{isSelected ? <Check /> : null}</i>
-            </button>
+            <div key={product.id} className={`calculator-product-option ${isSelected ? "is-selected" : ""}`}>
+              <button
+                type="button"
+                role="radio"
+                aria-checked={isSelected}
+                onClick={() => setSelectedProductId(product.id)}
+              >
+                <span className="product-option-image" aria-hidden="true">
+                  <Image src={product.image} alt="" width={1000} height={1000} sizes="(max-width: 640px) 40vw, 140px" />
+                </span>
+                <span className="product-option-copy">
+                  <span>{product.eyebrow}</span>
+                  <strong>{product.name}</strong>
+                  <small>{product.description}</small>
+                </span>
+                <i aria-hidden="true">{isSelected ? <Check /> : null}</i>
+              </button>
+              <a href={product.storeHref} target="_blank" rel="noopener noreferrer">
+                Ver categoria <ArrowUpRight aria-hidden="true" />
+              </a>
+            </div>
           );
         })}
       </div>
@@ -170,16 +200,12 @@ export function ResellerCalculator() {
         </div>
 
         <div className="calculator-results" aria-live="polite">
-          <p>Projeção para o {selectedKit.name}</p>
+          <p>Projeção para {selectedProduct.name}</p>
           <div className="calculator-kit-result">
-            <div className="calculator-result-products" aria-hidden="true">
-              {selectedKit.images.map((image, index) => (
-                <Image key={image} src={image} alt="" width={1000} height={1000} style={{ "--product-index": index } as CSSProperties} />
-              ))}
-            </div>
+            <div className="calculator-result-product" aria-hidden="true"><Image src={selectedProduct.image} alt="" width={1000} height={1000} sizes="145px" /></div>
             <div>
               <span>Com este valor, você pode formar aproximadamente</span>
-              <strong>{estimatedKits} <small>kits</small></strong>
+              <strong>{estimatedUnits} <small>{selectedProduct.unit}</small></strong>
             </div>
           </div>
           <div className="calculator-margin">
@@ -188,7 +214,7 @@ export function ResellerCalculator() {
           </div>
           <dl>
             <div>
-              <dt>Ticket estimado por kit</dt>
+              <dt>Ticket estimado por {selectedProduct.ticketLabel}</dt>
               <dd>{currency.format(suggestedTicket)}</dd>
             </div>
             <div>

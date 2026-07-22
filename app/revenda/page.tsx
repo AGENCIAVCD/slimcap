@@ -193,7 +193,7 @@ export default function ResellerPage() {
                 <h2 id="simulator-title">Monte seu pedido e veja <em>quanto ele pode faturar.</em></h2>
               </div>
               <p>
-                Compare os mixes, ajuste o valor e veja na hora a quantidade aproximada de kits, o ticket sugerido,
+                Compare as categorias, ajuste o valor e veja na hora a quantidade aproximada de unidades, o ticket sugerido,
                 o faturamento e o lucro bruto estimado.
               </p>
             </Reveal>
