@@ -3,16 +3,12 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
-  BookOpen,
-  Boxes,
-  Camera,
   CalendarCheck,
   Check,
   ChevronDown,
   HeartHandshake,
   MessageCircle,
   Microscope,
-  Music2,
   PackageCheck,
   ScanSearch,
   Sparkles,
@@ -23,8 +19,10 @@ import {
 import { FloatingActions } from "@/components/floating-actions";
 import { HeroCarousel } from "@/components/hero-carousel";
 import { Reveal } from "@/components/reveal";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { CLINIC_WHATSAPP, WhatsAppLink } from "@/components/whatsapp-link";
+import { blogPostSummaries } from "@/lib/blog";
 
 const kits = [
   {
@@ -36,6 +34,7 @@ const kits = [
       "/produtos/transparente/shampoo-revitalizante.png",
       "/produtos/transparente/locao-tonica.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=81&iniSession=1&6a6d1d7739ddc",
     accent: "terracotta",
   },
   {
@@ -47,6 +46,7 @@ const kits = [
       "/produtos/transparente/shampoo-revitalizante.png",
       "/produtos/transparente/locao-tonica.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=83&iniSession=1&6a6d1d7739962",
     accent: "bronze",
   },
   {
@@ -54,26 +54,29 @@ const kits = [
     title: "Caspa, dermatite seborreica e coceira",
     formula: "Loção A · Shampoo anticaspa · Loção calmante",
     products: [
-      "/produtos/transparente/shampoo-anticaspa.png",
-      "/produtos/transparente/locao-tonica.png",
+      "/produtos/oficiais/locao-a.png",
+      "/produtos/oficiais/shampoo-anticaspa-oficial.png",
+      "/produtos/oficiais/locao-calmante.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=71&iniSession=1&6a6d1d7739ae0",
     accent: "amber",
   },
   {
     concern: "Hidratação e maciez",
-    title: "Kit nutrição completa",
-    formula: "Shampoo · Máscara · Condicionador · Leave-in",
+    title: "Kit Nutri Reparação completa",
+    formula: "Shampoo hidratante · Condicionador · Máscara · Leave-in",
     products: [
-      "/produtos/transparente/shampoo-revitalizante.png",
-      "/produtos/transparente/mascara-capilar.png",
-      "/produtos/transparente/condicionador.png",
-      "/produtos/transparente/leave-in.png",
+      "/produtos/oficiais/shampoo-hidratante.png",
+      "/produtos/oficiais/condicionador-oficial.png",
+      "/produtos/oficiais/mascara-oficial.png",
+      "/produtos/oficiais/leave-in-oficial.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=73&iniSession=1&6a6d1d7739e94",
     accent: "rose",
   },
   {
     concern: "Protocolo de 3 meses",
-    title: "Crescimento saudável e reparação",
+    title: "Kit Crescimento Saudável",
     formula: "Tratamento completo do couro cabeludo aos fios",
     products: [
       "/produtos/transparente/esfoliante.png",
@@ -81,37 +84,41 @@ const kits = [
       "/produtos/transparente/condicionador.png",
       "/produtos/transparente/locao-tonica.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=77&iniSession=1&6a6d1d7739c7c",
     accent: "cocoa",
   },
   {
     concern: "Cuidado delicado",
-    title: "Cabelos infantis",
+    title: "Kit Infantil",
     formula: "Esfoliante · Shampoo hidratante",
     products: [
-      "/produtos/transparente/esfoliante.png",
-      "/produtos/transparente/shampoo-revitalizante.png",
+      "/produtos/oficiais/esfoliante-oficial.png",
+      "/produtos/oficiais/shampoo-hidratante.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=85&iniSession=1&6a6faf144fef0",
     accent: "sand",
   },
   {
     concern: "Reparação dos fios",
-    title: "Nutrição intensiva",
-    formula: "Máscara nutrirreparadora · Leave-in",
+    title: "Kit Nutrição Intensiva",
+    formula: "Shampoo hidratante · Máscara · Leave-in",
     products: [
-      "/produtos/transparente/mascara-capilar.png",
-      "/produtos/transparente/leave-in.png",
+      "/produtos/oficiais/shampoo-hidratante.png",
+      "/produtos/oficiais/mascara-oficial.png",
+      "/produtos/oficiais/leave-in-oficial.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=79&iniSession=1&6a6faf145082e",
     accent: "clay",
   },
   {
     concern: "Limpeza profunda",
-    title: "Kit detox",
+    title: "Kit Detox",
     formula: "Loção A · Shampoo revitalizante",
     products: [
-      "/produtos/transparente/esfoliante.png",
-      "/produtos/transparente/shampoo-revitalizante.png",
-      "/produtos/transparente/locao-tonica.png",
+      "/produtos/oficiais/locao-a.png",
+      "/produtos/oficiais/shampoo-revitalizante-oficial.png",
     ],
+    href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=75&iniSession=1&6a6fc79a5c534",
     accent: "gold",
   },
 ];
@@ -193,7 +200,7 @@ export default function Home() {
                     </div>
                     <h3>{kit.title}</h3>
                     <p>{kit.formula}</p>
-                    <a href="https://loja.slimcap.com.br" target="_blank" rel="noopener noreferrer" aria-label={`Conhecer ${kit.title}`}>
+                    <a href={kit.href} target="_blank" rel="noopener noreferrer" aria-label={`Conhecer ${kit.title}`}>
                       Conhecer kit <ArrowRight size={16} aria-hidden="true" />
                     </a>
                   </div>
@@ -371,7 +378,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="journal-section section-pad" aria-labelledby="journal-title">
+        <section id="blog" className="journal-section section-pad" aria-labelledby="journal-title">
           <div className="shell">
             <Reveal className="journal-heading">
               <div>
@@ -382,13 +389,19 @@ export default function Home() {
             </Reveal>
             <div className="journal-grid">
               <Reveal className="journal-feature">
-                <Image src="/images/cris-avaliacao-capilar.png" alt="Cris Guerra realiza uma avaliação capilar em uma cliente" fill sizes="(max-width: 900px) 100vw, 50vw" />
-                <div><span>Guia de cuidado</span><h3>Queda capilar: quando observar e quando buscar orientação.</h3></div>
+                <Link href={`/blog/${blogPostSummaries[0].slug}`} aria-label={`Ler ${blogPostSummaries[0].title}`}>
+                  <Image src="/images/cris-avaliacao-capilar.png" alt="Cris Guerra realiza uma avaliação capilar em uma cliente" fill sizes="(max-width: 900px) 100vw, 50vw" />
+                  <div><span>{blogPostSummaries[0].category}</span><h3>{blogPostSummaries[0].title}</h3></div>
+                </Link>
               </Reveal>
               <div className="journal-list">
-                <Reveal className="journal-item"><BookOpen aria-hidden="true" /><div><span>Rotina em casa</span><h3>Como manter a constância de um protocolo capilar.</h3></div></Reveal>
-                <Reveal className="journal-item"><Sparkles aria-hidden="true" /><div><span>Couro cabeludo</span><h3>Caspa, oleosidade e sensibilidade não são a mesma coisa.</h3></div></Reveal>
-                <Reveal className="journal-item"><Boxes aria-hidden="true" /><div><span>Escolha consciente</span><h3>O que considerar antes de montar seu kit de cuidados.</h3></div></Reveal>
+                {blogPostSummaries.slice(1, 4).map((post) => (
+                  <Reveal key={post.slug} className="journal-item">
+                    <Sparkles aria-hidden="true" />
+                    <div><span>{post.category}</span><h3><Link href={`/blog/${post.slug}`}>{post.title}</Link></h3></div>
+                  </Reveal>
+                ))}
+                <Link className="text-link journal-all-link" href="/blog">Ver todos os artigos <ArrowRight size={17} aria-hidden="true" /></Link>
               </div>
             </div>
           </div>
@@ -413,25 +426,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="shell footer-main">
-          <Image src="/brand/logo-slimcapilar.webp" alt="Slimcapilar" width={255} height={83} />
-          <p>Terapia capilar integrativa, produtos e orientação construídos com quatro décadas de experiência.</p>
-          <div className="footer-social" aria-label="Redes sociais da Slimcap">
-            <a href="https://www.instagram.com/slimcap.clinicacapilar/" target="_blank" rel="noopener noreferrer" aria-label="Seguir Slimcap no Instagram">
-              <Camera size={17} aria-hidden="true" /><span>Instagram</span>
-            </a>
-            <a href="https://www.tiktok.com/@slimcap.capilar" target="_blank" rel="noopener noreferrer" aria-label="Seguir Slimcap no TikTok">
-              <Music2 size={17} aria-hidden="true" /><span>TikTok</span>
-            </a>
-          </div>
-          <WhatsAppLink className="footer-contact" intent="rodape" phone={CLINIC_WHATSAPP}><MessageCircle size={18} aria-hidden="true" /> (19) 98830-3434</WhatsAppLink>
-        </div>
-        <div className="shell footer-bottom">
-          <span>© {new Date().getFullYear()} Slimcapilar. Todos os direitos reservados.</span>
-          <span>Site desenvolvido por <a href="https://vocedigitalpropaganda.com.br/" target="_blank" rel="noopener noreferrer">Você Digital Propaganda</a></span>
-        </div>
-      </footer>
+      <SiteFooter />
       <FloatingActions />
     </>
   );

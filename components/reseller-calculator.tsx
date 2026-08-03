@@ -11,7 +11,7 @@ const MAX_INVESTMENT = 10000;
 const tiers = [
   { min: 1500, margin: 30, name: "Primeira faixa" },
   { min: 3000, margin: 40, name: "Mais margem" },
-  { min: 5000, margin: 50, name: "Melhor condição" },
+  { min: 6000, margin: 50, name: "Melhor condição" },
 ] as const;
 
 const resellerProducts = [
@@ -90,7 +90,7 @@ const currency = new Intl.NumberFormat("pt-BR", {
 });
 
 function getTier(investment: number) {
-  if (investment >= 5000) return tiers[2];
+  if (investment >= 6000) return tiers[2];
   if (investment >= 3000) return tiers[1];
   return tiers[0];
 }
@@ -188,7 +188,7 @@ export function ResellerCalculator() {
           <div className="calculator-scale" aria-hidden="true">
             <span>R$ 1,5 mil</span>
             <span>R$ 3 mil</span>
-            <span>R$ 5 mil</span>
+            <span>R$ 6 mil</span>
             <span>R$ 10 mil</span>
           </div>
 

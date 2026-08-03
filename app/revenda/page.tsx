@@ -71,7 +71,7 @@ const commercialTiers = [
   },
   {
     name: "Premium",
-    investment: "R$ 5.000+",
+    investment: "R$ 6.000",
     margin: "50%",
     benefit: "Maior margem da tabela",
     icon: Gem,
@@ -117,7 +117,7 @@ const faq = [
   },
   {
     question: "Como funcionam as faixas de margem?",
-    answer: "Pedidos a partir de R$ 1.500 podem alcançar até 30%; a partir de R$ 3.000, até 40%; e a partir de R$ 5.000, até 50%. O percentual efetivo depende do mix, da condição negociada e do preço praticado no seu canal.",
+    answer: "Pedidos a partir de R$ 1.500 podem alcançar até 30%; a partir de R$ 3.000, até 40%; e a partir de R$ 6.000, até 50%. O percentual efetivo depende do mix, da condição negociada e do preço praticado no seu canal.",
   },
   {
     question: "A Slimcap ajuda a escolher quais produtos comprar?",
@@ -172,11 +172,11 @@ export default function ResellerPage() {
           />
           <div className="reseller-hero-overlay" aria-hidden="true" />
           <div className="shell reseller-hero-content">
-            <p className="eyebrow eyebrow-light">Programa de revenda Slimcap</p>
-            <h1 id="reseller-title">Revenda Slimcap e transforme cada atendimento em <em>uma nova fonte de receita.</em></h1>
+            <p className="eyebrow eyebrow-light">O mercado capilar cresce. Seu negócio pode crescer junto.</p>
+            <h1 id="reseller-title">Transforme cuidado capilar em <em>ticket, margem e recompra.</em></h1>
             <p>
-              Comece com pedidos a partir de R$ 1.500, margem potencial de até 50% e suporte para escolher o mix,
-              preparar sua equipe e planejar a reposição.
+              Comece a partir de R$ 1.500 e alcance margem potencial de até 50% na faixa de R$ 6.000, com suporte
+              para escolher o mix, preparar sua equipe e planejar a reposição.
             </p>
             <div className="reseller-hero-actions">
               <a href="#simulador" className="button button-gold">
@@ -188,7 +188,7 @@ export default function ResellerPage() {
             </div>
             <small className="reseller-hero-microcopy">Sem carrinho. Atendimento direto com o time comercial.</small>
             <div className="reseller-hero-proof">
-              <span><CircleDollarSign aria-hidden="true" /> Margem potencial de até 50%</span>
+              <span><CircleDollarSign aria-hidden="true" /> Até 50% em pedidos de R$ 6.000</span>
               <span><BadgeCheck aria-hidden="true" /> Pedidos a partir de R$ 1.500</span>
               <span><Headphones aria-hidden="true" /> Suporte técnico e comercial</span>
             </div>

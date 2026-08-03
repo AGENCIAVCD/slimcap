@@ -7,11 +7,11 @@ import { useState } from "react";
 import { CLINIC_WHATSAPP, WhatsAppLink } from "./whatsapp-link";
 
 const navItems = [
-  { href: "#kits", label: "Encontre seu kit" },
-  { href: "#metodo", label: "Método Slimcap" },
-  { href: "#atendimento", label: "Atendimento" },
-  { href: "/revenda", label: "Profissionais" },
-  { href: "#duvidas", label: "Dúvidas" },
+  { href: "/#metodo", label: "Método Slimcap" },
+  { href: "/#atendimento", label: "Atendimento" },
+  { href: "/blog", label: "Blog" },
+  { href: "https://loja.slimcap.com.br", label: "Loja online", external: true },
+  { href: "/#duvidas", label: "Dúvidas" },
 ];
 
 export function SiteHeader() {
@@ -20,7 +20,7 @@ export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="shell header-inner">
-        <a href="#inicio" className="brand-link" aria-label="Slimcapilar - início">
+        <Link href="/" className="brand-link" aria-label="Slimcapilar - início">
           <Image
             src="/brand/logo-slimcapilar.webp"
             alt="Slimcapilar"
@@ -28,10 +28,12 @@ export function SiteHeader() {
             height={83}
             loading="eager"
           />
-        </a>
+        </Link>
 
         <nav className="desktop-nav" aria-label="Navegação principal">
-          {navItems.map((item) => item.href.startsWith("/") ? (
+          {navItems.map((item) => item.external ? (
+            <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>
+          ) : item.href.startsWith("/") ? (
             <Link key={item.href} href={item.href}>{item.label}</Link>
           ) : (
             <a key={item.href} href={item.href}>{item.label}</a>
@@ -45,7 +47,7 @@ export function SiteHeader() {
           message="Olá, Vani! Vim pelo site da Slimcap e gostaria de ajuda para descobrir meu kit ideal."
         >
           <Sparkles size={17} aria-hidden="true" />
-          Descobrir meu kit
+          Descobrir seu kit
         </WhatsAppLink>
 
         <button
@@ -61,7 +63,9 @@ export function SiteHeader() {
 
       <div className={`mobile-menu ${open ? "is-open" : ""}`} aria-hidden={!open}>
         <nav aria-label="Navegação móvel">
-          {navItems.map((item) => item.href.startsWith("/") ? (
+          {navItems.map((item) => item.external ? (
+            <a key={item.href} href={item.href} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>{item.label}</a>
+          ) : item.href.startsWith("/") ? (
             <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
           ) : (
             <a key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}</a>
