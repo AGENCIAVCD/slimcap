@@ -29,11 +29,7 @@ const kits = [
     concern: "Eflúvio telógeno",
     title: "Queda após parto, emagrecimento ou dengue",
     formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
-    products: [
-      "/produtos/transparente/esfoliante.png",
-      "/produtos/transparente/shampoo-revitalizante.png",
-      "/produtos/transparente/locao-tonica.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-01-queda-pos-parto.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=81&iniSession=1&6a6d1d7739ddc",
     accent: "terracotta",
   },
@@ -41,11 +37,7 @@ const kits = [
     concern: "Protocolo de 3 meses",
     title: "Queda, calvície e alopecias",
     formula: "Esfoliante · Shampoo revitalizante · Loção tônica",
-    products: [
-      "/produtos/transparente/esfoliante.png",
-      "/produtos/transparente/shampoo-revitalizante.png",
-      "/produtos/transparente/locao-tonica.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-02-alopecias.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=83&iniSession=1&6a6d1d7739962",
     accent: "bronze",
   },
@@ -53,11 +45,7 @@ const kits = [
     concern: "Equilíbrio do couro cabeludo",
     title: "Caspa, dermatite seborreica e coceira",
     formula: "Loção A · Shampoo anticaspa · Loção calmante",
-    products: [
-      "/produtos/oficiais/locao-a.png",
-      "/produtos/oficiais/shampoo-anticaspa-oficial.png",
-      "/produtos/oficiais/locao-calmante.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-03-anticaspa.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=71&iniSession=1&6a6d1d7739ae0",
     accent: "amber",
   },
@@ -65,12 +53,7 @@ const kits = [
     concern: "Hidratação e maciez",
     title: "Kit Nutri Reparação completa",
     formula: "Shampoo hidratante · Condicionador · Máscara · Leave-in",
-    products: [
-      "/produtos/oficiais/shampoo-hidratante.png",
-      "/produtos/oficiais/condicionador-oficial.png",
-      "/produtos/oficiais/mascara-oficial.png",
-      "/produtos/oficiais/leave-in-oficial.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-04-nutri-reparacao.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=73&iniSession=1&6a6d1d7739e94",
     accent: "rose",
   },
@@ -78,12 +61,7 @@ const kits = [
     concern: "Protocolo de 3 meses",
     title: "Kit Crescimento Saudável",
     formula: "Tratamento completo do couro cabeludo aos fios",
-    products: [
-      "/produtos/transparente/esfoliante.png",
-      "/produtos/transparente/shampoo-revitalizante.png",
-      "/produtos/transparente/condicionador.png",
-      "/produtos/transparente/locao-tonica.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-05-crescimento.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=77&iniSession=1&6a6d1d7739c7c",
     accent: "cocoa",
   },
@@ -91,10 +69,7 @@ const kits = [
     concern: "Cuidado delicado",
     title: "Kit Infantil",
     formula: "Esfoliante · Shampoo hidratante",
-    products: [
-      "/produtos/oficiais/esfoliante-oficial.png",
-      "/produtos/oficiais/shampoo-hidratante.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-06-infantil.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=85&iniSession=1&6a6faf144fef0",
     accent: "sand",
   },
@@ -102,11 +77,7 @@ const kits = [
     concern: "Reparação dos fios",
     title: "Kit Nutrição Intensiva",
     formula: "Shampoo hidratante · Máscara · Leave-in",
-    products: [
-      "/produtos/oficiais/shampoo-hidratante.png",
-      "/produtos/oficiais/mascara-oficial.png",
-      "/produtos/oficiais/leave-in-oficial.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-07-nutricao-intensiva.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=79&iniSession=1&6a6faf145082e",
     accent: "clay",
   },
@@ -114,10 +85,7 @@ const kits = [
     concern: "Limpeza profunda",
     title: "Kit Detox",
     formula: "Loção A · Shampoo revitalizante",
-    products: [
-      "/produtos/oficiais/locao-a.png",
-      "/produtos/oficiais/shampoo-revitalizante-oficial.png",
-    ],
+    image: "/produtos/kits-oficiais/kit-08-detox.webp",
     href: "https://loja.slimcap.com.br/loja/produto.php?loja=992107&IdProd=75&iniSession=1&6a6fc79a5c534",
     accent: "gold",
   },
@@ -204,10 +172,15 @@ export default function Home() {
                       Conhecer kit <ArrowRight size={16} aria-hidden="true" />
                     </a>
                   </div>
-                  <div className={`kit-product kit-product-${kit.products.length}`} aria-label={`Produtos do ${kit.title}`}>
-                    {kit.products.map((product, productIndex) => (
-                      <Image key={`${kit.title}-${productIndex}`} src={product} alt="" width={520} height={520} sizes="(max-width: 640px) 42vw, (max-width: 1180px) 22vw, 260px" />
-                    ))}
+                  <div className="kit-product">
+                    <Image
+                      className="kit-composition-image"
+                      src={kit.image}
+                      alt={`Produtos do ${kit.title}`}
+                      width={1600}
+                      height={1000}
+                      sizes="(max-width: 700px) 88vw, (max-width: 1180px) 48vw, 330px"
+                    />
                   </div>
                 </Reveal>
               ))}
