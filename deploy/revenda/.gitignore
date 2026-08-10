@@ -1,0 +1,13 @@
+.DS_Store
+check-*.png
+hero-desktop-check.png
+.vercel/
+node_modules/
+.next/
+out/
+*.log
+.env*
+!.env.example
+.playwright-cli/
+output/
+.vercel
